@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ConsumerLab UAC: plataforma del curso Psicología del Consumidor y Marketing">
+<title>ConsumerLab UAC</title>
+<style>
+:root{--navy:#0b2340;--blue:#1769aa;--teal:#0f8b8d;--orange:#f29b38;--ink:#182235;--muted:#617083;--bg:#f4f7fb;--line:#dbe4ee;--white:#fff;--shadow:0 18px 48px rgba(11,35,64,.11)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;gap:12px;align-items:center;font-weight:900;color:var(--navy)}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--teal));display:grid;place-items:center;color:white}.brand small{display:block;color:var(--muted);font-size:.7rem}.menu{display:flex;gap:20px;font-size:.9rem;font-weight:760}.menu a:hover{color:var(--blue)}.toggle{display:none;border:0;border-radius:10px;padding:9px 12px;background:#eaf3fb}
+.hero{background:radial-gradient(circle at 83% 15%,rgba(15,139,141,.34),transparent 28%),radial-gradient(circle at 8% 92%,rgba(242,155,56,.2),transparent 22%),linear-gradient(135deg,#071b31,#154c78);color:white;padding:92px 0 80px}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);font-size:.8rem;font-weight:850}h1{font-size:clamp(2.7rem,6vw,5.5rem);line-height:.96;letter-spacing:-.055em;margin:20px 0}.hero p{max-width:720px;color:rgba(255,255,255,.82);font-size:1.08rem}.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 17px;border-radius:14px;font-weight:850;border:1px solid transparent;cursor:pointer}.btn.primary{background:var(--orange);color:#211406}.btn.ghost{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.08)}.btn.dark{background:var(--navy);color:white}.hero-card{padding:28px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);border-radius:28px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric{padding:15px;border-radius:17px;background:rgba(255,255,255,.08)}.metric strong{display:block;font-size:1.7rem}.metric span{font-size:.8rem;color:rgba(255,255,255,.72)}
+section{padding:78px 0}.kicker{color:var(--blue);font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900}h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.04em;margin:8px 0 14px}.intro{max-width:790px;color:var(--muted);font-size:1.03rem;margin-bottom:34px}
+.route{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.route div{background:white;border:1px solid var(--line);border-radius:19px;padding:17px;min-height:145px;box-shadow:0 10px 28px rgba(11,35,64,.055)}.route i{font-style:normal;font-size:1.45rem}.route b{display:block;margin:10px 0 5px}.route span{color:var(--muted);font-size:.84rem}
+.units{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.unit{background:white;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:var(--shadow)}.unit-num{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:white;font-weight:900}.unit h3{font-size:1.35rem;margin:12px 0}.unit p,.unit li{color:var(--muted)}.unit li{margin:.4rem 0}
+.progress{display:flex;gap:18px;align-items:center;background:var(--navy);color:white;border-radius:20px;padding:20px 23px;margin-bottom:24px}.track{height:11px;flex:1;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#ffd166);transition:.25s}.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}.filter{border:1px solid var(--line);background:white;padding:9px 13px;border-radius:999px;font-weight:780;cursor:pointer}.filter.active{background:var(--navy);color:white}.weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.week-card{display:flex;flex-direction:column;background:white;border:1px solid var(--line);border-radius:21px;padding:21px;box-shadow:0 10px 28px rgba(11,35,64,.055)}.week-card.hidden{display:none}.week-head{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:.8rem;font-weight:900;color:var(--blue)}.tag{padding:5px 8px;border-radius:999px;font-size:.69rem}.u1{background:#e7f2ff;color:#1769aa}.u2{background:#e6f8f5;color:#087274}.u3{background:#fff0df;color:#a4570d}.week-card h3{line-height:1.24;margin:13px 0 8px}.week-card p{color:var(--muted);font-size:.9rem;flex:1}.linkbtn{padding:0;border:0;background:none;text-align:left;color:var(--blue);font-weight:850;cursor:pointer}.check{display:flex;gap:8px;align-items:center;margin-top:15px;color:var(--muted);font-size:.84rem}.check input{width:18px;height:18px;accent-color:var(--teal)}.note{margin-top:18px;padding:17px;border:1px solid #ffd4a0;background:#fff8eb;border-radius:17px;color:#6f490f}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:23px}.panel{background:white;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:var(--shadow)}.prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}.price{border:1px solid var(--line);border-radius:17px;padding:17px;text-align:center}.price strong{display:block;font-size:2rem;color:var(--navy)}input[type=range]{width:100%;accent-color:var(--orange)}.result,.preview{margin-top:15px;padding:15px;border-radius:15px;background:#eef7ff;color:var(--navy);white-space:pre-wrap}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:grid;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.8rem;font-weight:820}.field input,.field textarea{border:1px solid var(--line);border-radius:12px;padding:10px 11px;width:100%}
+.deliverables{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.deliverables div{background:white;border:1px solid var(--line);border-radius:17px;padding:17px}.deliverables b{display:block;margin-bottom:5px}.deliverables span{font-size:.83rem;color:var(--muted)}table{width:100%;border-collapse:collapse;background:white;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}th,td{padding:15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--navy);color:white}.resources{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.resource{background:white;border:1px solid var(--line);border-radius:18px;padding:19px;transition:.2s}.resource:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.resource i{font-style:normal;font-size:1.7rem}.resource b{display:block;margin-top:8px}.resource span{font-size:.83rem;color:var(--muted)}
+footer{background:#071b31;color:white;padding:42px 0}footer p{color:rgba(255,255,255,.7);max-width:760px}dialog{width:min(620px,calc(100% - 28px));border:0;border-radius:24px;padding:0;box-shadow:0 30px 90px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(4,16,29,.72);backdrop-filter:blur(6px)}.modal{padding:27px}.modal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.close{border:0;border-radius:11px;padding:8px 10px;background:var(--bg);cursor:pointer}.block{margin-top:14px;padding:15px;border-radius:15px;background:var(--bg)}.block b{display:block;margin-bottom:5px}
+@media(max-width:950px){.menu{display:none;position:absolute;left:16px;right:16px;top:72px;background:white;padding:18px;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start}.menu.open{display:flex}.toggle{display:block}.hero-grid,.two{grid-template-columns:1fr}.route{grid-template-columns:repeat(2,1fr)}.units,.weeks{grid-template-columns:repeat(2,1fr)}.deliverables,.resources{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){section{padding:60px 0}.hero{padding:62px 0}.route,.units,.weeks,.deliverables,.resources,.formgrid,.prices{grid-template-columns:1fr}.progress{align-items:flex-start;flex-direction:column}.track{width:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#inicio"><span class="logo">CL</span><span>ConsumerLab UAC<small>Psicología del Consumidor y Marketing</small></span></a>
+<button class="toggle" aria-label="Abrir menú">☰</button>
+<div class="menu"><a href="#ruta">Ruta</a><a href="#unidades">Unidades</a><a href="#semanas">Semanas</a><a href="#laboratorio">Laboratorio</a><a href="#proyecto">Proyecto</a><a href="#evaluacion">Evaluación</a><a href="#biblioteca">Biblioteca</a></div>
+</nav></div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap hero-grid">
+<div><span class="eyebrow">🧠 Curso experiencial · VIII ciclo · 2026-I</span><h1>Comprender para transformar.</h1>
+<p>Investiga cómo piensan, sienten y deciden los consumidores; convierte la evidencia en experiencias, estrategias y soluciones reales de marketing.</p>
+<div class="actions"><a class="btn primary" href="#semanas">Iniciar ruta de aprendizaje</a><a class="btn ghost" href="guia_curso_2026_I.pdf" target="_blank">Abrir guía oficial</a></div></div>
+<aside class="hero-card"><h2>Proyecto integrador</h2><p>Un proyecto evoluciona durante el semestre: investigación, perfil del consumidor, laboratorio conductual y estrategia digital.</p>
+<div class="metrics"><div class="metric"><strong>20</strong><span>semanas</span></div><div class="metric"><strong>3</strong><span>unidades</span></div><div class="metric"><strong>1</strong><span>empresa</span></div><div class="metric"><strong>12+</strong><span>entregables</span></div></div></aside>
+</div></section>
+
+<section id="ruta"><div class="wrap"><span class="kicker">Ruta de aprendizaje</span><h2>Del problema de consumo a una estrategia digital medible</h2><p class="intro">La plataforma acompaña al equipo desde la exploración inicial hasta la presentación ejecutiva.</p>
+<div class="route"><div><i>🔎</i><b>Explorar</b><span>Mercado y empresa.</span></div><div><i>📋</i><b>Investigar</b><span>Instrumentos y campo.</span></div><div><i>🧩</i><b>Interpretar</b><span>Datos y motivaciones.</span></div><div><i>🧪</i><b>Experimentar</b><span>Marca y percepción.</span></div><div><i>👤</i><b>Perfilar</b><span>Buyer persona.</span></div><div><i>📣</i><b>Diseñar</b><span>Web y contenidos.</span></div><div><i>📈</i><b>Optimizar</b><span>KPIs y mejora.</span></div></div>
+</div></section>
+
+<section id="unidades"><div class="wrap"><span class="kicker">Unidades</span><h2>Tres etapas, una experiencia profesional</h2><div class="units">
+<article class="unit"><span class="unit-num" style="background:var(--blue)">I</span><h3>Investigación de mercados</h3><p>Problema, fuentes, instrumentos y datos.</p><ul><li>Fuentes primarias y secundarias</li><li>Cuestionarios y validación</li><li>Trabajo de campo</li><li>Buyer persona inicial</li></ul></article>
+<article class="unit"><span class="unit-num" style="background:var(--teal)">II</span><h3>Comportamiento del consumidor</h3><p>Análisis psicológico y conductual.</p><ul><li>VALS, Big Five y COM-B</li><li>Motivaciones y observación</li><li>Laboratorio conductual</li><li>Buyer persona definitivo</li></ul></article>
+<article class="unit"><span class="unit-num" style="background:var(--orange);color:#2a1a08">III</span><h3>Marketing digital</h3><p>Aplicación de insights en canales digitales.</p><ul><li>Funnel y propuesta de valor</li><li>Página web y CTA</li><li>Customer Journey Map</li><li>Redes y KPIs</li></ul></article>
+</div></div></section>
+
+<section id="semanas"><div class="wrap"><span class="kicker">Plan semestral</span><h2>Veinte semanas listas para organizar la experiencia</h2><p class="intro">Cada semana contiene propósito, experiencia práctica y entregable. El avance queda guardado en el navegador.</p>
+<div class="progress"><div><strong id="ptxt">0 de 20 semanas completadas</strong><br><small>Progreso local</small></div><div class="track"><div class="fill" id="pfill"></div></div><strong id="ppct">0%</strong></div>
+<div class="filters"><button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="1">Unidad I</button><button class="filter" data-filter="2">Unidad II</button><button class="filter" data-filter="3">Unidad III</button></div>
+<div class="weeks"><article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 01</span><b class="tag u1">Unidad I</b></div>
+<h3>Bienvenida y organización del trabajo</h3><p>Conocer la dinámica del curso, formar equipos y seleccionar una empresa o emprendimiento.</p>
+<button class="linkbtn" data-week="1">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="1"> Completada</label>
+</article>
+<article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 02</span><b class="tag u1">Unidad I</b></div>
+<h3>Guía y proyecto integrador</h3><p>Comprender resultados de aprendizaje, productos, criterios y ruta del semestre.</p>
+<button class="linkbtn" data-week="2">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="2"> Completada</label>
+</article>
+<article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 03</span><b class="tag u1">Unidad I</b></div>
+<h3>Naturaleza de la investigación de mercados</h3><p>Diferenciar fuentes, datos e investigación exploratoria y concluyente.</p>
+<button class="linkbtn" data-week="3">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="3"> Completada</label>
+</article>
+<article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 04</span><b class="tag u1">Unidad I</b></div>
+<h3>Problema, objetivos y diseño metodológico</h3><p>Delimitar un problema investigable y proponer objetivos coherentes.</p>
+<button class="linkbtn" data-week="4">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="4"> Completada</label>
+</article>
+<article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 05</span><b class="tag u1">Unidad I</b></div>
+<h3>Sistema de información y vínculo empresarial</h3><p>Organizar la investigación y establecer colaboración con la empresa.</p>
+<button class="linkbtn" data-week="5">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="5"> Completada</label>
+</article>
+<article class="week-card" data-unit="1">
+<div class="week-head"><span>Semana 06</span><b class="tag u1">Unidad I</b></div>
+<h3>Errores, escalas y cuestionarios</h3><p>Reconocer sesgos, elegir escalas y construir instrumentos válidos.</p>
+<button class="linkbtn" data-week="6">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="6"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 07</span><b class="tag u2">Unidad II</b></div>
+<h3>Enfoques para estudiar al consumidor</h3><p>Analizar el consumo desde perspectivas psicológicas, sociales y culturales.</p>
+<button class="linkbtn" data-week="7">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="7"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 08</span><b class="tag u2">Unidad II</b></div>
+<h3>VALS, Big Five y COM-B</h3><p>Integrar herramientas psicográficas y conductuales.</p>
+<button class="linkbtn" data-week="8">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="8"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 09</span><b class="tag u2">Unidad II</b></div>
+<h3>Laboratorio: marca, expectativa y percepción</h3><p>Examinar cómo la marca y la expectativa modifican la valoración.</p>
+<button class="linkbtn" data-week="9">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="9"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 10</span><b class="tag u2">Unidad II</b></div>
+<h3>Informe de trabajo de campo</h3><p>Interpretar resultados y comunicar hallazgos con claridad.</p>
+<button class="linkbtn" data-week="10">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="10"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 11</span><b class="tag u2">Unidad II</b></div>
+<h3>Integración de datos y buyer persona</h3><p>Cruzar datos cualitativos, cuantitativos, psicográficos y conductuales.</p>
+<button class="linkbtn" data-week="11">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="11"> Completada</label>
+</article>
+<article class="week-card" data-unit="2">
+<div class="week-head"><span>Semana 12</span><b class="tag u2">Unidad II</b></div>
+<h3>Cierre del segundo aporte</h3><p>Traducir hallazgos del consumidor en oportunidades de marketing.</p>
+<button class="linkbtn" data-week="12">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="12"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 13</span><b class="tag u3">Unidad III</b></div>
+<h3>Marketing digital y funnel</h3><p>Diseñar una estrategia digital conectada con el mercado meta.</p>
+<button class="linkbtn" data-week="13">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="13"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 14</span><b class="tag u3">Unidad III</b></div>
+<h3>Desarrollo web orientado a conversión</h3><p>Construir una web con propuesta de valor, CTA y formularios.</p>
+<button class="linkbtn" data-week="14">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="14"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 15</span><b class="tag u3">Unidad III</b></div>
+<h3>Customer Journey Map</h3><p>Representar fases, emociones, fricciones y oportunidades.</p>
+<button class="linkbtn" data-week="15">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="15"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 16</span><b class="tag u3">Unidad III</b></div>
+<h3>Estrategia digital y redes sociales</h3><p>Planificar contenidos, segmentación y campañas.</p>
+<button class="linkbtn" data-week="16">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="16"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 17</span><b class="tag u3">Unidad III</b></div>
+<h3>Métricas y optimización</h3><p>Interpretar alcance, CTR, CPC y conversión para decidir.</p>
+<button class="linkbtn" data-week="17">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="17"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 18</span><b class="tag u3">Unidad III</b></div>
+<h3>Presentación final</h3><p>Comunicar el proyecto de manera ejecutiva.</p>
+<button class="linkbtn" data-week="18">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="18"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 19</span><b class="tag u3">Unidad III</b></div>
+<h3>Retroalimentación y mejora</h3><p>Corregir debilidades y fortalecer la coherencia del proyecto.</p>
+<button class="linkbtn" data-week="19">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="19"> Completada</label>
+</article>
+<article class="week-card" data-unit="3">
+<div class="week-head"><span>Semana 20</span><b class="tag u3">Unidad III</b></div>
+<h3>Cierre y portafolio profesional</h3><p>Consolidar aprendizajes y convertir el proyecto en evidencia profesional.</p>
+<button class="linkbtn" data-week="20">Ver experiencia y entregable →</button>
+<label class="check"><input type="checkbox" class="week-check" data-id="20"> Completada</label>
+</article></div>
+<div class="note"><strong>Nota:</strong> las semanas 4, 11, 12, 19 y 20 completan vacíos observados en la programación de la guía y se presentan como propuesta docente ajustable.</div>
+</div></section>
+
+<section id="laboratorio"><div class="wrap"><span class="kicker">Laboratorio del consumidor</span><h2>Aprender haciendo</h2><p class="intro">Prototipos para convertir conceptos psicológicos en experiencias de clase.</p>
+<div class="two">
+<article class="panel"><h3>Experimento de anclaje de precio</h3><p>Observa el precio inicial y estima cuánto pagarías por una alternativa similar.</p><div class="prices"><div class="price"><span>Producto premium</span><strong>S/ 899</strong><small>Ancla inicial</small></div><div class="price"><span>Alternativa</span><strong>¿?</strong><small>Tu valoración</small></div></div>
+<label>¿Cuánto pagarías? <b id="pricev">S/ 450</b></label><input id="range" type="range" min="100" max="900" step="10" value="450"><br><button class="btn dark" id="anchor">Interpretar</button><div class="result" id="anchorResult">Mueve el control y registra tu primera estimación.</div></article>
+<article class="panel"><h3>Constructor de buyer persona</h3><p>En el proyecto real, cada característica debe sustentarse en datos.</p><div class="formgrid"><div class="field"><label>Nombre simbólico</label><input id="pn" placeholder="Valeria emprendedora"></div><div class="field"><label>Edad / etapa</label><input id="pa" placeholder="27 años"></div><div class="field"><label>Motivación</label><input id="pm" placeholder="Crecer profesionalmente"></div><div class="field"><label>Fricción</label><input id="pf" placeholder="Poco tiempo"></div><div class="field full"><label>Conducta observable</label><textarea id="pb" rows="3" placeholder="Qué hace, busca, compara o evita"></textarea></div></div><br><button class="btn dark" id="makePersona">Generar ficha</button> <button class="btn" id="copyPersona">Copiar</button><div class="preview" id="personaPreview">La ficha aparecerá aquí.</div></article>
+</div></div></section>
+
+<section id="proyecto"><div class="wrap"><span class="kicker">Proyecto integrador</span><h2>Un portafolio de competencias reales</h2><p class="intro">Los productos deben mostrar coherencia entre evidencia, comprensión del consumidor y estrategia.</p>
+<div class="deliverables"><div><b>01. Empresa y contexto</b><span>Situación, necesidad y vínculo.</span></div><div><b>02. Investigación</b><span>Problema, objetivos e instrumentos.</span></div><div><b>03. Base de datos</b><span>Codificación y análisis.</span></div><div><b>04. Hallazgos</b><span>Resultados cuantitativos y cualitativos.</span></div><div><b>05. Perfil psicográfico</b><span>VALS, Big Five y COM-B.</span></div><div><b>06. Laboratorio</b><span>Diseño, registro y conclusiones.</span></div><div><b>07. Buyer persona</b><span>Perfil definitivo sustentado.</span></div><div><b>08. Propuesta de valor</b><span>Problema, beneficio y diferenciación.</span></div><div><b>09. Funnel</b><span>Atracción, interés, decisión y acción.</span></div><div><b>10. Web</b><span>Contenido, CTA y formularios.</span></div><div><b>11. Customer Journey</b><span>Emociones, fricciones y mejoras.</span></div><div><b>12. Redes y métricas</b><span>Contenido, KPIs y optimización.</span></div></div>
+</div></section>
+
+<section id="evaluacion"><div class="wrap"><span class="kicker">Evaluación</span><h2>Productos alineados con los resultados</h2><div style="overflow:auto"><table><thead><tr><th>Unidad</th><th>Productos</th><th>Peso</th></tr></thead><tbody><tr><td><b>Primera</b></td><td>Investigación mixta, fuentes, instrumentos, pruebas y buyer persona inicial.</td><td>50% + 50%</td></tr><tr><td><b>Segunda</b></td><td>Bitácora, resultados, laboratorio y buyer persona definitivo.</td><td>20% + 20% + 30% + 30%</td></tr><tr><td><b>Tercera</b></td><td>Página web, Customer Journey Map y redes sociales.</td><td>40% + 30% + 30%</td></tr></tbody></table></div></div></section>
+
+<section id="biblioteca"><div class="wrap"><span class="kicker">Biblioteca</span><h2>Recursos centralizados</h2><p class="intro">Luego pueden reemplazarse por tus enlaces de Drive, Classroom, Forms, videos y presentaciones.</p><div class="resources"><a class="resource" href="guia_curso_2026_I.pdf" target="_blank"><i>📘</i><b>Guía oficial</b><span>Documento académico 2026-I.</span></a><a class="resource" href="#semanas"><i>🗓️</i><b>Plan semanal</b><span>Propósitos y entregables.</span></a><a class="resource" href="#laboratorio"><i>🧪</i><b>Laboratorios</b><span>Actividades interactivas.</span></a><a class="resource" href="#proyecto"><i>🗂️</i><b>Portafolio</b><span>Estructura del proyecto.</span></a></div></div></section>
+</main>
+
+<footer><div class="wrap"><b>ConsumerLab UAC</b><p>Plataforma base para Psicología del Consumidor y Marketing. Diseñada para organizar el semestre, acompañar el proyecto integrador y facilitar experiencias de aprendizaje.</p></div></footer>
+
+<dialog id="dlg"><div class="modal"><div class="modal-head"><div><span class="kicker" id="mw"></span><h2 id="mt"></h2></div><button class="close" id="close">✕</button></div><div class="block"><b>Propósito</b><span id="mg"></span></div><div class="block"><b>Experiencia</b><span id="me"></span></div><div class="block"><b>Entregable</b><span id="md"></span></div></div></dialog>
+
+<script>
+const weeks=[{"n": 1, "unit": 1, "title": "Bienvenida y organización del trabajo", "goal": "Conocer la dinámica del curso, formar equipos y seleccionar una empresa o emprendimiento.", "experience": "Mapa de expectativas y presentación rápida de marcas que influyen en la vida cotidiana.", "deliverable": "Acta de equipo y ficha preliminar de empresa."}, {"n": 2, "unit": 1, "title": "Guía y proyecto integrador", "goal": "Comprender resultados de aprendizaje, productos, criterios y ruta del semestre.", "experience": "Explicar el proyecto completo en un mapa visual de una sola página.", "deliverable": "Acta de presentación de la guía y mapa de ruta."}, {"n": 3, "unit": 1, "title": "Naturaleza de la investigación de mercados", "goal": "Diferenciar fuentes, datos e investigación exploratoria y concluyente.", "experience": "Búsqueda guiada de tendencias locales en INEI, PromPerú y fuentes empresariales.", "deliverable": "Informe de fuentes secundarias y problemática de consumo."}, {"n": 4, "unit": 1, "title": "Problema, objetivos y diseño metodológico", "goal": "Delimitar un problema investigable y proponer objetivos coherentes.", "experience": "Clínica de problemas: transformar una preocupación empresarial en una pregunta de investigación.", "deliverable": "Matriz de consistencia inicial."}, {"n": 5, "unit": 1, "title": "Sistema de información y vínculo empresarial", "goal": "Organizar la investigación y establecer colaboración con la empresa.", "experience": "Simulación de entrevista inicial con el representante de la empresa.", "deliverable": "Carta de presentación y ficha de levantamiento."}, {"n": 6, "unit": 1, "title": "Errores, escalas y cuestionarios", "goal": "Reconocer sesgos, elegir escalas y construir instrumentos válidos.", "experience": "Taller de detección de preguntas inducidas, ambiguas o dobles.", "deliverable": "Cuestionario validado y protocolo de aplicación."}, {"n": 7, "unit": 2, "title": "Enfoques para estudiar al consumidor", "goal": "Analizar el consumo desde perspectivas psicológicas, sociales y culturales.", "experience": "Caso comparativo: una compra explicada desde tres enfoques.", "deliverable": "Matriz de análisis de caso."}, {"n": 8, "unit": 2, "title": "VALS, Big Five y COM-B", "goal": "Integrar herramientas psicográficas y conductuales.", "experience": "Aplicación demostrativa y discusión ética sobre el uso de perfiles.", "deliverable": "Perfil psicográfico preliminar."}, {"n": 9, "unit": 2, "title": "Laboratorio: marca, expectativa y percepción", "goal": "Examinar cómo la marca y la expectativa modifican la valoración.", "experience": "Experimento conductual con estímulos sensoriales y simbólicos.", "deliverable": "Registro de datos y hallazgos preliminares."}, {"n": 10, "unit": 2, "title": "Informe de trabajo de campo", "goal": "Interpretar resultados y comunicar hallazgos con claridad.", "experience": "Galería de resultados y retroalimentación entre equipos.", "deliverable": "Informe de laboratorio en portafolio virtual."}, {"n": 11, "unit": 2, "title": "Integración de datos y buyer persona", "goal": "Cruzar datos cualitativos, cuantitativos, psicográficos y conductuales.", "experience": "Cada rasgo del buyer persona debe tener una evidencia.", "deliverable": "Buyer persona definitivo sustentado."}, {"n": 12, "unit": 2, "title": "Cierre del segundo aporte", "goal": "Traducir hallazgos del consumidor en oportunidades de marketing.", "experience": "De insight a acción: recomendaciones concretas para la empresa.", "deliverable": "Resumen ejecutivo de insights."}, {"n": 13, "unit": 3, "title": "Marketing digital y funnel", "goal": "Diseñar una estrategia digital conectada con el mercado meta.", "experience": "Análisis de funnels de marcas locales y nacionales.", "deliverable": "Documento de estrategia digital."}, {"n": 14, "unit": 3, "title": "Desarrollo web orientado a conversión", "goal": "Construir una web con propuesta de valor, CTA y formularios.", "experience": "Auditoría rápida de sitios y rediseño de la primera pantalla.", "deliverable": "Primera versión funcional de la web."}, {"n": 15, "unit": 3, "title": "Customer Journey Map", "goal": "Representar fases, emociones, fricciones y oportunidades.", "experience": "Mapeo colaborativo del recorrido real de un cliente.", "deliverable": "Customer Journey Map sustentado."}, {"n": 16, "unit": 3, "title": "Estrategia digital y redes sociales", "goal": "Planificar contenidos, segmentación y campañas.", "experience": "Taller de contenido y simulación de campaña.", "deliverable": "Plan de publicaciones y prototipos."}, {"n": 17, "unit": 3, "title": "Métricas y optimización", "goal": "Interpretar alcance, CTR, CPC y conversión para decidir.", "experience": "Tablero de métricas con datos simulados.", "deliverable": "Reporte de KPIs y mejora."}, {"n": 18, "unit": 3, "title": "Presentación final", "goal": "Comunicar el proyecto de manera ejecutiva.", "experience": "Pitch final ante docentes, compañeros y empresa.", "deliverable": "Web, journey, redes y presentación."}, {"n": 19, "unit": 3, "title": "Retroalimentación y mejora", "goal": "Corregir debilidades y fortalecer la coherencia del proyecto.", "experience": "Sprint de mejora por estaciones.", "deliverable": "Versión corregida del proyecto."}, {"n": 20, "unit": 3, "title": "Cierre y portafolio profesional", "goal": "Consolidar aprendizajes y convertir el proyecto en evidencia profesional.", "experience": "Retrospectiva y presentación de portafolio.", "deliverable": "Portafolio final y reflexión individual."}];
+const menu=document.querySelector('.menu');document.querySelector('.toggle').onclick=()=>menu.classList.toggle('open');menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.week-card').forEach(c=>c.classList.toggle('hidden',b.dataset.filter!=='all'&&c.dataset.unit!==b.dataset.filter));});
+const checks=[...document.querySelectorAll('.week-check')],saved=JSON.parse(localStorage.getItem('consumerlab-progress')||'[]');
+const progressText=document.getElementById('ptxt'),progressPercent=document.getElementById('ppct'),progressFill=document.getElementById('pfill');
+checks.forEach(c=>{c.checked=saved.includes(+c.dataset.id);c.onchange=progress});
+function progress(){const d=checks.filter(c=>c.checked).map(c=>+c.dataset.id);localStorage.setItem('consumerlab-progress',JSON.stringify(d));const pct=Math.round(d.length/20*100);progressText.textContent=`${d.length} de 20 semanas completadas`;progressPercent.textContent=pct+'%';progressFill.style.width=pct+'%'}progress();
+const dlg=document.getElementById('dlg'),modalWeek=document.getElementById('mw'),modalTitle=document.getElementById('mt'),modalGoal=document.getElementById('mg'),modalExperience=document.getElementById('me'),modalDeliverable=document.getElementById('md');
+document.querySelectorAll('[data-week]').forEach(b=>b.onclick=()=>{const w=weeks.find(x=>x.n===+b.dataset.week);modalWeek.textContent=`Semana ${String(w.n).padStart(2,'0')} · Unidad ${['I','II','III'][w.unit-1]}`;modalTitle.textContent=w.title;modalGoal.textContent=w.goal;modalExperience.textContent=w.experience;modalDeliverable.textContent=w.deliverable;dlg.showModal()});
+document.getElementById('close').onclick=()=>dlg.close();
+const rangeEl=document.getElementById('range'),priceValue=document.getElementById('pricev'),anchorButton=document.getElementById('anchor'),anchorResultEl=document.getElementById('anchorResult');
+rangeEl.oninput=()=>priceValue.textContent='S/ '+rangeEl.value;
+anchorButton.onclick=()=>{const v=+rangeEl.value;anchorResultEl.textContent=v>=600?'Tu valoración quedó relativamente cerca del ancla. Para demostrar un efecto se necesitan grupos de comparación.':v>=350?'Tu respuesta quedó en una zona intermedia. En un experimento real se compararían condiciones distintas.':'Tu estimación se alejó del ancla; esto también es un resultado posible y debe analizarse con datos grupales.'};
+const pnEl=document.getElementById('pn'),paEl=document.getElementById('pa'),pmEl=document.getElementById('pm'),pfEl=document.getElementById('pf'),pbEl=document.getElementById('pb'),personaPreviewEl=document.getElementById('personaPreview');
+function ptxt2(){return `BUYER PERSONA PRELIMINAR\n\nNombre: ${pnEl.value||'Sin dato'}\nEdad/etapa: ${paEl.value||'Sin dato'}\nMotivación: ${pmEl.value||'Sin dato'}\nFricción: ${pfEl.value||'Sin dato'}\nConducta observable: ${pbEl.value||'Sin dato'}\n\nEvidencia pendiente: vincular cada afirmación con encuesta, entrevista, observación o laboratorio.`}
+document.getElementById('makePersona').onclick=()=>personaPreviewEl.textContent=ptxt2();
+document.getElementById('copyPersona').onclick=async()=>{const t=ptxt2();try{await navigator.clipboard.writeText(t);personaPreviewEl.textContent=t+'\n\n✓ Copiado.'}catch{personaPreviewEl.textContent=t}};
+</script>
+</body></html>
