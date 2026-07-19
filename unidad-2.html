@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad II | Comportamiento del consumidor</title>
+  <meta name="description" content="Unidad II de la parte práctica de Psicología del Consumidor y Marketing.">
+  <style>
+    :root{
+      --bg:#f6f7ff;--paper:#fff;--ink:#17213d;--muted:#61708e;--line:#dfe6f4;
+      --navy:#111a3a;--blue:#4f46e5;--purple:#7c3aed;--coral:#ff6b6b;
+      --gold:#ffbf3f;--cyan:#06b6d4;--teal:#00a6a6;--mint:#21c7a8;
+      --shadow:0 20px 55px rgba(45,55,120,.12)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);line-height:1.65;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(255,107,107,.09),transparent 22%),
+        radial-gradient(circle at 92% 10%,rgba(124,58,237,.10),transparent 22%),
+        linear-gradient(180deg,#fbf9ff,#f4f7ff 58%,#fffaf3)
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+    .container{width:min(1220px,calc(100% - 32px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(79,70,229,.12)}
+    .nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--navy)}
+    .brand-mark{width:48px;height:48px;border-radius:18px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--blue),var(--purple),var(--cyan));box-shadow:0 12px 28px rgba(79,70,229,.28)}
+    .brand small{display:block;color:var(--muted);font-size:.72rem}
+    .menu{display:flex;align-items:center;gap:18px;font-size:.9rem;font-weight:760}
+    .menu a{padding:10px 0;border-bottom:2px solid transparent}
+    .menu a:hover,.menu a.active{color:var(--blue);border-color:var(--gold)}
+    .menu .cta{padding:11px 16px;border-radius:14px;background:linear-gradient(135deg,var(--coral),#ff8e53);color:#fff;border:0}
+    .menu-toggle{display:none;border:0;background:#fff;width:46px;height:46px;border-radius:14px;box-shadow:var(--shadow)}
+
+    .hero{padding:48px 0 34px}
+    .hero-shell{
+      min-height:560px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;
+      border:1px solid rgba(124,58,237,.15);border-radius:40px;overflow:hidden;box-shadow:var(--shadow);
+      background:
+        radial-gradient(circle at 13% 12%,rgba(255,191,63,.16),transparent 23%),
+        radial-gradient(circle at 90% 10%,rgba(255,107,107,.18),transparent 27%),
+        linear-gradient(135deg,#fffdf9,#fff 47%,#f1ecff)
+    }
+    .hero-copy{padding:60px}
+    .eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:linear-gradient(90deg,#ffe6e6,#eee7ff);color:#7c2d68;font-size:.8rem;font-weight:900;letter-spacing:.04em}
+    h1{margin:19px 0 18px;font-size:clamp(2.8rem,6vw,5.7rem);line-height:.95;letter-spacing:-.055em;background:linear-gradient(115deg,var(--navy),var(--purple) 48%,var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:1.1rem;color:var(--muted);max-width:720px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:15px;font-weight:850;border:1px solid transparent;cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--coral),#ff9f43);color:#fff;box-shadow:0 12px 28px rgba(255,107,107,.22)}
+    .btn.secondary{background:#fff;border-color:rgba(79,70,229,.16);color:var(--navy)}
+
+    .mind-map{padding:36px;display:grid;place-items:center}
+    .brain-board{width:min(440px,100%);padding:24px;border-radius:30px;background:#fff;border:1px solid var(--line);box-shadow:0 25px 60px rgba(45,55,120,.16)}
+    .brain-core{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff;text-align:center;font-weight:900;padding:22px;box-shadow:0 18px 40px rgba(124,58,237,.24)}
+    .mind-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+    .mind-item{padding:14px;border-radius:17px;background:#f8f8ff;border:1px solid var(--line)}
+    .mind-item span{font-size:1.3rem;display:block;margin-bottom:4px}
+    .mind-item b{display:block;color:var(--navy);font-size:.86rem}
+    .mind-item small{color:var(--muted);font-size:.73rem}
+
+    section{padding:34px 0 70px}
+    .section-head{max-width:850px;margin-bottom:28px}
+    .kicker{color:var(--purple);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    h2{margin:8px 0 12px;font-size:clamp(2rem,4vw,3.2rem);line-height:1.06;letter-spacing:-.04em;color:var(--navy)}
+    .section-head p{color:var(--muted);font-size:1.03rem}
+
+    .challenge{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}
+    .challenge-card,.outcomes-card{padding:28px;border-radius:26px;background:#fff;border:1px solid rgba(124,58,237,.13);box-shadow:var(--shadow)}
+    .challenge-card{color:#fff;background:radial-gradient(circle at 90% 12%,rgba(255,107,107,.28),transparent 25%),linear-gradient(135deg,var(--navy),#43256e)}
+    .challenge-card .kicker{color:#ffd7a3}
+    .challenge-card h3{font-size:2rem;line-height:1.08;margin:9px 0}
+    .challenge-card p{color:rgba(255,255,255,.78)}
+    .outcome-list{display:grid;gap:12px}
+    .outcome{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:14px;border-radius:17px;background:#faf9ff;border:1px solid var(--line)}
+    .outcome span{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;color:#fff;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--coral))}
+    .outcome:nth-child(2) span{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+    .outcome:nth-child(3) span{background:linear-gradient(135deg,var(--teal),var(--mint))}
+    .outcome b{display:block;color:var(--navy)}
+    .outcome small{color:var(--muted)}
+
+    .progress-panel{display:flex;align-items:center;gap:20px;margin-bottom:24px;padding:22px 24px;border-radius:23px;color:#fff;background:radial-gradient(circle at 90% 20%,rgba(255,107,107,.28),transparent 25%),linear-gradient(135deg,var(--navy),#43256e);box-shadow:var(--shadow)}
+    .progress-copy{min-width:210px}.progress-copy strong{display:block}.progress-copy small{color:rgba(255,255,255,.7)}
+    .track{flex:1;height:13px;border-radius:999px;background:rgba(255,255,255,.15);overflow:hidden}
+    .fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--coral));transition:.25s}
+    .progress-percent{font-size:1.25rem;font-weight:900}
+
+    .sessions-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .session-card{display:flex;flex-direction:column;padding:23px;border-radius:24px;background:#fff;border:1px solid rgba(124,58,237,.12);box-shadow:0 12px 30px rgba(45,55,120,.07)}
+    .session-top{display:flex;align-items:center;justify-content:space-between}
+    .session-number{font-size:.78rem;font-weight:950;color:var(--purple)}
+    .session-status{padding:5px 9px;border-radius:999px;background:#efe7ff;color:#6931bb;font-size:.7rem;font-weight:900}
+    .session-card:nth-child(2) .session-status{background:#ffe7e7;color:#bf3f4d}
+    .session-card:nth-child(3) .session-status{background:#e6f7ff;color:#087ea0}
+    .session-card:nth-child(4) .session-status{background:#dff9f5;color:#087f73}
+    .session-card:nth-child(5) .session-status{background:#fff0c8;color:#8b5e00}
+    .session-card:nth-child(6) .session-status{background:#e8e7ff;color:#3730a3}
+    .session-card h3{margin:14px 0 7px;color:var(--navy);font-size:1.28rem;line-height:1.2}
+    .session-card>p{color:var(--muted);font-size:.93rem;flex:1}
+    .session-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}
+    .info-box{padding:12px;border-radius:15px;background:#faf9ff;border:1px solid var(--line)}
+    .info-box b{display:block;color:var(--purple);font-size:.76rem;text-transform:uppercase}
+    .info-box span{color:var(--muted);font-size:.83rem}
+    .resource-slot{margin-top:14px;padding:14px;border-radius:17px;background:linear-gradient(135deg,#fbf8ff,#fff3f3);border:1px dashed rgba(124,58,237,.24)}
+    .resource-title{display:block;margin-bottom:9px;color:var(--navy);font-size:.8rem;font-weight:900;text-transform:uppercase}
+    .resource-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .resource-link{min-height:39px;padding:8px;display:grid;place-items:center;border-radius:12px;background:#f2f4f8;border:1px solid #e2e6ef;color:#8b94aa;font-size:.78rem;font-weight:850;pointer-events:none}
+    .delivery-slot{margin-top:11px;padding:13px;border-radius:16px;background:#fff8e8;border:1px solid #f4d398}
+    .delivery-slot b{display:block;color:#855710;font-size:.8rem}.delivery-slot span{color:#715b37;font-size:.82rem}
+    .check-row{display:flex;align-items:center;gap:9px;margin-top:13px;color:var(--muted);font-size:.84rem}.check-row input{width:18px;height:18px;accent-color:var(--purple)}
+
+    .lab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .lab-card{padding:23px;border-radius:23px;background:#fff;border:1px solid rgba(124,58,237,.12);box-shadow:0 11px 28px rgba(45,55,120,.06)}
+    .lab-icon{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:#efe7ff;color:var(--purple);font-size:1.35rem;margin-bottom:13px}
+    .lab-card:nth-child(2) .lab-icon{background:#ffe7e7;color:#bf3f4d}
+    .lab-card:nth-child(3) .lab-icon{background:#e6f7ff;color:#087ea0}
+    .lab-card:nth-child(4) .lab-icon{background:#dff9f5;color:#087f73}
+    .lab-card:nth-child(5) .lab-icon{background:#fff0c8;color:#8b5e00}
+    .lab-card:nth-child(6) .lab-icon{background:#e8e7ff;color:#3730a3}
+    .lab-card h3{margin:0 0 7px;color:var(--navy)}.lab-card p{color:var(--muted);font-size:.9rem}
+    .lab-button{display:inline-flex;margin-top:8px;padding:9px 12px;border-radius:12px;background:#f2f4f8;color:#8b94aa;font-size:.8rem;font-weight:850;pointer-events:none}
+
+    .profile-builder{display:grid;grid-template-columns:1fr .85fr;gap:22px}
+    .builder,.profile-preview{padding:28px;border-radius:26px;background:#fff;border:1px solid rgba(124,58,237,.13);box-shadow:var(--shadow)}
+    .builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:.8rem;font-weight:850;color:var(--navy)}
+    .field input,.field textarea,.field select{width:100%;padding:11px 12px;border-radius:13px;border:1px solid var(--line);background:#fbfcff}
+    .profile-preview{background:radial-gradient(circle at 90% 8%,rgba(255,107,107,.13),transparent 24%),linear-gradient(135deg,#faf8ff,#fff4f4)}
+    .persona-card{padding:22px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+    .persona-top{display:flex;align-items:center;gap:14px}
+    .persona-avatar{width:74px;height:74px;border-radius:24px;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff;font-size:2rem}
+    .persona-top h3{margin:0;color:var(--navy)}.persona-top span{color:var(--muted);font-size:.85rem}
+    .persona-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+    .persona-box{padding:12px;border-radius:15px;background:#faf9ff;border:1px solid var(--line)}
+    .persona-box b{display:block;color:var(--purple);font-size:.75rem;text-transform:uppercase}.persona-box span{color:var(--muted);font-size:.83rem}
+    .persona-quote{margin:15px 0 0;padding:14px;border-radius:16px;background:#fff4e8;color:#74461b;font-style:italic}
+    .builder-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+
+    .evidence-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+    .evidence{padding:18px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:0 9px 24px rgba(45,55,120,.055)}
+    .evidence span{width:36px;height:36px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--purple),var(--coral));color:#fff;font-weight:950;margin-bottom:10px}
+    .evidence b{display:block;color:var(--navy)}.evidence small{color:var(--muted)}
+
+    .evaluation-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .evaluation-card{padding:26px;border-radius:24px;background:#fff;border:1px solid rgba(124,58,237,.12);box-shadow:var(--shadow)}
+    .evaluation-card:nth-child(1){border-top:6px solid var(--purple)}.evaluation-card:nth-child(2){border-top:6px solid var(--coral)}
+    .weight{display:inline-flex;padding:6px 10px;border-radius:999px;background:#efe7ff;color:#6931bb;font-size:.76rem;font-weight:900}
+    .evaluation-card:nth-child(2) .weight{background:#ffe7e7;color:#bf3f4d}
+    .evaluation-card h3{margin:13px 0 8px;color:var(--navy)}.evaluation-card p{color:var(--muted)}
+    .ethics-note{margin-top:20px;padding:20px;border-radius:20px;background:linear-gradient(90deg,#fff2bd,#ffe6df);border:1px solid rgba(255,159,67,.28);color:#6e4d1e}
+
+    footer{background:linear-gradient(135deg,var(--navy),#43256e);color:#fff;padding:44px 0}
+    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end}footer p{max-width:760px;color:rgba(255,255,255,.72)}
+
+    @media(max-width:1024px){
+      .menu{display:none;position:absolute;left:16px;right:16px;top:78px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px;flex-direction:column;align-items:flex-start;box-shadow:var(--shadow)}
+      .menu.open{display:flex}.menu-toggle{display:block}
+      .hero-shell,.challenge,.profile-builder{grid-template-columns:1fr}
+      .sessions-grid,.lab-grid{grid-template-columns:repeat(2,1fr)}
+      .evidence-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:660px){
+      .hero-copy{padding:34px 24px}.mind-map{padding:24px}
+      .sessions-grid,.lab-grid,.evaluation-grid,.evidence-grid{grid-template-columns:1fr}
+      .session-info,.builder-grid,.persona-grid{grid-template-columns:1fr}
+      .resource-actions{grid-template-columns:1fr}
+      .progress-panel{flex-direction:column;align-items:flex-start}.track{width:100%}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html"><span class="brand-mark">PCM</span><span>Psicología del Consumidor<small>Marketing · Parte práctica</small></span></a>
+    <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="ruta.html">Ruta de aprendizaje</a>
+      <a href="unidad-1.html">Unidad I</a>
+      <a class="active" href="unidad-2.html">Unidad II</a>
+      <a href="unidad-3.html">Unidad III</a>
+      <a href="proyecto.html">Proyecto integrador</a>
+      <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdRDJG8HTK8FQvaHQbhPfBh2oTIsBWms37Uo1OHoccdF-PCmw/viewform?usp=publish-editor" target="_blank" rel="noopener">Registrar horario</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">Unidad II · Comportamiento del consumidor</span>
+        <h1>Detrás de cada decisión existe una historia invisible</h1>
+        <p class="lead">En esta unidad observaremos motivaciones, percepciones, estilos de vida, influencias sociales y respuestas conductuales. La meta será construir un perfil del consumidor sustentado en evidencias, no en suposiciones.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#sesiones">Explorar sesiones</a>
+          <a class="btn secondary" href="#laboratorio">Laboratorio conductual</a>
+          <a class="btn secondary" href="#buyer">Construir buyer persona</a>
+        </div>
+      </div>
+      <div class="mind-map">
+        <div class="brain-board">
+          <div class="brain-core">¿Por qué elegimos lo que elegimos?</div>
+          <div class="mind-grid">
+            <div class="mind-item"><span>🧠</span><b>Motivaciones</b><small>Deseos, necesidades y metas.</small></div>
+            <div class="mind-item"><span>👁️</span><b>Percepción</b><small>Cómo interpretamos estímulos.</small></div>
+            <div class="mind-item"><span>🌍</span><b>Cultura</b><small>Valores, símbolos y contextos.</small></div>
+            <div class="mind-item"><span>👥</span><b>Influencia social</b><small>Grupos, opiniones y pertenencia.</small></div>
+            <div class="mind-item"><span>💬</span><b>Emociones</b><small>Experiencias que dejan huella.</small></div>
+            <div class="mind-item"><span>🛒</span><b>Conducta</b><small>Decisiones observables.</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container challenge">
+      <article class="challenge-card">
+        <span class="kicker">Reto de la unidad</span>
+        <h3>Explicar al consumidor con evidencias, no con estereotipos</h3>
+        <p>Los equipos analizarán datos, aplicarán herramientas psicográficas y realizarán una experiencia conductual para construir un buyer persona realista, útil y éticamente responsable.</p>
+      </article>
+      <article class="outcomes-card">
+        <span class="kicker">Al finalizar podrás</span>
+        <h2 style="font-size:2rem">Resultados esperados</h2>
+        <div class="outcome-list">
+          <div class="outcome"><span>1</span><div><b>Interpretar el comportamiento</b><small>Relacionar motivaciones, percepción, personalidad y contexto.</small></div></div>
+          <div class="outcome"><span>2</span><div><b>Diseñar y ejecutar una experiencia</b><small>Observar cómo marca, expectativa o estímulos modifican respuestas.</small></div></div>
+          <div class="outcome"><span>3</span><div><b>Construir un buyer persona</b><small>Integrar hallazgos cualitativos, cuantitativos y conductuales.</small></div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="sesiones">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Sesiones de aprendizaje</span>
+        <h2>Seis experiencias para comprender al consumidor</h2>
+        <p>Cada sesión contará con espacios para PPT, video, lectura y entrega cuando los materiales sean incorporados.</p>
+      </div>
+
+      <div class="progress-panel">
+        <div class="progress-copy"><strong id="progressText">0 de 6 sesiones completadas</strong><small>Progreso personal en este dispositivo</small></div>
+        <div class="track"><div class="fill" id="progressFill"></div></div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+      </div>
+
+      <div class="sessions-grid">
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 07</span><span class="session-status">Perspectivas</span></div>
+          <h3>Enfoques para estudiar al consumidor</h3>
+          <p>Analizaremos un mismo caso desde perspectivas psicológicas, sociales, culturales y económicas.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Un caso, cuatro miradas.</span></div><div class="info-box"><b>Entregable</b><span>Matriz de análisis.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="1"><span>Marcar como completada</span></label>
+        </article>
+
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 08</span><span class="session-status">Perfil psicográfico</span></div>
+          <h3>VALS, Big Five y COM-B</h3>
+          <p>Integraremos estilos de vida, rasgos de personalidad y condiciones que facilitan o dificultan una conducta.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Aplicación demostrativa y análisis ético.</span></div><div class="info-box"><b>Entregable</b><span>Perfil psicográfico preliminar.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="2"><span>Marcar como completada</span></label>
+        </article>
+
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 09</span><span class="session-status">Experimento</span></div>
+          <h3>Marca, expectativa y percepción</h3>
+          <p>Observaremos cómo las etiquetas, los colores, el precio o la reputación pueden modificar la experiencia.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Laboratorio con estímulos controlados.</span></div><div class="info-box"><b>Entregable</b><span>Registro de respuestas.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="3"><span>Marcar como completada</span></label>
+        </article>
+
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 10</span><span class="session-status">Interpretación</span></div>
+          <h3>Informe del laboratorio conductual</h3>
+          <p>Organizaremos datos, compararemos condiciones y comunicaremos hallazgos sin exagerar las conclusiones.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Galería de resultados.</span></div><div class="info-box"><b>Entregable</b><span>Informe de laboratorio.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="4"><span>Marcar como completada</span></label>
+        </article>
+
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 11</span><span class="session-status">Integración</span></div>
+          <h3>Cruce de evidencias</h3>
+          <p>Relacionaremos resultados de encuestas, entrevistas, observaciones y experiencia conductual.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Cada afirmación necesita una evidencia.</span></div><div class="info-box"><b>Entregable</b><span>Matriz integrada.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="5"><span>Marcar como completada</span></label>
+        </article>
+
+        <article class="session-card">
+          <div class="session-top"><span class="session-number">Semana 12</span><span class="session-status">Síntesis</span></div>
+          <h3>Buyer persona definitivo</h3>
+          <p>Construiremos y defenderemos un perfil del consumidor basado en evidencias y orientado a decisiones.</p>
+          <div class="session-info"><div class="info-box"><b>Experiencia</b><span>Presentación y defensa.</span></div><div class="info-box"><b>Entregable</b><span>Buyer persona definitivo.</span></div></div>
+          <div class="resource-slot"><span class="resource-title">Materiales</span><div class="resource-actions"><a class="resource-link">📊 PPT</a><a class="resource-link">🎥 Video</a><a class="resource-link">📄 Lectura</a></div></div>
+          <div class="delivery-slot"><b>Entrega</b><span>El enlace se habilitará cuando se configure.</span></div>
+          <label class="check-row"><input type="checkbox" class="session-check" data-session="6"><span>Marcar como completada</span></label>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="laboratorio">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Laboratorio conductual</span>
+        <h2>Ideas de experiencias que pueden realizar los equipos</h2>
+        <p>El experimento deberá ser simple, ético, controlable y relacionado con una pregunta clara.</p>
+      </div>
+      <div class="lab-grid">
+        <article class="lab-card"><div class="lab-icon">🏷️</div><h3>Marca visible vs. marca oculta</h3><p>Comparar evaluaciones cuando el participante conoce o desconoce la marca.</p><span class="lab-button">Plantilla próximamente</span></article>
+        <article class="lab-card"><div class="lab-icon">💰</div><h3>Precio y expectativa</h3><p>Examinar si un precio diferente modifica la percepción de calidad.</p><span class="lab-button">Plantilla próximamente</span></article>
+        <article class="lab-card"><div class="lab-icon">🎨</div><h3>Color y preferencia</h3><p>Observar cómo colores o empaques influyen en elección y recuerdo.</p><span class="lab-button">Plantilla próximamente</span></article>
+        <article class="lab-card"><div class="lab-icon">⭐</div><h3>Reseñas y prueba social</h3><p>Comparar decisiones frente a valoraciones positivas, negativas o neutras.</p><span class="lab-button">Plantilla próximamente</span></article>
+        <article class="lab-card"><div class="lab-icon">⏳</div><h3>Urgencia y escasez</h3><p>Analizar mensajes como “últimas unidades” o “oferta por tiempo limitado”.</p><span class="lab-button">Plantilla próximamente</span></article>
+        <article class="lab-card"><div class="lab-icon">🎵</div><h3>Ambiente y experiencia</h3><p>Explorar cómo música, iluminación o contexto cambian la valoración.</p><span class="lab-button">Plantilla próximamente</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="buyer">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Constructor de buyer persona</span>
+        <h2>Convierte hallazgos en un perfil útil y humano</h2>
+        <p>Este generador produce una vista previa. El perfil final deberá estar sustentado en datos del proyecto.</p>
+      </div>
+      <div class="profile-builder">
+        <article class="builder">
+          <div class="builder-grid">
+            <div class="field"><label>Nombre ficticio</label><input id="personaName" placeholder="Ej.: Valeria"></div>
+            <div class="field"><label>Edad aproximada</label><input id="personaAge" placeholder="Ej.: 22 años"></div>
+            <div class="field"><label>Ocupación o contexto</label><input id="personaContext" placeholder="Ej.: estudiante y trabajadora"></div>
+            <div class="field"><label>Motivación principal</label><input id="personaMotivation" placeholder="Ej.: sentirse segura al elegir"></div>
+            <div class="field full"><label>Principal dificultad o frustración</label><textarea id="personaPain" rows="3" placeholder="Ej.: desconfía de promesas publicitarias poco claras"></textarea></div>
+            <div class="field full"><label>Insight sustentado</label><textarea id="personaInsight" rows="3" placeholder="Ej.: valora marcas que explican beneficios con evidencia y lenguaje sencillo"></textarea></div>
+          </div>
+          <div class="builder-actions">
+            <button class="btn primary" id="updatePersona" type="button">Actualizar perfil</button>
+            <button class="btn secondary" id="copyPersona" type="button">Copiar resumen</button>
+          </div>
+        </article>
+
+        <aside class="profile-preview">
+          <div class="persona-card">
+            <div class="persona-top"><div class="persona-avatar">👤</div><div><h3 id="previewName">Nombre ficticio</h3><span id="previewContext">Edad · contexto</span></div></div>
+            <div class="persona-grid">
+              <div class="persona-box"><b>Motivación</b><span id="previewMotivation">Qué busca conseguir</span></div>
+              <div class="persona-box"><b>Frustración</b><span id="previewPain">Qué obstáculo enfrenta</span></div>
+            </div>
+            <div class="persona-quote" id="previewInsight">“Un insight debe explicar algo relevante y estar respaldado por evidencia.”</div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Control de calidad</span>
+        <h2>Un buen buyer persona no es una descripción inventada</h2>
+      </div>
+      <div class="evidence-grid">
+        <article class="evidence"><span>1</span><b>Usa evidencias</b><small>Cada afirmación debe relacionarse con datos.</small></article>
+        <article class="evidence"><span>2</span><b>Evita estereotipos</b><small>No generaliza por edad, género o apariencia.</small></article>
+        <article class="evidence"><span>3</span><b>Explica decisiones</b><small>Incluye motivaciones, barreras y contexto.</small></article>
+        <article class="evidence"><span>4</span><b>Orienta acciones</b><small>Ayuda a diseñar una propuesta o experiencia.</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Evaluación de la unidad</span>
+        <h2>Productos que demostrarán el aprendizaje</h2>
+      </div>
+      <div class="evaluation-grid">
+        <article class="evaluation-card"><span class="weight">50%</span><h3>Laboratorio e informe conductual</h3><p>Diseño, aplicación, organización de datos, interpretación y comunicación de resultados.</p></article>
+        <article class="evaluation-card"><span class="weight">50%</span><h3>Buyer persona definitivo</h3><p>Perfil integrado, visual y argumentado a partir de evidencias de diferentes fuentes.</p></article>
+      </div>
+      <div class="ethics-note"><strong>Compromiso ético:</strong> los perfiles no deben convertirse en etiquetas rígidas. Su finalidad es comprender patrones para tomar decisiones responsables, no reducir a las personas a una categoría.</div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div><strong>Unidad II · Comportamiento del consumidor</strong><p>Primera propuesta de la Página 4. Los materiales, plantillas y enlaces de entrega se activarán conforme sean incorporados.</p></div>
+    <a class="btn secondary" href="unidad-1.html">← Volver a Unidad I</a>
+  </div>
+</footer>
+
+<script>
+  const menuToggle=document.querySelector('.menu-toggle');
+  const menu=document.querySelector('.menu');
+  menuToggle.addEventListener('click',()=>menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  const saved=JSON.parse(localStorage.getItem('consumerlab-unit2-progress')||'[]');
+  document.querySelectorAll('.session-check').forEach(check=>{
+    check.checked=saved.includes(Number(check.dataset.session));
+    check.addEventListener('change',updateProgress);
+  });
+  function updateProgress(){
+    const done=[...document.querySelectorAll('.session-check:checked')].map(x=>Number(x.dataset.session));
+    localStorage.setItem('consumerlab-unit2-progress',JSON.stringify(done));
+    const pct=Math.round(done.length/6*100);
+    document.getElementById('progressText').textContent=`${done.length} de 6 sesiones completadas`;
+    document.getElementById('progressFill').style.width=`${pct}%`;
+    document.getElementById('progressPercent').textContent=`${pct}%`;
+  }
+  updateProgress();
+
+  function updatePersona(){
+    const name=document.getElementById('personaName').value.trim()||'Nombre ficticio';
+    const age=document.getElementById('personaAge').value.trim()||'Edad';
+    const context=document.getElementById('personaContext').value.trim()||'contexto';
+    const motivation=document.getElementById('personaMotivation').value.trim()||'Qué busca conseguir';
+    const pain=document.getElementById('personaPain').value.trim()||'Qué obstáculo enfrenta';
+    const insight=document.getElementById('personaInsight').value.trim()||'Un insight debe explicar algo relevante y estar respaldado por evidencia.';
+    document.getElementById('previewName').textContent=name;
+    document.getElementById('previewContext').textContent=`${age} · ${context}`;
+    document.getElementById('previewMotivation').textContent=motivation;
+    document.getElementById('previewPain').textContent=pain;
+    document.getElementById('previewInsight').textContent=`“${insight}”`;
+  }
+  document.getElementById('updatePersona').addEventListener('click',updatePersona);
+  document.getElementById('copyPersona').addEventListener('click',async()=>{
+    updatePersona();
+    const text=`BUYER PERSONA\nNombre: ${document.getElementById('previewName').textContent}\nContexto: ${document.getElementById('previewContext').textContent}\nMotivación: ${document.getElementById('previewMotivation').textContent}\nFrustración: ${document.getElementById('previewPain').textContent}\nInsight: ${document.getElementById('previewInsight').textContent}`;
+    try{await navigator.clipboard.writeText(text);}catch(e){}
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruta de aprendizaje | Psicología del Consumidor y Marketing</title>
+  <meta name="description" content="Ruta de aprendizaje de la parte práctica de Psicología del Consumidor y Marketing.">
+  <style>
+    :root{
+      --bg:#f4f7ff;
+      --paper:#ffffff;
+      --ink:#17213d;
+      --muted:#5f6d89;
+      --line:#dfe6f4;
+      --navy:#111a3a;
+      --gold:#ffbf3f;
+      --blue:#4f46e5;
+      --cyan:#06b6d4;
+      --coral:#ff6b6b;
+      --purple:#7c3aed;
+      --teal:#00a6a6;
+      --mint:#21c7a8;
+      --shadow:0 20px 55px rgba(45,55,120,.12);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--ink);
+      line-height:1.65;
+      background:
+        radial-gradient(circle at 8% 8%,rgba(79,70,229,.08),transparent 20%),
+        radial-gradient(circle at 90% 16%,rgba(6,182,212,.08),transparent 22%),
+        linear-gradient(180deg,#f7f9ff 0%,#f4f7ff 52%,#fffaf2 100%);
+    }
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    .container{width:min(1220px,calc(100% - 32px));margin-inline:auto}
+    .topbar{
+      position:sticky;top:0;z-index:70;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(79,70,229,.12);
+    }
+    .nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px;font-weight:900;color:var(--navy)}
+    .brand-mark{
+      width:48px;height:48px;border-radius:18px;display:grid;place-items:center;color:#fff;
+      background:linear-gradient(135deg,var(--blue),var(--purple) 58%,var(--cyan));
+      box-shadow:0 12px 28px rgba(79,70,229,.28)
+    }
+    .brand small{display:block;color:var(--muted);font-size:.72rem;font-weight:700;letter-spacing:.04em}
+    .menu{display:flex;align-items:center;gap:18px;font-size:.9rem;font-weight:760}
+    .menu a{padding:10px 0;border-bottom:2px solid transparent}
+    .menu a:hover,.menu a.active{color:var(--blue);border-color:var(--gold)}
+    .menu .cta{padding:11px 16px;border-radius:14px;background:linear-gradient(135deg,var(--coral),#ff8e53);color:#fff;border:0}
+    .menu-toggle{display:none;border:0;background:white;box-shadow:var(--shadow);width:46px;height:46px;border-radius:14px;cursor:pointer;font-size:1.2rem}
+
+    .hero{padding:48px 0 36px}
+    .hero-shell{
+      position:relative;overflow:hidden;
+      min-height:500px;
+      display:grid;grid-template-columns:1.12fr .88fr;align-items:center;
+      background:
+        radial-gradient(circle at 18% 12%,rgba(255,191,63,.2),transparent 23%),
+        radial-gradient(circle at 88% 12%,rgba(124,58,237,.2),transparent 26%),
+        linear-gradient(135deg,#fffdf8,#ffffff 48%,#eef2ff);
+      border:1px solid rgba(79,70,229,.16);
+      border-radius:40px;
+      box-shadow:var(--shadow);
+    }
+    .hero-copy{padding:60px}
+    .eyebrow{
+      display:inline-flex;padding:8px 14px;border-radius:999px;
+      background:linear-gradient(90deg,#fff0bf,#ffe2df);
+      color:#8a431c;font-size:.8rem;font-weight:850;letter-spacing:.04em
+    }
+    h1{
+      margin:20px 0 18px;
+      font-size:clamp(2.8rem,6vw,5.9rem);
+      line-height:.95;letter-spacing:-.055em;
+      background:linear-gradient(115deg,var(--navy),var(--blue) 48%,var(--purple) 78%,var(--coral));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .lead{font-size:1.1rem;color:var(--muted);max-width:720px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:13px 18px;border-radius:15px;font-weight:850;border:1px solid transparent;
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--gold),#ff9f43);color:#31220d;box-shadow:0 12px 28px rgba(255,159,67,.22)}
+    .btn.secondary{background:white;border-color:rgba(79,70,229,.16);color:var(--navy)}
+
+    .hero-map{padding:34px;display:grid;place-items:center}
+    .orbit{
+      width:min(390px,100%);aspect-ratio:1;
+      position:relative;border-radius:50%;
+      border:1px dashed rgba(79,70,229,.28);
+      background:radial-gradient(circle,#fff 0 31%,transparent 32%);
+    }
+    .orbit-center{
+      position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);
+      width:150px;height:150px;border-radius:50%;display:grid;place-items:center;text-align:center;
+      background:linear-gradient(135deg,var(--navy),#273b70);color:white;
+      box-shadow:0 20px 45px rgba(17,26,58,.24);font-weight:900;padding:20px
+    }
+    .orbit-item{
+      position:absolute;width:114px;min-height:76px;padding:12px;border-radius:18px;
+      display:grid;place-items:center;text-align:center;background:white;border:1px solid var(--line);
+      font-size:.78rem;font-weight:850;color:var(--navy);box-shadow:0 12px 28px rgba(45,55,120,.1)
+    }
+    .o1{left:50%;top:-10px;transform:translateX(-50%);border-top:5px solid var(--blue)}
+    .o2{right:-12px;top:25%;border-top:5px solid var(--coral)}
+    .o3{right:5px;bottom:8%;border-top:5px solid var(--gold)}
+    .o4{left:50%;bottom:-12px;transform:translateX(-50%);border-top:5px solid var(--mint)}
+    .o5{left:-7px;bottom:10%;border-top:5px solid var(--purple)}
+    .o6{left:-18px;top:24%;border-top:5px solid var(--cyan)}
+
+    section{padding:34px 0 70px}
+    .section-head{max-width:840px;margin-bottom:28px}
+    .kicker{color:var(--purple);font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    h2{margin:8px 0 12px;font-size:clamp(2rem,4vw,3.2rem);line-height:1.06;letter-spacing:-.04em;color:var(--navy)}
+    .section-head p{color:var(--muted);font-size:1.03rem}
+
+    .unit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .unit-card{
+      position:relative;overflow:hidden;
+      background:#fff;border:1px solid rgba(79,70,229,.13);border-radius:26px;
+      padding:28px;box-shadow:var(--shadow);transition:.22s
+    }
+    .unit-card:hover{transform:translateY(-7px)}
+    .unit-card::after{content:"";position:absolute;right:-42px;bottom:-50px;width:130px;height:130px;border-radius:50%;opacity:.11}
+    .unit-card:nth-child(1){border-top:6px solid var(--blue)} .unit-card:nth-child(1)::after{background:var(--blue)}
+    .unit-card:nth-child(2){border-top:6px solid var(--coral)} .unit-card:nth-child(2)::after{background:var(--coral)}
+    .unit-card:nth-child(3){border-top:6px solid var(--mint)} .unit-card:nth-child(3)::after{background:var(--mint)}
+    .unit-index{width:52px;height:52px;border-radius:18px;display:grid;place-items:center;color:#fff;font-weight:950;background:linear-gradient(135deg,var(--blue),var(--purple))}
+    .unit-card:nth-child(2) .unit-index{background:linear-gradient(135deg,var(--coral),#ff9b4a)}
+    .unit-card:nth-child(3) .unit-index{background:linear-gradient(135deg,var(--teal),var(--mint))}
+    .unit-card h3{font-size:1.45rem;margin:15px 0 8px;color:var(--navy)}
+    .unit-card p{color:var(--muted)}
+    .unit-card ul{padding-left:18px;color:var(--muted)}
+
+    .milestones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .milestone{
+      padding:19px;border-radius:20px;background:#fff;border:1px solid var(--line);
+      box-shadow:0 10px 26px rgba(45,55,120,.06)
+    }
+    .milestone span{font-size:.75rem;font-weight:900;color:var(--purple);text-transform:uppercase;letter-spacing:.06em}
+    .milestone b{display:block;margin:7px 0;color:var(--navy)}
+    .milestone p{margin:0;color:var(--muted);font-size:.88rem}
+
+    .progress-panel{
+      display:flex;align-items:center;gap:20px;
+      margin-bottom:24px;padding:22px 24px;border-radius:23px;color:#fff;
+      background:
+        radial-gradient(circle at 90% 20%,rgba(124,58,237,.28),transparent 25%),
+        linear-gradient(135deg,var(--navy),#253b73);
+      box-shadow:var(--shadow)
+    }
+    .progress-copy{min-width:210px}
+    .progress-copy strong{display:block;font-size:1.1rem}
+    .progress-copy small{color:rgba(255,255,255,.7)}
+    .track{flex:1;height:13px;border-radius:999px;background:rgba(255,255,255,.15);overflow:hidden}
+    .fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),#ff8e53);transition:.25s}
+    .progress-percent{font-size:1.25rem;font-weight:900}
+
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+    .filter{border:1px solid var(--line);background:white;padding:10px 14px;border-radius:999px;cursor:pointer;font-weight:800;color:var(--navy)}
+    .filter.active{background:linear-gradient(135deg,var(--blue),var(--purple));color:white;border-color:transparent}
+
+    .weeks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+    .week-card{
+      display:flex;flex-direction:column;
+      padding:21px;border-radius:22px;background:#fff;border:1px solid rgba(79,70,229,.12);
+      box-shadow:0 11px 28px rgba(45,55,120,.06)
+    }
+    .week-card.hidden{display:none}
+    .week-meta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .week-number{font-size:.78rem;font-weight:950;color:var(--blue)}
+    .phase{padding:5px 9px;border-radius:999px;font-size:.7rem;font-weight:900;background:#e8e7ff;color:var(--blue)}
+    .phase-2{background:#ffe7e7;color:#bf3f4d} .phase-3{background:#ddfaf4;color:#087f73}
+    .week-card h3{margin:14px 0 7px;line-height:1.2;color:var(--navy)}
+    .week-card p{color:var(--muted);font-size:.91rem;flex:1}
+    .week-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}
+    .week-footer>span{font-size:.77rem;font-weight:850;color:var(--muted)}
+    .week-open{border:0;background:none;color:var(--blue);font-weight:900;cursor:pointer}
+    .check-row{display:flex;align-items:center;gap:9px;margin-top:13px;color:var(--muted);font-size:.84rem}
+    .check-row input{width:18px;height:18px;accent-color:var(--teal)}
+
+    .assessment-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .assessment{
+      padding:25px;border-radius:24px;background:#fff;border:1px solid rgba(79,70,229,.12);box-shadow:var(--shadow)
+    }
+    .assessment:nth-child(1){border-top:6px solid var(--blue)} .assessment:nth-child(2){border-top:6px solid var(--coral)} .assessment:nth-child(3){border-top:6px solid var(--mint)}
+    .assessment h3{margin:0 0 8px;color:var(--navy)}
+    .assessment p{color:var(--muted)}
+    .assessment strong{color:var(--purple)}
+
+    .note{
+      margin-top:20px;padding:17px 19px;border-radius:18px;
+      background:linear-gradient(90deg,#fff2bd,#ffe6df);
+      border:1px solid rgba(255,159,67,.28);color:#6e4d1e
+    }
+
+    dialog{width:min(640px,calc(100% - 28px));border:0;border-radius:25px;padding:0;box-shadow:0 30px 100px rgba(0,0,0,.25)}
+    dialog::backdrop{background:rgba(17,26,58,.7);backdrop-filter:blur(6px)}
+    .modal{padding:28px}
+    .modal-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    .modal-head h2{font-size:2rem;margin-top:4px}
+    .close{border:0;background:#f3f5fb;width:42px;height:42px;border-radius:13px;cursor:pointer}
+    .modal-box{margin-top:13px;padding:16px;border-radius:17px;background:#f8f9ff;border:1px solid var(--line)}
+    .modal-box b{display:block;color:var(--purple);margin-bottom:5px}
+    footer{background:linear-gradient(135deg,var(--navy),#253b73);color:#fff;padding:44px 0}
+    .footer-grid{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:end}
+    footer p{max-width:760px;color:rgba(255,255,255,.72)}
+
+    @media(max-width:1024px){
+      .menu{display:none;position:absolute;left:16px;right:16px;top:78px;background:white;border:1px solid var(--line);border-radius:20px;padding:18px;flex-direction:column;align-items:flex-start;box-shadow:var(--shadow)}
+      .menu.open{display:flex} .menu-toggle{display:block}
+      .hero-shell{grid-template-columns:1fr} .unit-grid,.weeks-grid{grid-template-columns:repeat(2,1fr)} .milestones{grid-template-columns:repeat(2,1fr)} .assessment-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:660px){
+      .hero-copy{padding:34px 24px} .hero-map{padding:28px 18px 46px} .orbit{transform:scale(.86)}
+      .unit-grid,.weeks-grid,.milestones{grid-template-columns:1fr}
+      .progress-panel{align-items:flex-start;flex-direction:column} .track{width:100%}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  
+    /* ===== ESPACIO PARA MATERIALES DE CADA SESIÓN ===== */
+    .resource-slot{
+      margin-top:14px;
+      padding:14px;
+      border-radius:17px;
+      background:linear-gradient(135deg,#f7f8ff,#eefcff);
+      border:1px dashed rgba(79,70,229,.24);
+    }
+
+    .resource-title{
+      display:block;
+      margin-bottom:9px;
+      color:var(--navy);
+      font-size:.8rem;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.05em;
+    }
+
+    .resource-actions{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:8px;
+    }
+
+    .resource-link{
+      min-height:38px;
+      padding:8px 7px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:#fff;
+      border:1px solid rgba(79,70,229,.14);
+      color:var(--blue);
+      font-size:.78rem;
+      font-weight:850;
+      text-align:center;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+
+    .resource-link:not(.disabled):hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 20px rgba(79,70,229,.12);
+    }
+
+    .resource-link.disabled,
+    .modal-resource.disabled{
+      color:#8b94aa;
+      background:#f2f4f8;
+      border-color:#e2e6ef;
+      cursor:not-allowed;
+      pointer-events:none;
+    }
+
+    .resource-slot small{
+      display:block;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:.72rem;
+    }
+
+    .modal-resources{
+      background:linear-gradient(135deg,#f8f8ff,#eefcff);
+    }
+
+    .modal-resource-actions{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:9px;
+      margin:10px 0 7px;
+    }
+
+    .modal-resource{
+      min-height:44px;
+      display:grid;
+      place-items:center;
+      padding:9px;
+      border-radius:13px;
+      background:#fff;
+      border:1px solid rgba(79,70,229,.14);
+      color:var(--blue);
+      font-size:.8rem;
+      font-weight:850;
+      text-align:center;
+    }
+
+    .modal-resources small{
+      color:var(--muted);
+      font-size:.75rem;
+    }
+
+    @media(max-width:520px){
+      .resource-actions,
+      .modal-resource-actions{
+        grid-template-columns:1fr;
+      }
+    }
+
+</style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">PCM</span>
+        <span>Psicología del Consumidor<small>Marketing · Parte práctica</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a class="active" href="ruta.html">Ruta de aprendizaje</a>
+        <a href="unidad-1.html">Unidad I</a>
+        <a href="unidad-2.html">Unidad II</a>
+        <a href="unidad-3.html">Unidad III</a>
+        <a href="proyecto.html">Proyecto integrador</a>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdRDJG8HTK8FQvaHQbhPfBh2oTIsBWms37Uo1OHoccdF-PCmw/viewform?usp=publish-editor" target="_blank" rel="noopener">Registrar horario</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-shell">
+        <div class="hero-copy">
+          <span class="eyebrow">Tu recorrido durante el semestre</span>
+          <h1>Ruta de aprendizaje</h1>
+          <p class="lead">
+            Aquí podrás visualizar cómo cada actividad se conecta con la siguiente. Comenzaremos investigando el mercado,
+            comprenderemos al consumidor, experimentaremos con su percepción y terminaremos diseñando una estrategia digital sustentada en evidencia.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#semanas">Explorar las 20 semanas</a>
+            <a class="btn secondary" href="guia_curso_2026_I.pdf" target="_blank">Abrir guía oficial</a>
+          </div>
+        </div>
+        <div class="hero-map">
+          <div class="orbit">
+            <div class="orbit-center">Proyecto<br>integrador</div>
+            <div class="orbit-item o1">Investigar el mercado</div>
+            <div class="orbit-item o2">Comprender al consumidor</div>
+            <div class="orbit-item o3">Construir el buyer persona</div>
+            <div class="orbit-item o4">Diseñar la experiencia</div>
+            <div class="orbit-item o5">Crear estrategia digital</div>
+            <div class="orbit-item o6">Evaluar y optimizar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="unidades">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Tres etapas conectadas</span>
+          <h2>El curso avanza como un solo proyecto</h2>
+          <p>No son trabajos aislados: cada unidad produce información que será utilizada en la siguiente.</p>
+        </div>
+        <div class="unit-grid">
+          <article class="unit-card">
+            <span class="unit-index">I</span>
+            <h3>Investigación de mercados</h3>
+            <p>Identificamos una necesidad real, diseñamos instrumentos y recogemos información del mercado y del consumidor.</p>
+            <ul><li>Empresa y problemática</li><li>Fuentes e instrumentos</li><li>Trabajo de campo</li><li>Primer perfil del consumidor</li></ul>
+          </article>
+          <article class="unit-card">
+            <span class="unit-index">II</span>
+            <h3>Comportamiento del consumidor</h3>
+            <p>Interpretamos motivaciones, percepciones, estilos de vida y respuestas ante estímulos.</p>
+            <ul><li>VALS, Big Five y COM-B</li><li>Laboratorio conductual</li><li>Análisis de evidencias</li><li>Buyer persona definitivo</li></ul>
+          </article>
+          <article class="unit-card">
+            <span class="unit-index">III</span>
+            <h3>Marketing y estrategia digital</h3>
+            <p>Convertimos los hallazgos en una experiencia de cliente y una propuesta digital medible.</p>
+            <ul><li>Funnel y propuesta de valor</li><li>Página web</li><li>Customer Journey</li><li>Redes sociales y KPIs</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hitos">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Hitos del proyecto</span>
+          <h2>Los productos que mostrarán tu avance</h2>
+        </div>
+        <div class="milestones">
+          <article class="milestone"><span>Hito 1</span><b>Problema y empresa</b><p>Definir qué se investigará y por qué es relevante.</p></article>
+          <article class="milestone"><span>Hito 2</span><b>Instrumentos y datos</b><p>Recolectar información válida y organizada.</p></article>
+          <article class="milestone"><span>Hito 3</span><b>Perfil del consumidor</b><p>Interpretar evidencias y construir el buyer persona.</p></article>
+          <article class="milestone"><span>Hito 4</span><b>Experimento conductual</b><p>Analizar la influencia de marca, expectativa y percepción.</p></article>
+          <article class="milestone"><span>Hito 5</span><b>Propuesta de valor</b><p>Traducir insights en una solución relevante.</p></article>
+          <article class="milestone"><span>Hito 6</span><b>Página web</b><p>Diseñar una experiencia orientada a conversión.</p></article>
+          <article class="milestone"><span>Hito 7</span><b>Customer Journey</b><p>Visualizar contactos, emociones y oportunidades.</p></article>
+          <article class="milestone"><span>Hito 8</span><b>Presentación ejecutiva</b><p>Comunicar resultados y recomendaciones a la empresa.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="semanas">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Plan semestral</span>
+          <h2>Veinte semanas para investigar, comprender y crear</h2>
+          <p>Marca las semanas completadas para visualizar tu avance. La información se guarda localmente en tu navegador.</p>
+        </div>
+
+        <div class="progress-panel">
+          <div class="progress-copy">
+            <strong id="progressText">0 de 20 semanas completadas</strong>
+            <small>Progreso personal en este dispositivo</small>
+          </div>
+          <div class="track"><div class="fill" id="progressFill"></div></div>
+          <div class="progress-percent" id="progressPercent">0%</div>
+        </div>
+
+        <div class="filters">
+          <button class="filter active" data-filter="all">Todas</button>
+          <button class="filter" data-filter="1">Unidad I</button>
+          <button class="filter" data-filter="2">Unidad II</button>
+          <button class="filter" data-filter="3">Unidad III</button>
+        </div>
+
+        <div class="weeks-grid">
+          
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 01</span>
+          <span class="phase phase-1">Explora</span>
+        </div>
+        <h3>Bienvenida y organización del trabajo</h3>
+        <p>Conocer la dinámica práctica, formar equipos y comprender el proyecto integrador.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="1">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="1">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 02</span>
+          <span class="phase phase-1">Explora</span>
+        </div>
+        <h3>Guía de prácticas y reto del semestre</h3>
+        <p>Comprender los resultados de aprendizaje, productos y criterios de evaluación.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="2">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="2">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 03</span>
+          <span class="phase phase-1">Investiga</span>
+        </div>
+        <h3>Naturaleza de la investigación de mercados</h3>
+        <p>Diferenciar fuentes, datos e investigación exploratoria y concluyente.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="3">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="3">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 04</span>
+          <span class="phase phase-1">Investiga</span>
+        </div>
+        <h3>Problema, pregunta y objetivos</h3>
+        <p>Convertir una necesidad empresarial en un problema investigable.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="4">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="4">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 05</span>
+          <span class="phase phase-1">Investiga</span>
+        </div>
+        <h3>Sistema de información y vínculo empresarial</h3>
+        <p>Organizar la investigación y establecer contacto con la empresa seleccionada.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="5">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="5">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="1">
+        <div class="week-meta">
+          <span class="week-number">Semana 06</span>
+          <span class="phase phase-1">Investiga</span>
+        </div>
+        <h3>Escalas, errores y cuestionarios</h3>
+        <p>Reconocer sesgos y diseñar instrumentos claros y coherentes.</p>
+        <div class="week-footer">
+          <span>Unidad I</span>
+          <button class="week-open" data-week="6">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="6">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 07</span>
+          <span class="phase phase-2">Comprende</span>
+        </div>
+        <h3>Enfoques para estudiar al consumidor</h3>
+        <p>Analizar decisiones desde perspectivas psicológicas, sociales y culturales.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="7">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="7">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 08</span>
+          <span class="phase phase-2">Comprende</span>
+        </div>
+        <h3>VALS, Big Five y COM-B</h3>
+        <p>Integrar herramientas psicográficas y conductuales.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="8">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="8">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 09</span>
+          <span class="phase phase-2">Experimenta</span>
+        </div>
+        <h3>Marca, expectativa y percepción</h3>
+        <p>Examinar cómo la marca y las expectativas modifican la experiencia.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="9">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="9">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 10</span>
+          <span class="phase phase-2">Experimenta</span>
+        </div>
+        <h3>Informe del trabajo de campo</h3>
+        <p>Interpretar resultados y comunicar hallazgos con claridad.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="10">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="10">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 11</span>
+          <span class="phase phase-2">Comprende</span>
+        </div>
+        <h3>Integración de evidencias</h3>
+        <p>Cruzar resultados cualitativos, cuantitativos y conductuales.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="11">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="11">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="2">
+        <div class="week-meta">
+          <span class="week-number">Semana 12</span>
+          <span class="phase phase-2">Comprende</span>
+        </div>
+        <h3>Buyer persona definitivo</h3>
+        <p>Construir un perfil útil, preciso y sustentado.</p>
+        <div class="week-footer">
+          <span>Unidad II</span>
+          <button class="week-open" data-week="12">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="12">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 13</span>
+          <span class="phase phase-3">Diseña</span>
+        </div>
+        <h3>Marketing digital y funnel</h3>
+        <p>Traducir los insights en una estrategia orientada al mercado meta.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="13">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="13">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 14</span>
+          <span class="phase phase-3">Diseña</span>
+        </div>
+        <h3>Página web orientada a conversión</h3>
+        <p>Construir una web con propuesta de valor, CTA y formularios.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="14">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="14">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 15</span>
+          <span class="phase phase-3">Diseña</span>
+        </div>
+        <h3>Customer Journey Map</h3>
+        <p>Representar puntos de contacto, emociones y fricciones.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="15">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="15">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 16</span>
+          <span class="phase phase-3">Activa</span>
+        </div>
+        <h3>Redes sociales y contenidos</h3>
+        <p>Planificar segmentación, publicaciones y campañas.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="16">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="16">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 17</span>
+          <span class="phase phase-3">Optimiza</span>
+        </div>
+        <h3>Métricas y mejora</h3>
+        <p>Interpretar indicadores para tomar decisiones.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="17">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="17">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 18</span>
+          <span class="phase phase-3">Presenta</span>
+        </div>
+        <h3>Presentación final</h3>
+        <p>Comunicar el proyecto de manera ejecutiva.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="18">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="18">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 19</span>
+          <span class="phase phase-3">Mejora</span>
+        </div>
+        <h3>Sprint de mejora</h3>
+        <p>Corregir debilidades y fortalecer la coherencia del proyecto.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="19">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="19">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+      <article class="week-card" data-unit="3">
+        <div class="week-meta">
+          <span class="week-number">Semana 20</span>
+          <span class="phase phase-3">Cierra</span>
+        </div>
+        <h3>Portafolio y reflexión final</h3>
+        <p>Consolidar aprendizajes y convertir el proyecto en evidencia profesional.</p>
+        <div class="week-footer">
+          <span>Unidad III</span>
+          <button class="week-open" data-week="20">Ver detalle →</button>
+        </div>
+        <div class="resource-slot">
+          <span class="resource-title">Materiales de la sesión</span>
+          <div class="resource-actions">
+            <a class="resource-link disabled" href="#" aria-disabled="true">📊 PPT</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">🎥 Video</a>
+            <a class="resource-link disabled" href="#" aria-disabled="true">📄 Lectura</a>
+          </div>
+          <small>Los enlaces se habilitarán cuando el material esté disponible.</small>
+        </div>
+        <label class="check-row">
+          <input type="checkbox" class="week-check" data-week-check="20">
+          <span>Marcar como completada</span>
+        </label>
+      </article>
+    
+        </div>
+
+        <div class="note resource-note">
+          <strong>Materiales por sesión:</strong> cada semana cuenta con espacios para enlazar la presentación, el video de la clase y una lectura o ficha complementaria.
+          Mientras no se hayan cargado los recursos, los botones aparecerán deshabilitados.
+        </div>
+
+        <div class="note">
+          <strong>Nota de organización:</strong> la guía oficial señala una duración de 20 semanas, pero su programación desarrolla expresamente hasta la semana 18.
+          Las semanas 19 y 20 se muestran aquí como propuesta para mejora, cierre y portafolio final, sujetas a la programación académica definitiva.
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluaciones">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Tres aportes</span>
+          <h2>Cómo se evidencia el aprendizaje</h2>
+        </div>
+        <div class="assessment-grid">
+          <article class="assessment">
+            <h3>Primer aporte</h3>
+            <p>Investigación de mercados, fuentes, instrumentos y buyer persona inicial.</p>
+            <strong>Resultado:</strong> comprender la problemática y producir evidencia inicial.
+          </article>
+          <article class="assessment">
+            <h3>Segundo aporte</h3>
+            <p>Bitácora, resultados, laboratorio conductual y buyer persona definitivo.</p>
+            <strong>Resultado:</strong> explicar el comportamiento del consumidor con datos.
+          </article>
+          <article class="assessment">
+            <h3>Tercer aporte</h3>
+            <p>Página web, Customer Journey Map, redes sociales y presentación final.</p>
+            <strong>Resultado:</strong> transformar insights en una estrategia digital.
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Ruta de aprendizaje · Psicología del Consumidor y Marketing</strong>
+        <p>Segunda propuesta de la Página 2. Cada semana incorpora espacios para enlazar presentaciones, videos y lecturas o fichas complementarias.</p>
+      </div>
+      <a class="btn secondary" href="index.html">← Volver al inicio</a>
+    </div>
+  </footer>
+
+  <dialog id="weekDialog">
+    <div class="modal">
+      <div class="modal-head">
+        <div>
+          <span class="kicker" id="modalWeek">Semana</span>
+          <h2 id="modalTitle">Detalle</h2>
+        </div>
+        <button class="close" id="closeDialog" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-box"><b>Propósito</b><span id="modalGoal"></span></div>
+      <div class="modal-box"><b>Experiencia práctica</b><span id="modalExperience"></span></div>
+      <div class="modal-box"><b>Entregable</b><span id="modalDeliverable"></span></div>
+      <div class="modal-box modal-resources">
+        <b>Materiales de la sesión</b>
+        <div class="modal-resource-actions">
+          <a class="modal-resource disabled" href="#" aria-disabled="true">📊 Presentación</a>
+          <a class="modal-resource disabled" href="#" aria-disabled="true">🎥 Video de la sesión</a>
+          <a class="modal-resource disabled" href="#" aria-disabled="true">📄 Lectura o ficha</a>
+        </div>
+        <small>Estos botones se activarán al vincular archivos de Google Drive, YouTube u otra plataforma.</small>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const resources = {
+      // Ejemplo para habilitar una sesión:
+      // 1: {
+      //   ppt: "https://drive.google.com/...",
+      //   video: "https://youtube.com/...",
+      //   lectura: "https://drive.google.com/..."
+      // }
+    };
+
+    const weeks = [{"n": 1, "unit": 1, "phase": "Explora", "title": "Bienvenida y organización del trabajo", "goal": "Conocer la dinámica práctica, formar equipos y comprender el proyecto integrador.", "experience": "Presentación, acuerdos de trabajo y primera aproximación a marcas que influyen en nuestra vida cotidiana.", "deliverable": "Conformación de equipo y ficha preliminar."}, {"n": 2, "unit": 1, "phase": "Explora", "title": "Guía de prácticas y reto del semestre", "goal": "Comprender los resultados de aprendizaje, productos y criterios de evaluación.", "experience": "Construcción de un mapa visual del recorrido completo del curso.", "deliverable": "Mapa del proyecto y acta de presentación."}, {"n": 3, "unit": 1, "phase": "Investiga", "title": "Naturaleza de la investigación de mercados", "goal": "Diferenciar fuentes, datos e investigación exploratoria y concluyente.", "experience": "Búsqueda de tendencias y problemáticas de consumo local.", "deliverable": "Informe breve de fuentes secundarias."}, {"n": 4, "unit": 1, "phase": "Investiga", "title": "Problema, pregunta y objetivos", "goal": "Convertir una necesidad empresarial en un problema investigable.", "experience": "Clínica de problemas y formulación de objetivos.", "deliverable": "Problema y objetivos de investigación."}, {"n": 5, "unit": 1, "phase": "Investiga", "title": "Sistema de información y vínculo empresarial", "goal": "Organizar la investigación y establecer contacto con la empresa seleccionada.", "experience": "Simulación de entrevista inicial con un representante empresarial.", "deliverable": "Carta de presentación y ficha empresarial."}, {"n": 6, "unit": 1, "phase": "Investiga", "title": "Escalas, errores y cuestionarios", "goal": "Reconocer sesgos y diseñar instrumentos claros y coherentes.", "experience": "Taller para detectar preguntas ambiguas, inducidas o dobles.", "deliverable": "Cuestionario y protocolo de aplicación."}, {"n": 7, "unit": 2, "phase": "Comprende", "title": "Enfoques para estudiar al consumidor", "goal": "Analizar decisiones desde perspectivas psicológicas, sociales y culturales.", "experience": "Un mismo caso explicado desde diferentes enfoques.", "deliverable": "Matriz de análisis de caso."}, {"n": 8, "unit": 2, "phase": "Comprende", "title": "VALS, Big Five y COM-B", "goal": "Integrar herramientas psicográficas y conductuales.", "experience": "Aplicación demostrativa y reflexión ética sobre perfiles de consumidores.", "deliverable": "Perfil psicográfico preliminar."}, {"n": 9, "unit": 2, "phase": "Experimenta", "title": "Marca, expectativa y percepción", "goal": "Examinar cómo la marca y las expectativas modifican la experiencia.", "experience": "Experimento conductual con estímulos sensoriales y simbólicos.", "deliverable": "Registro de respuestas y datos."}, {"n": 10, "unit": 2, "phase": "Experimenta", "title": "Informe del trabajo de campo", "goal": "Interpretar resultados y comunicar hallazgos con claridad.", "experience": "Galería de resultados y retroalimentación entre equipos.", "deliverable": "Informe de laboratorio."}, {"n": 11, "unit": 2, "phase": "Comprende", "title": "Integración de evidencias", "goal": "Cruzar resultados cualitativos, cuantitativos y conductuales.", "experience": "Taller: cada afirmación del perfil debe tener una evidencia.", "deliverable": "Matriz integrada de hallazgos."}, {"n": 12, "unit": 2, "phase": "Comprende", "title": "Buyer persona definitivo", "goal": "Construir un perfil útil, preciso y sustentado.", "experience": "Presentación y defensa del buyer persona.", "deliverable": "Buyer persona definitivo."}, {"n": 13, "unit": 3, "phase": "Diseña", "title": "Marketing digital y funnel", "goal": "Traducir los insights en una estrategia orientada al mercado meta.", "experience": "Análisis de funnels y propuesta de valor.", "deliverable": "Estrategia digital inicial."}, {"n": 14, "unit": 3, "phase": "Diseña", "title": "Página web orientada a conversión", "goal": "Construir una web con propuesta de valor, CTA y formularios.", "experience": "Auditoría de páginas y prototipo de la pantalla principal.", "deliverable": "Primera versión de la web."}, {"n": 15, "unit": 3, "phase": "Diseña", "title": "Customer Journey Map", "goal": "Representar puntos de contacto, emociones y fricciones.", "experience": "Mapeo colaborativo del recorrido real de un cliente.", "deliverable": "Customer Journey Map."}, {"n": 16, "unit": 3, "phase": "Activa", "title": "Redes sociales y contenidos", "goal": "Planificar segmentación, publicaciones y campañas.", "experience": "Taller de creación de contenido y simulación de campaña.", "deliverable": "Plan de publicaciones."}, {"n": 17, "unit": 3, "phase": "Optimiza", "title": "Métricas y mejora", "goal": "Interpretar indicadores para tomar decisiones.", "experience": "Tablero de métricas con datos simulados.", "deliverable": "Reporte de KPIs."}, {"n": 18, "unit": 3, "phase": "Presenta", "title": "Presentación final", "goal": "Comunicar el proyecto de manera ejecutiva.", "experience": "Pitch final y ronda de retroalimentación.", "deliverable": "Presentación de productos digitales."}, {"n": 19, "unit": 3, "phase": "Mejora", "title": "Sprint de mejora", "goal": "Corregir debilidades y fortalecer la coherencia del proyecto.", "experience": "Estaciones de mejora por entregable.", "deliverable": "Versión corregida del proyecto."}, {"n": 20, "unit": 3, "phase": "Cierra", "title": "Portafolio y reflexión final", "goal": "Consolidar aprendizajes y convertir el proyecto en evidencia profesional.", "experience": "Retrospectiva del semestre y presentación del portafolio.", "deliverable": "Portafolio final y reflexión individual."}];
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    menuToggle.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.week-card');
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      cards.forEach(card => card.classList.toggle('hidden', f !== 'all' && card.dataset.unit !== f));
+    }));
+
+    const saved = JSON.parse(localStorage.getItem('consumerlab-route-progress') || '[]');
+    document.querySelectorAll('.week-check').forEach(check => {
+      check.checked = saved.includes(Number(check.dataset.weekCheck));
+      check.addEventListener('change', updateProgress);
+    });
+
+    function updateProgress() {
+      const done = [...document.querySelectorAll('.week-check:checked')].map(x => Number(x.dataset.weekCheck));
+      localStorage.setItem('consumerlab-route-progress', JSON.stringify(done));
+      const pct = Math.round(done.length / 20 * 100);
+      document.getElementById('progressText').textContent = `${done.length} de 20 semanas completadas`;
+      document.getElementById('progressFill').style.width = `${pct}%`;
+      document.getElementById('progressPercent').textContent = `${pct}%`;
+    }
+    updateProgress();
+
+
+    function resourceLabel(type) {
+      return type === 'ppt' ? '📊 PPT' : type === 'video' ? '🎥 Video' : '📄 Lectura';
+    }
+
+    document.querySelectorAll('.week-card').forEach(card => {
+      const weekButton = card.querySelector('.week-open');
+      const weekNumber = Number(weekButton.dataset.week);
+      const weekResources = resources[weekNumber] || {};
+      const links = card.querySelectorAll('.resource-link');
+      const types = ['ppt','video','lectura'];
+
+      links.forEach((link, index) => {
+        const type = types[index];
+        if (weekResources[type]) {
+          link.href = weekResources[type];
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.classList.remove('disabled');
+          link.removeAttribute('aria-disabled');
+          link.textContent = resourceLabel(type);
+        }
+      });
+    });
+
+    const dialog = document.getElementById('weekDialog');
+    document.querySelectorAll('.week-open').forEach(btn => btn.addEventListener('click', () => {
+      const w = weeks.find(x => x.n === Number(btn.dataset.week));
+      document.getElementById('modalWeek').textContent = `Semana ${String(w.n).padStart(2,'0')} · ${w.phase}`;
+      document.getElementById('modalTitle').textContent = w.title;
+      document.getElementById('modalGoal').textContent = w.goal;
+      document.getElementById('modalExperience').textContent = w.experience;
+      document.getElementById('modalDeliverable').textContent = w.deliverable;
+
+      const weekResources = resources[w.n] || {};
+      const modalLinks = document.querySelectorAll('.modal-resource');
+      const modalTypes = ['ppt','video','lectura'];
+      modalLinks.forEach((link, index) => {
+        const type = modalTypes[index];
+        link.href = '#';
+        link.classList.add('disabled');
+        link.setAttribute('aria-disabled','true');
+        link.removeAttribute('target');
+        link.removeAttribute('rel');
+
+        if (weekResources[type]) {
+          link.href = weekResources[type];
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.classList.remove('disabled');
+          link.removeAttribute('aria-disabled');
+        }
+      });
+
+      dialog.showModal();
+    }));
+    document.getElementById('closeDialog').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', e => {
+      const r = dialog.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
+    });
+  </script>
+</body>
+</html>

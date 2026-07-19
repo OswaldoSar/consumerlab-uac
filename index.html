@@ -1,214 +1,1058 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ConsumerLab UAC: plataforma del curso Psicología del Consumidor y Marketing">
-<title>ConsumerLab UAC</title>
-<style>
-:root{--navy:#0b2340;--blue:#1769aa;--teal:#0f8b8d;--orange:#f29b38;--ink:#182235;--muted:#617083;--bg:#f4f7fb;--line:#dbe4ee;--white:#fff;--shadow:0 18px 48px rgba(11,35,64,.11)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.93);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;gap:12px;align-items:center;font-weight:900;color:var(--navy)}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--teal));display:grid;place-items:center;color:white}.brand small{display:block;color:var(--muted);font-size:.7rem}.menu{display:flex;gap:20px;font-size:.9rem;font-weight:760}.menu a:hover{color:var(--blue)}.toggle{display:none;border:0;border-radius:10px;padding:9px 12px;background:#eaf3fb}
-.hero{background:radial-gradient(circle at 83% 15%,rgba(15,139,141,.34),transparent 28%),radial-gradient(circle at 8% 92%,rgba(242,155,56,.2),transparent 22%),linear-gradient(135deg,#071b31,#154c78);color:white;padding:92px 0 80px}.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);font-size:.8rem;font-weight:850}h1{font-size:clamp(2.7rem,6vw,5.5rem);line-height:.96;letter-spacing:-.055em;margin:20px 0}.hero p{max-width:720px;color:rgba(255,255,255,.82);font-size:1.08rem}.actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 17px;border-radius:14px;font-weight:850;border:1px solid transparent;cursor:pointer}.btn.primary{background:var(--orange);color:#211406}.btn.ghost{border-color:rgba(255,255,255,.26);background:rgba(255,255,255,.08)}.btn.dark{background:var(--navy);color:white}.hero-card{padding:28px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);border-radius:28px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:12px}.metric{padding:15px;border-radius:17px;background:rgba(255,255,255,.08)}.metric strong{display:block;font-size:1.7rem}.metric span{font-size:.8rem;color:rgba(255,255,255,.72)}
-section{padding:78px 0}.kicker{color:var(--blue);font-size:.76rem;text-transform:uppercase;letter-spacing:.09em;font-weight:900}h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.04em;margin:8px 0 14px}.intro{max-width:790px;color:var(--muted);font-size:1.03rem;margin-bottom:34px}
-.route{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}.route div{background:white;border:1px solid var(--line);border-radius:19px;padding:17px;min-height:145px;box-shadow:0 10px 28px rgba(11,35,64,.055)}.route i{font-style:normal;font-size:1.45rem}.route b{display:block;margin:10px 0 5px}.route span{color:var(--muted);font-size:.84rem}
-.units{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.unit{background:white;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:var(--shadow)}.unit-num{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;color:white;font-weight:900}.unit h3{font-size:1.35rem;margin:12px 0}.unit p,.unit li{color:var(--muted)}.unit li{margin:.4rem 0}
-.progress{display:flex;gap:18px;align-items:center;background:var(--navy);color:white;border-radius:20px;padding:20px 23px;margin-bottom:24px}.track{height:11px;flex:1;background:rgba(255,255,255,.15);border-radius:99px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#ffd166);transition:.25s}.filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}.filter{border:1px solid var(--line);background:white;padding:9px 13px;border-radius:999px;font-weight:780;cursor:pointer}.filter.active{background:var(--navy);color:white}.weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.week-card{display:flex;flex-direction:column;background:white;border:1px solid var(--line);border-radius:21px;padding:21px;box-shadow:0 10px 28px rgba(11,35,64,.055)}.week-card.hidden{display:none}.week-head{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:.8rem;font-weight:900;color:var(--blue)}.tag{padding:5px 8px;border-radius:999px;font-size:.69rem}.u1{background:#e7f2ff;color:#1769aa}.u2{background:#e6f8f5;color:#087274}.u3{background:#fff0df;color:#a4570d}.week-card h3{line-height:1.24;margin:13px 0 8px}.week-card p{color:var(--muted);font-size:.9rem;flex:1}.linkbtn{padding:0;border:0;background:none;text-align:left;color:var(--blue);font-weight:850;cursor:pointer}.check{display:flex;gap:8px;align-items:center;margin-top:15px;color:var(--muted);font-size:.84rem}.check input{width:18px;height:18px;accent-color:var(--teal)}.note{margin-top:18px;padding:17px;border:1px solid #ffd4a0;background:#fff8eb;border-radius:17px;color:#6f490f}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:23px}.panel{background:white;border:1px solid var(--line);border-radius:24px;padding:27px;box-shadow:var(--shadow)}.prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:17px 0}.price{border:1px solid var(--line);border-radius:17px;padding:17px;text-align:center}.price strong{display:block;font-size:2rem;color:var(--navy)}input[type=range]{width:100%;accent-color:var(--orange)}.result,.preview{margin-top:15px;padding:15px;border-radius:15px;background:#eef7ff;color:var(--navy);white-space:pre-wrap}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:grid;gap:5px}.field.full{grid-column:1/-1}.field label{font-size:.8rem;font-weight:820}.field input,.field textarea{border:1px solid var(--line);border-radius:12px;padding:10px 11px;width:100%}
-.deliverables{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.deliverables div{background:white;border:1px solid var(--line);border-radius:17px;padding:17px}.deliverables b{display:block;margin-bottom:5px}.deliverables span{font-size:.83rem;color:var(--muted)}table{width:100%;border-collapse:collapse;background:white;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}th,td{padding:15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--navy);color:white}.resources{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.resource{background:white;border:1px solid var(--line);border-radius:18px;padding:19px;transition:.2s}.resource:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.resource i{font-style:normal;font-size:1.7rem}.resource b{display:block;margin-top:8px}.resource span{font-size:.83rem;color:var(--muted)}
-footer{background:#071b31;color:white;padding:42px 0}footer p{color:rgba(255,255,255,.7);max-width:760px}dialog{width:min(620px,calc(100% - 28px));border:0;border-radius:24px;padding:0;box-shadow:0 30px 90px rgba(0,0,0,.3)}dialog::backdrop{background:rgba(4,16,29,.72);backdrop-filter:blur(6px)}.modal{padding:27px}.modal-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.close{border:0;border-radius:11px;padding:8px 10px;background:var(--bg);cursor:pointer}.block{margin-top:14px;padding:15px;border-radius:15px;background:var(--bg)}.block b{display:block;margin-bottom:5px}
-@media(max-width:950px){.menu{display:none;position:absolute;left:16px;right:16px;top:72px;background:white;padding:18px;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start}.menu.open{display:flex}.toggle{display:block}.hero-grid,.two{grid-template-columns:1fr}.route{grid-template-columns:repeat(2,1fr)}.units,.weeks{grid-template-columns:repeat(2,1fr)}.deliverables,.resources{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){section{padding:60px 0}.hero{padding:62px 0}.route,.units,.weeks,.deliverables,.resources,.formgrid,.prices{grid-template-columns:1fr}.progress{align-items:flex-start;flex-direction:column}.track{width:100%}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Psicología del Consumidor y Marketing | Inicio</title>
+  <meta name="description" content="Página inicial del curso Psicología del Consumidor y Marketing, parte práctica.">
+  <style>
+    :root{
+      --bg:#f7f4ef;
+      --paper:#ffffff;
+      --ink:#1d2430;
+      --muted:#667084;
+      --line:#e7e1d8;
+      --navy:#12233d;
+      --gold:#c99442;
+      --soft-gold:#f5e8d1;
+      --teal:#2d7c78;
+      --shadow:0 18px 45px rgba(18,35,61,.08);
+      --radius:26px;
+      --radius-lg:34px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:var(--bg);
+      color:var(--ink);
+      line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1220px, calc(100% - 32px)); margin-inline:auto}
+    .topbar{
+      position:sticky; top:0; z-index:80;
+      background:rgba(247,244,239,.92);
+      backdrop-filter: blur(14px);
+      border-bottom:1px solid rgba(231,225,216,.95);
+    }
+    .nav{
+      min-height:80px;
+      display:flex; align-items:center; justify-content:space-between; gap:20px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+      font-weight:900; color:var(--navy);
+    }
+    .brand-mark{
+      width:48px; height:48px; border-radius:18px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg, var(--navy), #2e4f79);
+      color:#fff; box-shadow:var(--shadow);
+      font-size:1rem;
+    }
+    .brand small{
+      display:block; color:var(--muted); font-size:.72rem; font-weight:700;
+      letter-spacing:.04em;
+    }
+    .menu{
+      display:flex; align-items:center; gap:18px;
+      font-size:.92rem; font-weight:760;
+    }
+    .menu a{
+      padding:10px 0;
+      border-bottom:2px solid transparent;
+    }
+    .menu a:hover{color:var(--navy); border-color:var(--gold)}
+    .menu .cta{
+      padding:11px 16px; border-radius:14px;
+      background:var(--navy); color:white; border:0;
+    }
+    .menu-toggle{
+      display:none; border:0; background:white; box-shadow:var(--shadow);
+      width:46px; height:46px; border-radius:14px; cursor:pointer;
+      font-size:1.2rem;
+    }
+
+    .hero{
+      padding:48px 0 52px;
+    }
+    .hero-shell{
+      background:linear-gradient(135deg, #fffaf2, #ffffff);
+      border:1px solid var(--line);
+      border-radius:40px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid; grid-template-columns:1.05fr .95fr;
+      gap:0; align-items:stretch;
+    }
+    .hero-copy{
+      padding:64px 58px;
+      position:relative;
+    }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 14px; border-radius:999px;
+      background:var(--soft-gold);
+      color:#8a5c13; font-size:.8rem; font-weight:850; letter-spacing:.04em;
+    }
+    h1{
+      margin:20px 0 18px;
+      font-size:clamp(2.7rem, 6vw, 5.8rem);
+      line-height:.95;
+      letter-spacing:-.055em;
+      color:var(--navy);
+    }
+    .hero-copy .lead{
+      font-size:1.1rem; color:var(--muted); max-width:720px;
+      margin-bottom:28px;
+    }
+    .question-box{
+      display:grid; gap:12px; margin:22px 0 28px;
+    }
+    .question{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:14px 16px; border-radius:18px;
+      background:#fff; border:1px solid var(--line);
+    }
+    .bullet{
+      min-width:28px; height:28px; border-radius:50%;
+      display:grid; place-items:center;
+      background:var(--navy); color:white; font-size:.8rem; font-weight:900;
+      margin-top:2px;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:14px 18px; border-radius:16px; font-weight:850;
+      border:1px solid transparent;
+    }
+    .btn.primary{background:var(--gold); color:#2f2311}
+    .btn.secondary{background:white; border-color:var(--line); color:var(--navy)}
+    .hero-visual{
+      position:relative;
+      min-height:620px;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(201,148,66,.18), transparent 22%),
+        radial-gradient(circle at 18% 85%, rgba(45,124,120,.12), transparent 24%),
+        linear-gradient(180deg, #f5efe5, #ffffff);
+      padding:34px;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .photo-frame{
+      width:min(520px, 100%);
+      background:white;
+      border:1px solid var(--line);
+      border-radius:32px;
+      box-shadow:0 24px 60px rgba(18,35,61,.14);
+      overflow:hidden;
+    }
+    .photo-frame img{
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      object-position:center top;
+    }
+    .floating-card{
+      position:absolute;
+      right:26px; bottom:28px;
+      width:min(280px, calc(100% - 40px));
+      background:rgba(18,35,61,.96);
+      color:white;
+      border-radius:24px;
+      padding:20px 22px;
+      box-shadow:0 18px 40px rgba(18,35,61,.24);
+    }
+    .floating-card strong{
+      display:block; font-size:1.05rem; margin-bottom:8px;
+    }
+    .floating-card p{
+      margin:0; color:rgba(255,255,255,.78); font-size:.9rem;
+    }
+
+    section{padding:28px 0 74px}
+    .section-head{
+      max-width:840px; margin-bottom:28px;
+    }
+    .kicker{
+      color:#8a5c13; font-size:.78rem; font-weight:900;
+      text-transform:uppercase; letter-spacing:.08em;
+    }
+    h2{
+      margin:10px 0 12px;
+      font-size:clamp(2rem, 4vw, 3.2rem);
+      line-height:1.06; letter-spacing:-.04em;
+      color:var(--navy);
+    }
+    .section-head p{color:var(--muted); font-size:1.03rem}
+
+    .bio-layout{
+      display:grid; grid-template-columns:.82fr 1.18fr; gap:26px; align-items:start;
+    }
+    .bio-side, .bio-main, .card, .topics-grid article, .schedule-card, .notes-card{
+      background:var(--paper); border:1px solid var(--line);
+      border-radius:var(--radius); box-shadow:var(--shadow);
+    }
+    .bio-side{padding:22px}
+    .mini-photo{
+      border-radius:22px; overflow:hidden; margin-bottom:18px;
+      border:1px solid var(--line);
+    }
+    .mini-photo img{
+      aspect-ratio:4/5; object-fit:cover; object-position:center top;
+    }
+    .meta-list{display:grid; gap:10px}
+    .meta-item{
+      padding:12px 14px; border-radius:16px; background:#fcfaf7; border:1px solid var(--line);
+    }
+    .meta-item b{display:block; color:var(--navy); margin-bottom:2px}
+    .meta-item span{font-size:.88rem; color:var(--muted)}
+    .bio-main{padding:32px}
+    .bio-main h3{font-size:2rem; margin:0 0 6px; color:var(--navy)}
+    .role{
+      color:var(--teal); font-weight:850; margin-bottom:16px;
+    }
+    .bio-main p{color:var(--muted)}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+    .pill{
+      padding:10px 13px; border-radius:999px;
+      background:var(--soft-gold); color:#865710; font-size:.86rem; font-weight:780;
+    }
+    .contact-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+    .contact{
+      padding:11px 14px; border-radius:999px;
+      background:var(--navy); color:white; font-size:.88rem; font-weight:760;
+    }
+
+    .course-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+    }
+    .card{padding:26px}
+    .card .icon{
+      width:52px; height:52px; border-radius:18px;
+      display:grid; place-items:center;
+      background:var(--soft-gold); color:#8a5c13; font-size:1.35rem;
+      margin-bottom:14px;
+    }
+    .card h3{margin:0 0 8px}
+    .card p{margin:0; color:var(--muted)}
+
+    .topics-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    .topics-grid article{padding:18px}
+    .topics-grid b{display:block; color:var(--navy); margin-bottom:6px}
+    .topics-grid span{color:var(--muted); font-size:.88rem}
+
+    .schedule-layout{
+      display:grid; grid-template-columns:1fr .9fr; gap:24px; align-items:start;
+    }
+    .schedule-card{padding:28px}
+    .schedule-card h3, .notes-card h3{margin-top:0}
+    .schedule-options{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:18px;
+    }
+    .option{
+      padding:16px; border-radius:18px; background:#fcfaf7; border:1px solid var(--line);
+    }
+    .option b{display:block; color:var(--navy)}
+    .option span{font-size:.88rem; color:var(--muted)}
+    .form-placeholder{
+      margin-top:18px; padding:16px 18px;
+      border-radius:18px;
+      background:var(--soft-gold);
+      border:1px dashed #d7b176;
+      color:#775118;
+      font-weight:680;
+    }
+    .notes-card{
+      padding:28px; background:linear-gradient(180deg,#fffdf8,#fff7ea);
+    }
+    .notes-card ul{padding-left:20px; margin:0}
+    .notes-card li{margin:.55rem 0; color:#6a4b18}
+    .notes-card strong{color:#5a3d12}
+
+    footer{
+      background:var(--navy); color:white; padding:44px 0;
+    }
+    .footer-grid{
+      display:grid; grid-template-columns:1fr auto; gap:20px; align-items:end;
+    }
+    footer p{max-width:760px; color:rgba(255,255,255,.72)}
+
+    @media (max-width: 1024px){
+      .menu{
+        display:none; position:absolute; left:16px; right:16px; top:78px;
+        background:white; border:1px solid var(--line); border-radius:20px;
+        padding:18px; flex-direction:column; align-items:flex-start; box-shadow:var(--shadow);
+      }
+      .menu.open{display:flex}
+      .menu-toggle{display:block}
+      .hero-grid, .bio-layout, .schedule-layout{grid-template-columns:1fr}
+      .hero-visual{min-height:auto}
+      .floating-card{position:static; margin-top:18px}
+      .course-grid{grid-template-columns:repeat(2,1fr)}
+      .topics-grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width: 640px){
+      .hero-copy{padding:34px 24px}
+      .hero-visual{padding:18px}
+      section{padding:18px 0 58px}
+      .course-grid, .topics-grid, .schedule-options{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+
+    /* ===== VERSIÓN 3: PALETA JUVENIL Y ACADÉMICA ===== */
+    :root{
+      --bg:#f4f7ff;
+      --paper:#ffffff;
+      --ink:#17213d;
+      --muted:#5f6d89;
+      --line:#dfe6f4;
+      --navy:#111a3a;
+      --gold:#ffbf3f;
+      --soft-gold:#fff3c9;
+      --teal:#00a6a6;
+      --blue:#4f46e5;
+      --cyan:#06b6d4;
+      --coral:#ff6b6b;
+      --purple:#7c3aed;
+      --mint:#21c7a8;
+      --shadow:0 20px 55px rgba(45,55,120,.12);
+    }
+
+    body{
+      background:
+        radial-gradient(circle at 8% 8%, rgba(79,70,229,.08), transparent 20%),
+        radial-gradient(circle at 90% 16%, rgba(6,182,212,.08), transparent 22%),
+        linear-gradient(180deg,#f7f9ff 0%,#f4f7ff 48%,#fffaf2 100%);
+    }
+
+    .topbar{
+      background:rgba(255,255,255,.91);
+      border-bottom:1px solid rgba(79,70,229,.12);
+    }
+
+    .brand-mark{
+      background:linear-gradient(135deg,var(--blue),var(--purple) 58%,var(--cyan));
+      box-shadow:0 12px 28px rgba(79,70,229,.28);
+    }
+
+    .menu .cta{
+      background:linear-gradient(135deg,var(--coral),#ff8e53);
+      box-shadow:0 10px 24px rgba(255,107,107,.22);
+    }
+
+    .hero-shell{
+      position:relative;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(255,191,63,.22),transparent 24%),
+        radial-gradient(circle at 90% 15%,rgba(6,182,212,.16),transparent 24%),
+        linear-gradient(135deg,#fffdf8 0%,#ffffff 48%,#f1f3ff 100%);
+      border-color:rgba(79,70,229,.16);
+    }
+
+    .hero-shell::before{
+      content:"";
+      position:absolute;
+      width:220px;height:220px;
+      right:-90px;top:-100px;
+      border-radius:50%;
+      background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(6,182,212,.14));
+      filter:blur(2px);
+      pointer-events:none;
+    }
+
+    .hero-shell::after{
+      content:"";
+      position:absolute;
+      width:150px;height:150px;
+      left:-65px;bottom:-70px;
+      border-radius:44% 56% 63% 37%;
+      background:linear-gradient(135deg,rgba(255,107,107,.18),rgba(255,191,63,.2));
+      pointer-events:none;
+    }
+
+    .eyebrow{
+      background:linear-gradient(90deg,#fff0bf,#ffe2df);
+      color:#8a431c;
+      border:1px solid rgba(255,107,107,.16);
+    }
+
+    h1{
+      background:linear-gradient(115deg,var(--navy) 4%,var(--blue) 48%,var(--purple) 78%,var(--coral));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .question{
+      transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      border-left:5px solid var(--blue);
+    }
+    .question:nth-child(2){border-left-color:var(--coral)}
+    .question:nth-child(3){border-left-color:var(--mint)}
+    .question:hover{
+      transform:translateX(6px);
+      box-shadow:0 12px 28px rgba(79,70,229,.1);
+      border-color:rgba(79,70,229,.28);
+    }
+
+    .question:nth-child(1) .bullet{background:linear-gradient(135deg,var(--blue),var(--purple))}
+    .question:nth-child(2) .bullet{background:linear-gradient(135deg,var(--coral),#ff934f)}
+    .question:nth-child(3) .bullet{background:linear-gradient(135deg,var(--teal),var(--mint))}
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--gold),#ff9f43);
+      box-shadow:0 12px 28px rgba(255,159,67,.24);
+    }
+    .btn.secondary{
+      background:rgba(255,255,255,.9);
+      border-color:rgba(79,70,229,.18);
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn{transition:transform .2s ease,box-shadow .2s ease}
+
+    .hero-visual{
+      background:
+        radial-gradient(circle at 78% 15%,rgba(124,58,237,.17),transparent 24%),
+        radial-gradient(circle at 18% 85%,rgba(0,166,166,.15),transparent 26%),
+        linear-gradient(180deg,#f3f0ff,#eefbff 50%,#fff8ed);
+    }
+
+    .photo-frame{
+      border:3px solid rgba(255,255,255,.95);
+      box-shadow:
+        0 0 0 7px rgba(79,70,229,.11),
+        0 28px 70px rgba(31,41,105,.18);
+    }
+
+    .floating-card{
+      background:linear-gradient(145deg,var(--navy),#263c71);
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .kicker{
+      color:var(--purple);
+    }
+
+    .bio-side,.bio-main,.card,.topics-grid article,.schedule-card,.notes-card{
+      border-color:rgba(79,70,229,.12);
+    }
+
+    .role{
+      color:var(--blue);
+    }
+
+    .pill:nth-child(1),.pill:nth-child(5){background:#e8e7ff;color:#3f35c9}
+    .pill:nth-child(2),.pill:nth-child(6){background:#dff9f5;color:#087f73}
+    .pill:nth-child(3){background:#ffe7e7;color:#bf3f4d}
+    .pill:nth-child(4){background:#fff0c8;color:#8b5e00}
+
+    .contact{
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      box-shadow:0 9px 22px rgba(79,70,229,.18);
+    }
+    .contact:nth-child(2){
+      background:linear-gradient(135deg,#0077b5,var(--cyan));
+    }
+
+    .course-grid .card{
+      position:relative;overflow:hidden;
+      transition:transform .22s ease,box-shadow .22s ease;
+    }
+    .course-grid .card::after{
+      content:"";
+      position:absolute;right:-36px;bottom:-42px;
+      width:100px;height:100px;border-radius:50%;
+      opacity:.12;
+    }
+    .course-grid .card:nth-child(1){border-top:5px solid var(--blue)}
+    .course-grid .card:nth-child(2){border-top:5px solid var(--coral)}
+    .course-grid .card:nth-child(3){border-top:5px solid var(--mint)}
+    .course-grid .card:nth-child(1)::after{background:var(--blue)}
+    .course-grid .card:nth-child(2)::after{background:var(--coral)}
+    .course-grid .card:nth-child(3)::after{background:var(--mint)}
+    .course-grid .card:nth-child(1) .icon{background:#e8e7ff;color:var(--blue)}
+    .course-grid .card:nth-child(2) .icon{background:#ffe7e7;color:#cf4654}
+    .course-grid .card:nth-child(3) .icon{background:#ddfaf4;color:#078979}
+    .course-grid .card:hover{
+      transform:translateY(-7px);
+      box-shadow:0 22px 50px rgba(45,55,120,.14);
+    }
+
+    .topics-grid article{
+      position:relative;
+      overflow:hidden;
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .topics-grid article::before{
+      content:"";
+      position:absolute;left:0;top:0;bottom:0;width:5px;
+      background:var(--blue);
+    }
+    .topics-grid article:nth-child(2)::before{background:var(--coral)}
+    .topics-grid article:nth-child(3)::before{background:var(--purple)}
+    .topics-grid article:nth-child(4)::before{background:var(--mint)}
+    .topics-grid article:nth-child(5)::before{background:var(--gold)}
+    .topics-grid article:nth-child(6)::before{background:var(--cyan)}
+    .topics-grid article:nth-child(7)::before{background:#ff8e53}
+    .topics-grid article:nth-child(8)::before{background:var(--teal)}
+    .topics-grid article:hover{
+      transform:translateY(-5px);
+      box-shadow:0 16px 36px rgba(45,55,120,.12);
+    }
+
+    .schedule-card{
+      border-top:6px solid var(--blue);
+    }
+    .notes-card{
+      background:
+        radial-gradient(circle at 92% 8%,rgba(255,107,107,.11),transparent 25%),
+        linear-gradient(180deg,#fffef8,#fff4d8);
+      border-top:6px solid var(--gold);
+    }
+    .option{
+      transition:transform .2s ease,border-color .2s ease;
+    }
+    .option:nth-child(1){border-left:5px solid var(--blue)}
+    .option:nth-child(2){border-left:5px solid var(--coral)}
+    .option:nth-child(3){border-left:5px solid var(--mint)}
+    .option:nth-child(4){border-left:5px solid var(--purple)}
+    .option:hover{
+      transform:translateY(-3px);
+      border-color:rgba(79,70,229,.28);
+    }
+
+    .form-placeholder{
+      background:linear-gradient(90deg,#fff0bf,#ffe1df);
+      border-color:#f0b46c;
+    }
+
+    footer{
+      background:
+        radial-gradient(circle at 90% 20%,rgba(124,58,237,.28),transparent 25%),
+        linear-gradient(135deg,#111a3a,#253b73);
+    }
+
+  
+/* Storytelling docente */
+.story-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:26px;align-items:start}
+.story-profile,.story-content{background:#fff;border:1px solid rgba(79,70,229,.13);border-radius:30px;box-shadow:var(--shadow)}
+.story-profile{padding:20px;position:sticky;top:104px}
+.story-profile img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:23px;border:1px solid var(--line);margin-bottom:18px}
+.story-badge{display:inline-flex;padding:7px 11px;border-radius:999px;background:linear-gradient(90deg,#e7e7ff,#dff9f5);color:var(--blue);font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.story-profile h3{margin:12px 0 7px;color:var(--navy);font-size:1.8rem;line-height:1.05}
+.story-profile p{color:var(--muted)}
+.story-content{padding:34px}
+.story-quote{position:relative;padding:26px 28px 24px 68px;border-radius:24px;background:linear-gradient(135deg,#f1f0ff,#eefcff);border:1px solid rgba(79,70,229,.14);margin-bottom:28px}
+.story-quote span{position:absolute;left:22px;top:2px;font:5rem/1 Georgia,serif;color:var(--purple);opacity:.7}
+.story-quote p{margin:0;color:var(--navy);font-size:1.12rem;font-weight:720}
+.story-step{display:grid;grid-template-columns:54px 1fr;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}
+.story-step>b{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;box-shadow:0 10px 24px rgba(79,70,229,.18)}
+.story-step:nth-of-type(3)>b{background:linear-gradient(135deg,var(--coral),#ff9b4a)}
+.story-step:nth-of-type(4)>b{background:linear-gradient(135deg,var(--teal),var(--mint))}
+.story-step h3{margin:0 0 9px;color:var(--navy);font-size:1.35rem}
+.story-step p{color:var(--muted);margin:.55rem 0}
+.story-purpose{display:grid;grid-template-columns:58px 1fr;gap:18px;margin-top:28px;padding:24px;border-radius:24px;background:linear-gradient(135deg,#fff3c9,#ffe8df);border:1px solid rgba(255,159,67,.28)}
+.story-purpose>div{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;background:#fff;font-size:1.6rem;box-shadow:0 10px 24px rgba(255,159,67,.16)}
+.story-purpose section{padding:0}
+.story-purpose h3{margin:0 0 8px;color:#6b4310}
+.story-purpose p{margin:.45rem 0;color:#6e5432}
+.story-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.story-stats div{padding:16px;border-radius:18px;background:#f9faff;border:1px solid var(--line);text-align:center}
+.story-stats strong{display:block;font-size:1.28rem;color:var(--blue)}
+.story-stats span{color:var(--muted);font-size:.82rem}
+.anecdote-heading{margin:38px 0 20px;max-width:760px}
+.anecdote-heading h3{margin:8px 0 0;color:var(--navy);font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.1}
+.anecdotes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.anecdotes-grid article{position:relative;overflow:hidden;min-height:235px;padding:22px;border-radius:22px;background:#fff;border:1px solid rgba(79,70,229,.12);box-shadow:0 12px 32px rgba(45,55,120,.08);transition:.22s}
+.anecdotes-grid article::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--purple),var(--cyan),var(--coral))}
+.anecdotes-grid article:hover{transform:translateY(-6px);box-shadow:0 20px 46px rgba(45,55,120,.13)}
+.anecdotes-grid span{display:inline-flex;margin:4px 0 14px;font-size:.8rem;font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:.05em}
+.anecdotes-grid h4{margin:0 0 8px;color:var(--navy);font-size:1.15rem}
+.anecdotes-grid p{color:var(--muted);font-size:.92rem}
+.anecdotes-grid b{display:block;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);color:var(--teal);font-size:.84rem}
+@media(max-width:1024px){.story-layout{grid-template-columns:1fr}.story-profile{position:static}.anecdotes-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.story-content{padding:22px}.story-quote{padding:58px 20px 22px}.story-step,.story-purpose{grid-template-columns:1fr}.story-stats,.anecdotes-grid{grid-template-columns:1fr}}
+
+
+    /* ===== ORGANIZACIÓN DE GRUPOS Y HORARIOS ===== */
+    .group-explanation{
+      display:grid;
+      gap:5px;
+      margin:18px 0;
+      padding:16px 18px;
+      border-radius:18px;
+      background:linear-gradient(90deg,#eef0ff,#eafcff);
+      border:1px solid rgba(79,70,229,.16);
+    }
+    .group-explanation strong{
+      color:var(--blue);
+    }
+    .group-explanation span{
+      color:var(--muted);
+      font-size:.91rem;
+    }
+
+    .schedule-groups{
+      display:grid;
+      gap:12px;
+      margin:18px 0;
+    }
+
+    .day-group{
+      display:grid;
+      grid-template-columns:145px 1fr;
+      align-items:center;
+      gap:14px;
+      padding:14px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 8px 22px rgba(45,55,120,.055);
+    }
+
+    .day-label{
+      min-height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      color:#fff;
+      font-weight:900;
+      letter-spacing:.02em;
+    }
+
+    .day-group:nth-child(2) .day-label{
+      background:linear-gradient(135deg,var(--coral),#ff934f);
+    }
+
+    .day-group:nth-child(3) .day-label{
+      background:linear-gradient(135deg,var(--teal),var(--mint));
+    }
+
+    .day-group:nth-child(4) .day-label{
+      background:linear-gradient(135deg,var(--cyan),var(--blue));
+    }
+
+    .day-group.saturday .day-label{
+      background:linear-gradient(135deg,var(--gold),#ff9747);
+      color:#3e2b0e;
+    }
+
+    .time-choices{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+
+    .time-choices span{
+      display:grid;
+      place-items:center;
+      min-height:52px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:#f8f9ff;
+      border:1px solid rgba(79,70,229,.13);
+      color:var(--navy);
+      font-size:.9rem;
+      font-weight:800;
+      text-align:center;
+    }
+
+    .time-choices span::before{
+      content:"Horario posible";
+      display:block;
+      margin-bottom:2px;
+      color:var(--muted);
+      font-size:.68rem;
+      font-weight:760;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
+    @media(max-width:640px){
+      .day-group{
+        grid-template-columns:1fr;
+      }
+      .time-choices{
+        grid-template-columns:1fr;
+      }
+    }
+
+
+    .form-connected{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      background:
+        radial-gradient(circle at 92% 10%,rgba(124,58,237,.12),transparent 28%),
+        linear-gradient(90deg,#fff2bd,#ffe6df);
+    }
+    .form-connected div{display:grid;gap:4px}
+    .form-connected strong{color:#6d430d;font-size:1rem}
+    .form-connected span{color:#775628;font-size:.9rem;font-weight:650}
+    .form-button{
+      flex:0 0 auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:12px 17px;
+      border-radius:14px;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      color:#fff;
+      font-weight:900;
+      box-shadow:0 12px 26px rgba(79,70,229,.22);
+      transition:transform .2s ease,box-shadow .2s ease;
+    }
+    .form-button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 34px rgba(79,70,229,.28);
+    }
+    @media(max-width:720px){
+      .form-connected{align-items:stretch;flex-direction:column}
+      .form-button{width:100%}
+    }
+
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-<a class="brand" href="#inicio"><span class="logo">CL</span><span>ConsumerLab UAC<small>Psicología del Consumidor y Marketing</small></span></a>
-<button class="toggle" aria-label="Abrir menú">☰</button>
-<div class="menu"><a href="#ruta">Ruta</a><a href="#unidades">Unidades</a><a href="#semanas">Semanas</a><a href="#laboratorio">Laboratorio</a><a href="#proyecto">Proyecto</a><a href="#evaluacion">Evaluación</a><a href="#biblioteca">Biblioteca</a></div>
-</nav></div></header>
 
-<main>
-<section class="hero" id="inicio"><div class="wrap hero-grid">
-<div><span class="eyebrow">🧠 Curso experiencial · VIII ciclo · 2026-I</span><h1>Comprender para transformar.</h1>
-<p>Investiga cómo piensan, sienten y deciden los consumidores; convierte la evidencia en experiencias, estrategias y soluciones reales de marketing.</p>
-<div class="actions"><a class="btn primary" href="#semanas">Iniciar ruta de aprendizaje</a><a class="btn ghost" href="guia_curso_2026_I.pdf" target="_blank">Abrir guía oficial</a></div></div>
-<aside class="hero-card"><h2>Proyecto integrador</h2><p>Un proyecto evoluciona durante el semestre: investigación, perfil del consumidor, laboratorio conductual y estrategia digital.</p>
-<div class="metrics"><div class="metric"><strong>20</strong><span>semanas</span></div><div class="metric"><strong>3</strong><span>unidades</span></div><div class="metric"><strong>1</strong><span>empresa</span></div><div class="metric"><strong>12+</strong><span>entregables</span></div></div></aside>
-</div></section>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#inicio">
+        <span class="brand-mark">PCM</span>
+        <span>
+          Psicología del Consumidor
+          <small>Marketing · Parte práctica</small>
+        </span>
+      </a>
 
-<section id="ruta"><div class="wrap"><span class="kicker">Ruta de aprendizaje</span><h2>Del problema de consumo a una estrategia digital medible</h2><p class="intro">La plataforma acompaña al equipo desde la exploración inicial hasta la presentación ejecutiva.</p>
-<div class="route"><div><i>🔎</i><b>Explorar</b><span>Mercado y empresa.</span></div><div><i>📋</i><b>Investigar</b><span>Instrumentos y campo.</span></div><div><i>🧩</i><b>Interpretar</b><span>Datos y motivaciones.</span></div><div><i>🧪</i><b>Experimentar</b><span>Marca y percepción.</span></div><div><i>👤</i><b>Perfilar</b><span>Buyer persona.</span></div><div><i>📣</i><b>Diseñar</b><span>Web y contenidos.</span></div><div><i>📈</i><b>Optimizar</b><span>KPIs y mejora.</span></div></div>
-</div></section>
+      <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-<section id="unidades"><div class="wrap"><span class="kicker">Unidades</span><h2>Tres etapas, una experiencia profesional</h2><div class="units">
-<article class="unit"><span class="unit-num" style="background:var(--blue)">I</span><h3>Investigación de mercados</h3><p>Problema, fuentes, instrumentos y datos.</p><ul><li>Fuentes primarias y secundarias</li><li>Cuestionarios y validación</li><li>Trabajo de campo</li><li>Buyer persona inicial</li></ul></article>
-<article class="unit"><span class="unit-num" style="background:var(--teal)">II</span><h3>Comportamiento del consumidor</h3><p>Análisis psicológico y conductual.</p><ul><li>VALS, Big Five y COM-B</li><li>Motivaciones y observación</li><li>Laboratorio conductual</li><li>Buyer persona definitivo</li></ul></article>
-<article class="unit"><span class="unit-num" style="background:var(--orange);color:#2a1a08">III</span><h3>Marketing digital</h3><p>Aplicación de insights en canales digitales.</p><ul><li>Funnel y propuesta de valor</li><li>Página web y CTA</li><li>Customer Journey Map</li><li>Redes y KPIs</li></ul></article>
-</div></div></section>
+      <nav class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="ruta.html">Ruta de aprendizaje</a>
+        <a href="unidad-1.html">Unidad I</a>
+        <a href="unidad-2.html">Unidad II</a>
+        <a href="unidad-3.html">Unidad III</a>
+        <a href="proyecto.html">Proyecto integrador</a>
+        <a class="cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdRDJG8HTK8FQvaHQbhPfBh2oTIsBWms37Uo1OHoccdF-PCmw/viewform?usp=publish-editor" target="_blank" rel="noopener">Registrar horario</a>
+      </nav>
+    </div>
+  </header>
 
-<section id="semanas"><div class="wrap"><span class="kicker">Plan semestral</span><h2>Veinte semanas listas para organizar la experiencia</h2><p class="intro">Cada semana contiene propósito, experiencia práctica y entregable. El avance queda guardado en el navegador.</p>
-<div class="progress"><div><strong id="ptxt">0 de 20 semanas completadas</strong><br><small>Progreso local</small></div><div class="track"><div class="fill" id="pfill"></div></div><strong id="ppct">0%</strong></div>
-<div class="filters"><button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="1">Unidad I</button><button class="filter" data-filter="2">Unidad II</button><button class="filter" data-filter="3">Unidad III</button></div>
-<div class="weeks"><article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 01</span><b class="tag u1">Unidad I</b></div>
-<h3>Bienvenida y organización del trabajo</h3><p>Conocer la dinámica del curso, formar equipos y seleccionar una empresa o emprendimiento.</p>
-<button class="linkbtn" data-week="1">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="1"> Completada</label>
-</article>
-<article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 02</span><b class="tag u1">Unidad I</b></div>
-<h3>Guía y proyecto integrador</h3><p>Comprender resultados de aprendizaje, productos, criterios y ruta del semestre.</p>
-<button class="linkbtn" data-week="2">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="2"> Completada</label>
-</article>
-<article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 03</span><b class="tag u1">Unidad I</b></div>
-<h3>Naturaleza de la investigación de mercados</h3><p>Diferenciar fuentes, datos e investigación exploratoria y concluyente.</p>
-<button class="linkbtn" data-week="3">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="3"> Completada</label>
-</article>
-<article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 04</span><b class="tag u1">Unidad I</b></div>
-<h3>Problema, objetivos y diseño metodológico</h3><p>Delimitar un problema investigable y proponer objetivos coherentes.</p>
-<button class="linkbtn" data-week="4">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="4"> Completada</label>
-</article>
-<article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 05</span><b class="tag u1">Unidad I</b></div>
-<h3>Sistema de información y vínculo empresarial</h3><p>Organizar la investigación y establecer colaboración con la empresa.</p>
-<button class="linkbtn" data-week="5">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="5"> Completada</label>
-</article>
-<article class="week-card" data-unit="1">
-<div class="week-head"><span>Semana 06</span><b class="tag u1">Unidad I</b></div>
-<h3>Errores, escalas y cuestionarios</h3><p>Reconocer sesgos, elegir escalas y construir instrumentos válidos.</p>
-<button class="linkbtn" data-week="6">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="6"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 07</span><b class="tag u2">Unidad II</b></div>
-<h3>Enfoques para estudiar al consumidor</h3><p>Analizar el consumo desde perspectivas psicológicas, sociales y culturales.</p>
-<button class="linkbtn" data-week="7">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="7"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 08</span><b class="tag u2">Unidad II</b></div>
-<h3>VALS, Big Five y COM-B</h3><p>Integrar herramientas psicográficas y conductuales.</p>
-<button class="linkbtn" data-week="8">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="8"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 09</span><b class="tag u2">Unidad II</b></div>
-<h3>Laboratorio: marca, expectativa y percepción</h3><p>Examinar cómo la marca y la expectativa modifican la valoración.</p>
-<button class="linkbtn" data-week="9">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="9"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 10</span><b class="tag u2">Unidad II</b></div>
-<h3>Informe de trabajo de campo</h3><p>Interpretar resultados y comunicar hallazgos con claridad.</p>
-<button class="linkbtn" data-week="10">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="10"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 11</span><b class="tag u2">Unidad II</b></div>
-<h3>Integración de datos y buyer persona</h3><p>Cruzar datos cualitativos, cuantitativos, psicográficos y conductuales.</p>
-<button class="linkbtn" data-week="11">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="11"> Completada</label>
-</article>
-<article class="week-card" data-unit="2">
-<div class="week-head"><span>Semana 12</span><b class="tag u2">Unidad II</b></div>
-<h3>Cierre del segundo aporte</h3><p>Traducir hallazgos del consumidor en oportunidades de marketing.</p>
-<button class="linkbtn" data-week="12">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="12"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 13</span><b class="tag u3">Unidad III</b></div>
-<h3>Marketing digital y funnel</h3><p>Diseñar una estrategia digital conectada con el mercado meta.</p>
-<button class="linkbtn" data-week="13">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="13"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 14</span><b class="tag u3">Unidad III</b></div>
-<h3>Desarrollo web orientado a conversión</h3><p>Construir una web con propuesta de valor, CTA y formularios.</p>
-<button class="linkbtn" data-week="14">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="14"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 15</span><b class="tag u3">Unidad III</b></div>
-<h3>Customer Journey Map</h3><p>Representar fases, emociones, fricciones y oportunidades.</p>
-<button class="linkbtn" data-week="15">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="15"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 16</span><b class="tag u3">Unidad III</b></div>
-<h3>Estrategia digital y redes sociales</h3><p>Planificar contenidos, segmentación y campañas.</p>
-<button class="linkbtn" data-week="16">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="16"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 17</span><b class="tag u3">Unidad III</b></div>
-<h3>Métricas y optimización</h3><p>Interpretar alcance, CTR, CPC y conversión para decidir.</p>
-<button class="linkbtn" data-week="17">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="17"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 18</span><b class="tag u3">Unidad III</b></div>
-<h3>Presentación final</h3><p>Comunicar el proyecto de manera ejecutiva.</p>
-<button class="linkbtn" data-week="18">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="18"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 19</span><b class="tag u3">Unidad III</b></div>
-<h3>Retroalimentación y mejora</h3><p>Corregir debilidades y fortalecer la coherencia del proyecto.</p>
-<button class="linkbtn" data-week="19">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="19"> Completada</label>
-</article>
-<article class="week-card" data-unit="3">
-<div class="week-head"><span>Semana 20</span><b class="tag u3">Unidad III</b></div>
-<h3>Cierre y portafolio profesional</h3><p>Consolidar aprendizajes y convertir el proyecto en evidencia profesional.</p>
-<button class="linkbtn" data-week="20">Ver experiencia y entregable →</button>
-<label class="check"><input type="checkbox" class="week-check" data-id="20"> Completada</label>
-</article></div>
-<div class="note"><strong>Nota:</strong> las semanas 4, 11, 12, 19 y 20 completan vacíos observados en la programación de la guía y se presentan como propuesta docente ajustable.</div>
-</div></section>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Bienvenida al curso · Universidad Andina del Cusco</span>
+            <h1>Bienvenido a Psicología del Consumidor y Marketing</h1>
+            <p class="lead">
+              Parte práctica, donde podrás responder a cómo las grandes empresas logran posicionarse, cómo influyen en la mente del consumidor y cómo convierten necesidades, emociones y experiencias en decisiones de compra.
+            </p>
 
-<section id="laboratorio"><div class="wrap"><span class="kicker">Laboratorio del consumidor</span><h2>Aprender haciendo</h2><p class="intro">Prototipos para convertir conceptos psicológicos en experiencias de clase.</p>
-<div class="two">
-<article class="panel"><h3>Experimento de anclaje de precio</h3><p>Observa el precio inicial y estima cuánto pagarías por una alternativa similar.</p><div class="prices"><div class="price"><span>Producto premium</span><strong>S/ 899</strong><small>Ancla inicial</small></div><div class="price"><span>Alternativa</span><strong>¿?</strong><small>Tu valoración</small></div></div>
-<label>¿Cuánto pagarías? <b id="pricev">S/ 450</b></label><input id="range" type="range" min="100" max="900" step="10" value="450"><br><button class="btn dark" id="anchor">Interpretar</button><div class="result" id="anchorResult">Mueve el control y registra tu primera estimación.</div></article>
-<article class="panel"><h3>Constructor de buyer persona</h3><p>En el proyecto real, cada característica debe sustentarse en datos.</p><div class="formgrid"><div class="field"><label>Nombre simbólico</label><input id="pn" placeholder="Valeria emprendedora"></div><div class="field"><label>Edad / etapa</label><input id="pa" placeholder="27 años"></div><div class="field"><label>Motivación</label><input id="pm" placeholder="Crecer profesionalmente"></div><div class="field"><label>Fricción</label><input id="pf" placeholder="Poco tiempo"></div><div class="field full"><label>Conducta observable</label><textarea id="pb" rows="3" placeholder="Qué hace, busca, compara o evita"></textarea></div></div><br><button class="btn dark" id="makePersona">Generar ficha</button> <button class="btn" id="copyPersona">Copiar</button><div class="preview" id="personaPreview">La ficha aparecerá aquí.</div></article>
-</div></div></section>
+            <div class="question-box">
+              <div class="question">
+                <span class="bullet">1</span>
+                <div>¿Por qué elegimos una marca y no otra, incluso cuando existen opciones parecidas?</div>
+              </div>
+              <div class="question">
+                <span class="bullet">2</span>
+                <div>¿Cómo influyen el precio, el diseño, los colores y la comunicación en la percepción del valor?</div>
+              </div>
+              <div class="question">
+                <span class="bullet">3</span>
+                <div>¿Por qué algunas empresas construyen relaciones duraderas y logran una fuerte lealtad de sus consumidores?</div>
+              </div>
+            </div>
 
-<section id="proyecto"><div class="wrap"><span class="kicker">Proyecto integrador</span><h2>Un portafolio de competencias reales</h2><p class="intro">Los productos deben mostrar coherencia entre evidencia, comprensión del consumidor y estrategia.</p>
-<div class="deliverables"><div><b>01. Empresa y contexto</b><span>Situación, necesidad y vínculo.</span></div><div><b>02. Investigación</b><span>Problema, objetivos e instrumentos.</span></div><div><b>03. Base de datos</b><span>Codificación y análisis.</span></div><div><b>04. Hallazgos</b><span>Resultados cuantitativos y cualitativos.</span></div><div><b>05. Perfil psicográfico</b><span>VALS, Big Five y COM-B.</span></div><div><b>06. Laboratorio</b><span>Diseño, registro y conclusiones.</span></div><div><b>07. Buyer persona</b><span>Perfil definitivo sustentado.</span></div><div><b>08. Propuesta de valor</b><span>Problema, beneficio y diferenciación.</span></div><div><b>09. Funnel</b><span>Atracción, interés, decisión y acción.</span></div><div><b>10. Web</b><span>Contenido, CTA y formularios.</span></div><div><b>11. Customer Journey</b><span>Emociones, fricciones y mejoras.</span></div><div><b>12. Redes y métricas</b><span>Contenido, KPIs y optimización.</span></div></div>
-</div></section>
+            <div class="hero-actions">
+              <a class="btn primary" href="#docente">Conoce a tu docente</a>
+              <a class="btn secondary" href="#curso">Importancia del curso</a>
+              <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSdRDJG8HTK8FQvaHQbhPfBh2oTIsBWms37Uo1OHoccdF-PCmw/viewform?usp=publish-editor" target="_blank" rel="noopener">Selecciona horario</a>
+            </div>
+          </div>
 
-<section id="evaluacion"><div class="wrap"><span class="kicker">Evaluación</span><h2>Productos alineados con los resultados</h2><div style="overflow:auto"><table><thead><tr><th>Unidad</th><th>Productos</th><th>Peso</th></tr></thead><tbody><tr><td><b>Primera</b></td><td>Investigación mixta, fuentes, instrumentos, pruebas y buyer persona inicial.</td><td>50% + 50%</td></tr><tr><td><b>Segunda</b></td><td>Bitácora, resultados, laboratorio y buyer persona definitivo.</td><td>20% + 20% + 30% + 30%</td></tr><tr><td><b>Tercera</b></td><td>Página web, Customer Journey Map y redes sociales.</td><td>40% + 30% + 30%</td></tr></tbody></table></div></div></section>
+          <div class="hero-visual">
+            <div class="photo-frame">
+              <img src="assets/oswaldo_sardon_v2.png" alt="Fotografía de Oswaldo Sardon Morveli">
+            </div>
 
-<section id="biblioteca"><div class="wrap"><span class="kicker">Biblioteca</span><h2>Recursos centralizados</h2><p class="intro">Luego pueden reemplazarse por tus enlaces de Drive, Classroom, Forms, videos y presentaciones.</p><div class="resources"><a class="resource" href="guia_curso_2026_I.pdf" target="_blank"><i>📘</i><b>Guía oficial</b><span>Documento académico 2026-I.</span></a><a class="resource" href="#semanas"><i>🗓️</i><b>Plan semanal</b><span>Propósitos y entregables.</span></a><a class="resource" href="#laboratorio"><i>🧪</i><b>Laboratorios</b><span>Actividades interactivas.</span></a><a class="resource" href="#proyecto"><i>🗂️</i><b>Portafolio</b><span>Estructura del proyecto.</span></a></div></div></section>
-</main>
+            <div class="floating-card">
+              <strong>Experiencia aplicada</strong>
+              <p>Investigación de mercados, comportamiento del consumidor, buyer persona, customer journey y marketing digital en una experiencia práctica e integrada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer><div class="wrap"><b>ConsumerLab UAC</b><p>Plataforma base para Psicología del Consumidor y Marketing. Diseñada para organizar el semestre, acompañar el proyecto integrador y facilitar experiencias de aprendizaje.</p></div></footer>
+    
+<section id="docente">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Conoce a tu docente</span>
+      <h2>De Cusco al mundo, y de cada experiencia al aula</h2>
+      <p>Mi historia profesional comenzó con curiosidad, una computadora, LinkedIn y muchas ganas de conectar personas para crear algo valioso.</p>
+    </div>
 
-<dialog id="dlg"><div class="modal"><div class="modal-head"><div><span class="kicker" id="mw"></span><h2 id="mt"></h2></div><button class="close" id="close">✕</button></div><div class="block"><b>Propósito</b><span id="mg"></span></div><div class="block"><b>Experiencia</b><span id="me"></span></div><div class="block"><b>Entregable</b><span id="md"></span></div></div></dialog>
+    <div class="story-layout">
+      <aside class="story-profile">
+        <img src="assets/oswaldo_sardon_v2.png" alt="Oswaldo Sardon Morveli">
+        <span class="story-badge">Tu docente</span>
+        <h3>Oswaldo Sardon Morveli</h3>
+        <p>Psicólogo titulado y colegiado en Perú, especializado en psicología organizacional y recursos humanos.</p>
+        <div class="contact-row">
+          <a class="contact" href="mailto:oswaand1@gmail.com">✉️ Correo</a>
+          <a class="contact" href="https://www.linkedin.com/in/oswaldo-sardon-morveli/?skipRedirect=true" target="_blank" rel="noopener">in LinkedIn</a>
+        </div>
+      </aside>
 
-<script>
-const weeks=[{"n": 1, "unit": 1, "title": "Bienvenida y organización del trabajo", "goal": "Conocer la dinámica del curso, formar equipos y seleccionar una empresa o emprendimiento.", "experience": "Mapa de expectativas y presentación rápida de marcas que influyen en la vida cotidiana.", "deliverable": "Acta de equipo y ficha preliminar de empresa."}, {"n": 2, "unit": 1, "title": "Guía y proyecto integrador", "goal": "Comprender resultados de aprendizaje, productos, criterios y ruta del semestre.", "experience": "Explicar el proyecto completo en un mapa visual de una sola página.", "deliverable": "Acta de presentación de la guía y mapa de ruta."}, {"n": 3, "unit": 1, "title": "Naturaleza de la investigación de mercados", "goal": "Diferenciar fuentes, datos e investigación exploratoria y concluyente.", "experience": "Búsqueda guiada de tendencias locales en INEI, PromPerú y fuentes empresariales.", "deliverable": "Informe de fuentes secundarias y problemática de consumo."}, {"n": 4, "unit": 1, "title": "Problema, objetivos y diseño metodológico", "goal": "Delimitar un problema investigable y proponer objetivos coherentes.", "experience": "Clínica de problemas: transformar una preocupación empresarial en una pregunta de investigación.", "deliverable": "Matriz de consistencia inicial."}, {"n": 5, "unit": 1, "title": "Sistema de información y vínculo empresarial", "goal": "Organizar la investigación y establecer colaboración con la empresa.", "experience": "Simulación de entrevista inicial con el representante de la empresa.", "deliverable": "Carta de presentación y ficha de levantamiento."}, {"n": 6, "unit": 1, "title": "Errores, escalas y cuestionarios", "goal": "Reconocer sesgos, elegir escalas y construir instrumentos válidos.", "experience": "Taller de detección de preguntas inducidas, ambiguas o dobles.", "deliverable": "Cuestionario validado y protocolo de aplicación."}, {"n": 7, "unit": 2, "title": "Enfoques para estudiar al consumidor", "goal": "Analizar el consumo desde perspectivas psicológicas, sociales y culturales.", "experience": "Caso comparativo: una compra explicada desde tres enfoques.", "deliverable": "Matriz de análisis de caso."}, {"n": 8, "unit": 2, "title": "VALS, Big Five y COM-B", "goal": "Integrar herramientas psicográficas y conductuales.", "experience": "Aplicación demostrativa y discusión ética sobre el uso de perfiles.", "deliverable": "Perfil psicográfico preliminar."}, {"n": 9, "unit": 2, "title": "Laboratorio: marca, expectativa y percepción", "goal": "Examinar cómo la marca y la expectativa modifican la valoración.", "experience": "Experimento conductual con estímulos sensoriales y simbólicos.", "deliverable": "Registro de datos y hallazgos preliminares."}, {"n": 10, "unit": 2, "title": "Informe de trabajo de campo", "goal": "Interpretar resultados y comunicar hallazgos con claridad.", "experience": "Galería de resultados y retroalimentación entre equipos.", "deliverable": "Informe de laboratorio en portafolio virtual."}, {"n": 11, "unit": 2, "title": "Integración de datos y buyer persona", "goal": "Cruzar datos cualitativos, cuantitativos, psicográficos y conductuales.", "experience": "Cada rasgo del buyer persona debe tener una evidencia.", "deliverable": "Buyer persona definitivo sustentado."}, {"n": 12, "unit": 2, "title": "Cierre del segundo aporte", "goal": "Traducir hallazgos del consumidor en oportunidades de marketing.", "experience": "De insight a acción: recomendaciones concretas para la empresa.", "deliverable": "Resumen ejecutivo de insights."}, {"n": 13, "unit": 3, "title": "Marketing digital y funnel", "goal": "Diseñar una estrategia digital conectada con el mercado meta.", "experience": "Análisis de funnels de marcas locales y nacionales.", "deliverable": "Documento de estrategia digital."}, {"n": 14, "unit": 3, "title": "Desarrollo web orientado a conversión", "goal": "Construir una web con propuesta de valor, CTA y formularios.", "experience": "Auditoría rápida de sitios y rediseño de la primera pantalla.", "deliverable": "Primera versión funcional de la web."}, {"n": 15, "unit": 3, "title": "Customer Journey Map", "goal": "Representar fases, emociones, fricciones y oportunidades.", "experience": "Mapeo colaborativo del recorrido real de un cliente.", "deliverable": "Customer Journey Map sustentado."}, {"n": 16, "unit": 3, "title": "Estrategia digital y redes sociales", "goal": "Planificar contenidos, segmentación y campañas.", "experience": "Taller de contenido y simulación de campaña.", "deliverable": "Plan de publicaciones y prototipos."}, {"n": 17, "unit": 3, "title": "Métricas y optimización", "goal": "Interpretar alcance, CTR, CPC y conversión para decidir.", "experience": "Tablero de métricas con datos simulados.", "deliverable": "Reporte de KPIs y mejora."}, {"n": 18, "unit": 3, "title": "Presentación final", "goal": "Comunicar el proyecto de manera ejecutiva.", "experience": "Pitch final ante docentes, compañeros y empresa.", "deliverable": "Web, journey, redes y presentación."}, {"n": 19, "unit": 3, "title": "Retroalimentación y mejora", "goal": "Corregir debilidades y fortalecer la coherencia del proyecto.", "experience": "Sprint de mejora por estaciones.", "deliverable": "Versión corregida del proyecto."}, {"n": 20, "unit": 3, "title": "Cierre y portafolio profesional", "goal": "Consolidar aprendizajes y convertir el proyecto en evidencia profesional.", "experience": "Retrospectiva y presentación de portafolio.", "deliverable": "Portafolio final y reflexión individual."}];
-const menu=document.querySelector('.menu');document.querySelector('.toggle').onclick=()=>menu.classList.toggle('open');menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
-document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.week-card').forEach(c=>c.classList.toggle('hidden',b.dataset.filter!=='all'&&c.dataset.unit!==b.dataset.filter));});
-const checks=[...document.querySelectorAll('.week-check')],saved=JSON.parse(localStorage.getItem('consumerlab-progress')||'[]');
-const progressText=document.getElementById('ptxt'),progressPercent=document.getElementById('ppct'),progressFill=document.getElementById('pfill');
-checks.forEach(c=>{c.checked=saved.includes(+c.dataset.id);c.onchange=progress});
-function progress(){const d=checks.filter(c=>c.checked).map(c=>+c.dataset.id);localStorage.setItem('consumerlab-progress',JSON.stringify(d));const pct=Math.round(d.length/20*100);progressText.textContent=`${d.length} de 20 semanas completadas`;progressPercent.textContent=pct+'%';progressFill.style.width=pct+'%'}progress();
-const dlg=document.getElementById('dlg'),modalWeek=document.getElementById('mw'),modalTitle=document.getElementById('mt'),modalGoal=document.getElementById('mg'),modalExperience=document.getElementById('me'),modalDeliverable=document.getElementById('md');
-document.querySelectorAll('[data-week]').forEach(b=>b.onclick=()=>{const w=weeks.find(x=>x.n===+b.dataset.week);modalWeek.textContent=`Semana ${String(w.n).padStart(2,'0')} · Unidad ${['I','II','III'][w.unit-1]}`;modalTitle.textContent=w.title;modalGoal.textContent=w.goal;modalExperience.textContent=w.experience;modalDeliverable.textContent=w.deliverable;dlg.showModal()});
-document.getElementById('close').onclick=()=>dlg.close();
-const rangeEl=document.getElementById('range'),priceValue=document.getElementById('pricev'),anchorButton=document.getElementById('anchor'),anchorResultEl=document.getElementById('anchorResult');
-rangeEl.oninput=()=>priceValue.textContent='S/ '+rangeEl.value;
-anchorButton.onclick=()=>{const v=+rangeEl.value;anchorResultEl.textContent=v>=600?'Tu valoración quedó relativamente cerca del ancla. Para demostrar un efecto se necesitan grupos de comparación.':v>=350?'Tu respuesta quedó en una zona intermedia. En un experimento real se compararían condiciones distintas.':'Tu estimación se alejó del ancla; esto también es un resultado posible y debe analizarse con datos grupales.'};
-const pnEl=document.getElementById('pn'),paEl=document.getElementById('pa'),pmEl=document.getElementById('pm'),pfEl=document.getElementById('pf'),pbEl=document.getElementById('pb'),personaPreviewEl=document.getElementById('personaPreview');
-function ptxt2(){return `BUYER PERSONA PRELIMINAR\n\nNombre: ${pnEl.value||'Sin dato'}\nEdad/etapa: ${paEl.value||'Sin dato'}\nMotivación: ${pmEl.value||'Sin dato'}\nFricción: ${pfEl.value||'Sin dato'}\nConducta observable: ${pbEl.value||'Sin dato'}\n\nEvidencia pendiente: vincular cada afirmación con encuesta, entrevista, observación o laboratorio.`}
-document.getElementById('makePersona').onclick=()=>personaPreviewEl.textContent=ptxt2();
-document.getElementById('copyPersona').onclick=async()=>{const t=ptxt2();try{await navigator.clipboard.writeText(t);personaPreviewEl.textContent=t+'\n\n✓ Copiado.'}catch{personaPreviewEl.textContent=t}};
-</script>
-</body></html>
+      <article class="story-content">
+        <div class="story-quote">
+          <span>“</span>
+          <p>Todo comenzó en Cusco, frente a una pantalla y con una pregunta sencilla: ¿hasta dónde puede llegar una idea cuando conecta a las personas correctas? Esa curiosidad me llevó a construir redes, organizar eventos internacionales y descubrir que cada cultura, cada equipo y cada imprevisto puede convertirse en una lección. Hoy llevo esas experiencias al aula con un propósito claro: que aprender no sea solamente comprender un concepto, sino ampliar la mirada, cuestionar lo evidente y convertir el conocimiento en acción.</p>
+        </div>
+
+        <div class="story-step">
+          <b>01</b>
+          <div>
+            <h3>Cuando una red de contactos se convirtió en una puerta al mundo</h3>
+            <p>Las primeras organizaciones internacionales las construimos desde Cusco. A través de LinkedIn conocimos profesionales de otros países y, con el tiempo, esas conversaciones se transformaron en equipos, alianzas y grandes eventos de recursos humanos.</p>
+            <p>Así tuve la oportunidad de organizar y vivir experiencias en Argentina, Colombia, México, España, Chile y Perú. Cada país amplió mi perspectiva sobre el talento, el trabajo, la cultura y la forma en que las personas se relacionan con las organizaciones y el mercado.</p>
+          </div>
+        </div>
+
+        <div class="story-step">
+          <b>02</b>
+          <div>
+            <h3>Más de 700 personas conectadas por una misma idea</h3>
+            <p>Dirigí el programa <strong>Humanos con Recursos</strong>, conectando a más de 700 profesionales y estudiantes de Latinoamérica y España. Aprendí que una buena idea puede crecer cuando encuentra personas dispuestas a compartir, colaborar y aprender juntas.</p>
+            <p>También participé como voluntario en Crea+, acompañando procesos educativos y de desarrollo personal. Esa etapa reafirmó una idea que sigue guiando mi manera de enseñar: el conocimiento cobra sentido cuando ayuda a alguien a avanzar.</p>
+          </div>
+        </div>
+
+        <div class="story-step">
+          <b>03</b>
+          <div>
+            <h3>Las experiencias que no aparecen en el itinerario</h3>
+            <p>Los viajes estuvieron llenos de imprevistos: en Argentina mi laptop dejó de funcionar justo cuando contenía el registro de asistentes y las diapositivas; al regresar a Cusco, encendió como si nada y continúa funcionando hasta hoy.</p>
+            <p>En México se inundó la casa donde nos hospedábamos; en Chile descubrimos una cama sostenida con triplay; en Colombia nos robaron varias laptops —la mía, por fortuna, sobrevivió—; y en España conocimos una exposición sobre el futuro con propuestas de carros voladores.</p>
+            <p>También aprendí que una palabra amistosa en un país puede interpretarse de manera distinta en otra cultura. Eso me enseñó a observar, escuchar y no asumir que todos entendemos el mundo de la misma manera.</p>
+          </div>
+        </div>
+
+        <div class="story-purpose">
+          <div>💡</div>
+          <section>
+            <h3>¿Qué tiene que ver todo esto con el curso?</h3>
+            <p>Mucho. La psicología del consumidor nos invita a mirar más allá de lo evidente: comprender contextos, emociones, culturas, decisiones y formas distintas de percibir una misma realidad.</p>
+            <p>Actualmente me desempeño como docente universitario en Psicología del Consumidor y Marketing, integrando teoría y práctica para analizar cómo las personas se relacionan con el mercado, las organizaciones y la sociedad.</p>
+            <p><strong>Creo firmemente en el aprendizaje continuo y en la acción con valores como motores de transformación personal y social.</strong> Esa será también la esencia de nuestras sesiones.</p>
+          </section>
+        </div>
+
+        <div class="story-stats">
+          <div><strong>6 países</strong><span>Experiencias internacionales</span></div>
+          <div><strong>700+</strong><span>Personas conectadas</span></div>
+          <div><strong>1 propósito</strong><span>Aprender para transformar</span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="anecdote-heading">
+      <span class="kicker">Historias que dejaron aprendizajes</span>
+      <h3>Porque detrás de cada evento también hubo una aventura</h3>
+    </div>
+
+    <div class="anecdotes-grid">
+      <article><span>🇦🇷 Argentina</span><h4>La laptop que decidió descansar</h4><p>Se apagó justo cuando más la necesitábamos y volvió a funcionar al regresar a Cusco.</p><b>Siempre tener un plan B.</b></article>
+      <article><span>🇲🇽 México</span><h4>Una casa inundada</h4><p>El alojamiento se inundó, pero el equipo siguió organizándose y resolviendo.</p><b>Adaptarse sin perder el objetivo.</b></article>
+      <article><span>🇨🇴 Colombia</span><h4>Un viaje que puso a prueba al equipo</h4><p>Nos robaron varias laptops; la mía se salvó y aún sigue acompañándome.</p><b>Cuidar los recursos y mantener la calma.</b></article>
+      <article><span>🇪🇸 España</span><h4>Una mirada al futuro</h4><p>Conocimos propuestas sobre carros voladores y nuevas formas de movilidad.</p><b>El futuro comienza con curiosidad.</b></article>
+      <article><span>🇨🇱 Chile</span><h4>La cama de triplay</h4><p>Una anécdota sencilla que terminó siendo parte de los recuerdos más comentados.</p><b>Saber reírse también une.</b></article>
+      <article><span>🌍 Diversidad cultural</span><h4>Una palabra no significa lo mismo en todas partes</h4><p>Un amigo me explicó que una forma de llamarlo podía resultar despectiva en su cultura.</p><b>Escuchar antes de asumir.</b></article>
+    </div>
+  </div>
+</section>
+
+
+    <section id="curso">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Importancia del curso</span>
+          <h2>¿Por qué es importante comprender al consumidor?</h2>
+          <p>
+            Porque las decisiones de compra no son solamente económicas. En ellas intervienen la percepción, la memoria, la motivación, las emociones, la personalidad, el entorno social y la cultura.
+          </p>
+        </div>
+
+        <div class="course-grid">
+          <article class="card">
+            <div class="icon">🔎</div>
+            <h3>Investigar</h3>
+            <p>Identificar necesidades, comportamientos, expectativas y problemas mediante técnicas cuantitativas y cualitativas.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🧠</div>
+            <h3>Comprender</h3>
+            <p>Interpretar cómo los factores psicológicos y sociales influyen en la manera en que las personas eligen productos, servicios y marcas.</p>
+          </article>
+          <article class="card">
+            <div class="icon">🚀</div>
+            <h3>Transformar</h3>
+            <p>Convertir los hallazgos obtenidos en perfiles de consumidor, experiencias, contenidos, páginas web y estrategias de marketing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="temas">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Lo que veremos</span>
+          <h2>Enlaces y contenidos que construiremos durante el semestre</h2>
+          <p>Estas serán las grandes líneas de trabajo que luego se desarrollarán en las demás páginas del sitio.</p>
+        </div>
+
+        <div class="topics-grid">
+          <article><b>Investigación de mercados</b><span>Problema, objetivos, métodos, instrumentos y trabajo de campo.</span></article>
+          <article><b>Comportamiento del consumidor</b><span>Percepción, motivación, actitudes, influencia social y cultura.</span></article>
+          <article><b>Perfil psicográfico</b><span>Buyer persona, estilos de vida y comprensión del usuario.</span></article>
+          <article><b>Laboratorio conductual</b><span>Experimentos y observación de respuestas del consumidor.</span></article>
+          <article><b>Posicionamiento de marca</b><span>Cómo una empresa construye presencia y significado en la mente del consumidor.</span></article>
+          <article><b>Customer Journey</b><span>Puntos de contacto, emociones, fricciones y oportunidades.</span></article>
+          <article><b>Página web</b><span>Diseño de espacios digitales orientados a la experiencia y la conversión.</span></article>
+          <article><b>Marketing digital</b><span>Redes sociales, contenidos, indicadores y mejora de la estrategia.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="horarios">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Selección de horario</span>
+          <h2>Horario tentativo para las sesiones prácticas</h2>
+          <p>
+            La elección del horario servirá como referencia para organizar las sesiones. Se tomará en cuenta la mayor cantidad de respuestas y la disponibilidad académica general.
+          </p>
+        </div>
+
+        <div class="schedule-layout">
+          <article class="schedule-card">
+            <h3>Posibles grupos y horarios</h3>
+            <p>
+              Cada alternativa representa un <strong>grupo distinto</strong>. Cada grupo tendrá una sola sesión semanal de
+              <strong>3 horas</strong> y se tomará asistencia en todas las sesiones.
+            </p>
+
+            <div class="group-explanation">
+              <strong>¿Cómo se organizará?</strong>
+              <span>
+                Por ejemplo, el grupo del lunes podrá quedar de 3:00 p. m. a 6:00 p. m. o de 4:00 p. m. a 7:00 p. m.;
+                no se realizarán ambos horarios el mismo lunes. Lo mismo se aplicará para martes, miércoles, jueves y sábado.
+              </span>
+            </div>
+
+            <div class="schedule-groups">
+              <article class="day-group">
+                <div class="day-label">Lunes</div>
+                <div class="time-choices">
+                  <span>3:00 p. m. – 6:00 p. m.</span>
+                  <span>4:00 p. m. – 7:00 p. m.</span>
+                </div>
+              </article>
+
+              <article class="day-group">
+                <div class="day-label">Martes</div>
+                <div class="time-choices">
+                  <span>3:00 p. m. – 6:00 p. m.</span>
+                  <span>4:00 p. m. – 7:00 p. m.</span>
+                </div>
+              </article>
+
+              <article class="day-group">
+                <div class="day-label">Miércoles</div>
+                <div class="time-choices">
+                  <span>3:00 p. m. – 6:00 p. m.</span>
+                  <span>4:00 p. m. – 7:00 p. m.</span>
+                </div>
+              </article>
+
+              <article class="day-group">
+                <div class="day-label">Jueves</div>
+                <div class="time-choices">
+                  <span>3:00 p. m. – 6:00 p. m.</span>
+                  <span>4:00 p. m. – 7:00 p. m.</span>
+                </div>
+              </article>
+
+              <article class="day-group saturday">
+                <div class="day-label">Sábado</div>
+                <div class="time-choices">
+                  <span>8:00 a. m. – 11:00 a. m.</span>
+                  <span>9:00 a. m. – 12:00 m.</span>
+                </div>
+              </article>
+            </div>
+
+            <div class="form-placeholder form-connected">
+              <div>
+                <strong>Formulario disponible</strong>
+                <span>
+                  Cada estudiante deberá seleccionar el día y horario en el que tendría mayor disponibilidad.
+                  La respuesta servirá para conformar los grupos tentativos según la mayor cantidad de preferencias.
+                </span>
+              </div>
+              <a class="form-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdRDJG8HTK8FQvaHQbhPfBh2oTIsBWms37Uo1OHoccdF-PCmw/viewform?usp=publish-editor" target="_blank" rel="noopener">
+                Registrar mi disponibilidad →
+              </a>
+            </div>
+          </article>
+
+          <aside class="notes-card">
+            <h3>Indicaciones importantes</h3>
+            <ul>
+              <li><strong>Cada estudiante podrá enviar solo una respuesta</strong> usando su correo.</li>
+              <li>Deberá seleccionar el <strong>grupo, día y franja horaria</strong> en la que tendría mayor disponibilidad.</li>
+              <li>Cada día tendrá como máximo <strong>un solo grupo de 3 horas</strong>; el horario de ese grupo podrá variar según las respuestas.</li>
+              <li>La respuesta será <strong>tentativa</strong> y no implica que ese horario se respetará al 100%.</li>
+              <li>La conformación final de grupos se decidirá <strong>según la mayor cantidad de preferencias</strong> y la organización académica.</li>
+              <li>El horario definitivo será comunicado posteriormente por los canales oficiales.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong>Psicología del Consumidor y Marketing · Parte práctica</strong>
+        <p>Versión 7 de la página de inicio. Integra el formulario oficial para registrar la disponibilidad horaria de los estudiantes.</p>
+      </div>
+      <a class="btn secondary" href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => menu.classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
