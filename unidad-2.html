@@ -231,6 +231,24 @@
 @media(max-width:1180px){.bp-final-wrap{grid-template-columns:1fr}.bp-final-form{position:static}.bp-preview-shell{max-width:100%}}
 @media(max-width:660px){.bp-form-grid{grid-template-columns:1fr}}
 
+
+.bp-approved-layout{display:grid;grid-template-columns:minmax(330px,.72fr) minmax(780px,1.55fr);gap:24px;align-items:start}
+.bp-approved-form{padding:26px;border-radius:26px;background:#fff;border:1px solid rgba(37,99,235,.14);box-shadow:var(--shadow);position:sticky;top:100px}
+.bp-approved-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bp-field{display:grid;gap:6px}.bp-field.full{grid-column:1/-1}.bp-field label{font-size:.79rem;font-weight:850;color:var(--navy)}
+.bp-field input,.bp-field textarea,.bp-field select{width:100%;padding:10px 11px;border-radius:12px;border:1px solid var(--line);background:#fbfcff}
+.bp-field textarea{min-height:68px;resize:vertical}.bp-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.bp-approved-preview{overflow:auto;padding:8px 4px 24px}
+.bp-approved-card{position:relative;width:1228px;aspect-ratio:3/2;border-radius:18px;overflow:hidden;box-shadow:0 20px 45px rgba(31,66,140,.16);background:#fff}
+.bp-approved-card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bp-text{position:absolute;color:#0a2a63;font-size:13px;line-height:1.32;white-space:pre-wrap;overflow:hidden}
+.bp-text.white{color:#fff}.bp-text.center{text-align:center}
+.bp-avatar{position:absolute;display:grid;place-items:center;border-radius:50%;overflow:hidden}
+.bp-avatar.a-main{left:6.2%;top:18.8%;width:12.2%;height:18.2%;font-size:58px}
+.bp-avatar.a-small{left:83.2%;top:81.1%;width:8.5%;height:12.6%;font-size:42px}
+@media(max-width:1180px){.bp-approved-layout{grid-template-columns:1fr}.bp-approved-form{position:static}}
+@media(max-width:660px){.bp-approved-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -396,103 +414,78 @@
 
   
 
+
 <section id="buyer">
-  <div class="container">
-    <div class="section-head">
-      <span class="kicker">Generador final de buyer persona</span>
-      <h2>Completa el formulario y descarga la plantilla terminada</h2>
-      <p>Los datos se colocan automáticamente en el modelo visual de la Unidad II. El resultado puede descargarse como PNG.</p>
-    </div>
+<div class="container">
+  <div class="section-head">
+    <span class="kicker">Generador de buyer persona</span>
+    <h2>Completa el formulario y descarga el diseño aprobado</h2>
+    <p>La vista previa utiliza exactamente la plantilla visual aprobada.</p>
+  </div>
 
-    <div class="bp-final-wrap">
-      <article class="bp-final-form">
-        <div class="bp-form-grid">
-          <div class="bp-field"><label>Nombre ficticio</label><input id="bpName" placeholder="Ej.: Valeria"></div>
-          <div class="bp-field"><label>Edad</label><input id="bpAge" placeholder="Ej.: 22 años"></div>
-          <div class="bp-field"><label>Ocupación</label><input id="bpOccupation" placeholder="Ej.: estudiante y trabajadora"></div>
-          <div class="bp-field"><label>Contexto o entorno</label><input id="bpLocation" placeholder="Ej.: Cusco urbano"></div>
-          <div class="bp-field"><label>Estado civil</label><input id="bpCivil" placeholder="Ej.: soltera"></div>
-          <div class="bp-field"><label>Nivel educativo</label><input id="bpEducation" placeholder="Ej.: universitario"></div>
-          <div class="bp-field"><label>Avatar</label>
-            <select id="bpAvatar">
-              <option value="👩🏻‍💼">Profesional</option><option value="👨🏽‍🎓">Estudiante</option>
-              <option value="👩🏽‍💻">Digital</option><option value="🧑🏻‍🎨">Creativo/a</option>
-              <option value="👨🏽‍🔬">Analítico/a</option><option value="👩🏻‍🚀">Innovador/a</option>
-            </select>
-          </div>
-          <div class="bp-field"><label>Fecha</label><input id="bpDate" type="date"></div>
-          <div class="bp-field full"><label>Frase representativa</label><textarea id="bpPhrase"></textarea></div>
-          <div class="bp-field full"><label>Personalidad, carácter y valores</label><textarea id="bpPersonality"></textarea></div>
-          <div class="bp-field full"><label>Objetivo principal</label><textarea id="bpGoal"></textarea></div>
-          <div class="bp-field full"><label>Necesidades</label><textarea id="bpNeeds"></textarea></div>
-          <div class="bp-field full"><label>Frustraciones o puntos de dolor</label><textarea id="bpPains"></textarea></div>
-          <div class="bp-field full"><label>Motivaciones</label><textarea id="bpMotivations"></textarea></div>
-          <div class="bp-field full"><label>Rutina y hábitos</label><textarea id="bpHabits"></textarea></div>
-          <div class="bp-field full"><label>Tiempo libre</label><textarea id="bpLeisure"></textarea></div>
-          <div class="bp-field full"><label>Canales y medios</label><textarea id="bpChannels"></textarea></div>
-          <div class="bp-field full"><label>Insight principal</label><textarea id="bpInsight"></textarea></div>
-          <div class="bp-field full"><label>Relación con la marca</label><textarea id="bpBrand"></textarea></div>
-          <div class="bp-field full"><label>Mensaje clave para conectar</label><textarea id="bpMessage"></textarea></div>
+  <div class="bp-approved-layout">
+    <article class="bp-approved-form">
+      <div class="bp-approved-grid">
+        <div class="bp-field"><label>Nombre ficticio</label><input id="bpName"></div>
+        <div class="bp-field"><label>Edad</label><input id="bpAge"></div>
+        <div class="bp-field"><label>Ocupación</label><input id="bpOccupation"></div>
+        <div class="bp-field"><label>Contexto / entorno</label><input id="bpLocation"></div>
+        <div class="bp-field"><label>Estado civil</label><input id="bpCivil"></div>
+        <div class="bp-field"><label>Nivel educativo</label><input id="bpEducation"></div>
+        <div class="bp-field"><label>Avatar</label>
+          <select id="bpAvatar"><option>👩🏻‍💼</option><option>👨🏽‍🎓</option><option>👩🏽‍💻</option><option>🧑🏻‍🎨</option><option>👨🏽‍🔬</option><option>👩🏻‍🚀</option></select>
         </div>
-        <div class="bp-download-row">
-          <button class="btn primary" id="generateBuyer" type="button">Actualizar plantilla</button>
-          <button class="btn secondary" id="downloadBuyer" type="button">Descargar PNG</button>
-          <button class="btn secondary" id="clearBuyer" type="button">Limpiar</button>
-        </div>
-        <p class="bp-privacy">La información permanece en el navegador y no se envía a un servidor.</p>
-      </article>
+        <div class="bp-field"><label>Fecha</label><input id="bpDate" type="date"></div>
+        <div class="bp-field full"><label>Frase representativa</label><textarea id="bpPhrase"></textarea></div>
+        <div class="bp-field full"><label>Personalidad</label><textarea id="bpPersonality"></textarea></div>
+        <div class="bp-field full"><label>Objetivo principal</label><textarea id="bpGoal"></textarea></div>
+        <div class="bp-field full"><label>Necesidades</label><textarea id="bpNeeds"></textarea></div>
+        <div class="bp-field full"><label>Frustraciones / puntos de dolor</label><textarea id="bpPains"></textarea></div>
+        <div class="bp-field full"><label>Motivaciones</label><textarea id="bpMotivations"></textarea></div>
+        <div class="bp-field full"><label>Hábitos y comportamiento</label><textarea id="bpHabits"></textarea></div>
+        <div class="bp-field full"><label>Tiempo libre</label><textarea id="bpLeisure"></textarea></div>
+        <div class="bp-field full"><label>Canales y medios</label><textarea id="bpChannels"></textarea></div>
+        <div class="bp-field full"><label>Insight principal</label><textarea id="bpInsight"></textarea></div>
+        <div class="bp-field full"><label>Relación con tu marca</label><textarea id="bpBrand"></textarea></div>
+        <div class="bp-field full"><label>Mensaje clave para conectar</label><textarea id="bpMessage"></textarea></div>
+      </div>
+      <div class="bp-actions">
+        <button class="btn primary" id="generateBuyer" type="button">Actualizar plantilla</button>
+        <button class="btn secondary" id="downloadBuyer" type="button">Descargar PNG</button>
+        <button class="btn secondary" id="clearBuyer" type="button">Limpiar</button>
+      </div>
+    </article>
 
-      <div class="bp-preview-shell">
-        <div class="bp-sheet" id="buyerCard">
-          <header class="bp-sheet-header">
-            <div class="bp-uac"><span class="bp-eagle">🦅</span><b>Universidad<br>Andina<br>del Cusco</b></div>
-            <div class="bp-title"><h3>BUYER PERSONA</h3><small>CONOCE A TU USUARIO. CONECTA, COMPRENDE Y CREA VALOR.</small></div>
-            <div class="bp-course"><span class="bp-unit">UNIDAD II</span>Psicología del Consumidor y Marketing</div>
-          </header>
+    <div class="bp-approved-preview">
+      <div class="bp-approved-card" id="buyerCard">
+        <img src="assets/buyer-persona-template.png" alt="Plantilla Buyer Persona aprobada">
+        <div class="bp-avatar a-main" id="bpPreviewAvatar">👩🏻‍💼</div>
+        <div class="bp-avatar a-small" id="bpPreviewAvatarSmall">👩🏻‍💼</div>
 
-          <div class="bp-sheet-grid">
-            <aside class="bp-profile">
-              <div class="bp-band">PERFIL GENERAL</div>
-              <div class="bp-photo" id="bpPreviewAvatar">👩🏻‍💼</div>
-              <div class="bp-mini"><b>NOMBRE FICTICIO</b><span id="bpPreviewName">Nombre ficticio</span></div>
-              <div class="bp-mini"><b>EDAD</b><span id="bpPreviewAge">Edad</span></div>
-              <div class="bp-mini"><b>OCUPACIÓN</b><span id="bpPreviewOccupation">Ocupación</span></div>
-              <div class="bp-mini"><b>CONTEXTO / ENTORNO</b><span id="bpPreviewLocation">Contexto</span></div>
-              <div class="bp-mini"><b>ESTADO CIVIL</b><span id="bpPreviewCivil">Estado civil</span></div>
-              <div class="bp-mini"><b>NIVEL EDUCATIVO</b><span id="bpPreviewEducation">Nivel educativo</span></div>
-              <div class="bp-quote" id="bpPreviewPhrase">“Frase que lo representa o que podría decir.”</div>
-            </aside>
+        <div class="bp-text" id="bpPreviewName" style="left:5.3%;top:36.6%;width:13%;height:3.5%">Nombre ficticio</div>
+        <div class="bp-text" id="bpPreviewAge" style="left:5.3%;top:42.9%;width:13%;height:3.5%">Edad</div>
+        <div class="bp-text" id="bpPreviewOccupation" style="left:5.3%;top:49.1%;width:13%;height:3.5%">Ocupación</div>
+        <div class="bp-text" id="bpPreviewLocation" style="left:5.3%;top:55.2%;width:13%;height:3.5%">Contexto</div>
+        <div class="bp-text" id="bpPreviewCivil" style="left:5.3%;top:61.3%;width:13%;height:3.5%">Estado civil</div>
+        <div class="bp-text" id="bpPreviewEducation" style="left:5.3%;top:67.5%;width:13%;height:3.5%">Nivel educativo</div>
+        <div class="bp-text white center" id="bpPreviewPhrase" style="left:3.2%;top:74.2%;width:16%;height:8.5%">Frase representativa</div>
 
-            <main class="bp-main">
-              <div class="bp-row two">
-                <div class="bp-box"><h4>◉ PERSONALIDAD</h4><div class="bp-answer lines" id="bpPreviewPersonality">Carácter, valores y rasgos predominantes.</div></div>
-                <div class="bp-box"><h4>◎ OBJETIVO PRINCIPAL</h4><div class="bp-answer lines" id="bpPreviewGoal">Qué quiere lograr.</div></div>
-              </div>
-              <div class="bp-row equal">
-                <div class="bp-box"><h4>⚠ FRUSTRACIONES / PUNTOS DE DOLOR</h4><div class="bp-answer lines" id="bpPreviewPains">Obstáculos, problemas o dificultades.</div></div>
-                <div class="bp-box"><h4>★ MOTIVACIONES</h4><div class="bp-answer lines" id="bpPreviewMotivations">Qué lo impulsa a tomar decisiones.</div></div>
-              </div>
-              <div class="bp-row bottom">
-                <div class="bp-box"><h4>◉ HÁBITOS Y COMPORTAMIENTO</h4><div class="bp-habits"><div><b>Rutina</b><div class="bp-answer" id="bpPreviewHabits">Cómo es su día a día.</div></div><div><b>Tiempo libre</b><div class="bp-answer" id="bpPreviewLeisure">Qué hace en su tiempo libre.</div></div></div></div>
-                <div class="bp-box"><h4>▣ CANALES Y MEDIOS</h4><div class="bp-answer lines" id="bpPreviewChannels">Medios que utiliza para informarse, comunicarse o comprar.</div></div>
-              </div>
-            </main>
-
-            <aside class="bp-side">
-              <div class="bp-side-box"><h4>♡ NECESIDADES</h4><div class="bp-answer lines" id="bpPreviewNeeds">Qué necesita para alcanzar sus objetivos.</div></div>
-              <div class="bp-side-box insight"><h4>💡 INSIGHT PRINCIPAL</h4><div class="bp-answer lines" id="bpPreviewInsight">Lo más importante que debemos entender sobre esta persona.</div></div>
-              <div class="bp-side-box"><h4>AVATAR UTILIZADO</h4><div class="bp-avatar-used"><div class="bp-avatar-circle" id="bpPreviewAvatarSmall">👩🏻‍💼</div><div><b>FECHA</b><div id="bpPreviewDate">—</div></div></div></div>
-            </aside>
-
-            <footer class="bp-sheet-footer">
-              <div class="bp-footer-box"><h4>👥 RELACIÓN CON TU MARCA</h4><div class="bp-answer" id="bpPreviewBrand">Cómo el producto o servicio puede ayudarle.</div></div>
-              <div class="bp-footer-box"><h4>📣 MENSAJE CLAVE PARA CONECTAR</h4><div class="bp-answer" id="bpPreviewMessage">Mensaje que le hablaría directamente.</div></div>
-            </footer>
-          </div>
-        </div>
+        <div class="bp-text" id="bpPreviewPersonality" style="left:22.3%;top:18.2%;width:24%;height:11%">Personalidad</div>
+        <div class="bp-text" id="bpPreviewGoal" style="left:49.0%;top:18.4%;width:24%;height:11.5%">Objetivo principal</div>
+        <div class="bp-text" id="bpPreviewNeeds" style="left:79.0%;top:20.0%;width:16%;height:14%">Necesidades</div>
+        <div class="bp-text" id="bpPreviewPains" style="left:22.0%;top:41.3%;width:24.5%;height:11.5%">Frustraciones</div>
+        <div class="bp-text" id="bpPreviewMotivations" style="left:49.0%;top:41.2%;width:24%;height:11.5%">Motivaciones</div>
+        <div class="bp-text" id="bpPreviewHabits" style="left:22.8%;top:66.5%;width:14.3%;height:13%">Hábitos</div>
+        <div class="bp-text" id="bpPreviewLeisure" style="left:38.8%;top:66.5%;width:14.3%;height:13%">Tiempo libre</div>
+        <div class="bp-text" id="bpPreviewChannels" style="left:56.6%;top:66.3%;width:16.8%;height:13%">Canales</div>
+        <div class="bp-text" id="bpPreviewInsight" style="left:79.0%;top:45.0%;width:16%;height:24%">Insight principal</div>
+        <div class="bp-text" id="bpPreviewBrand" style="left:4.3%;top:88.9%;width:36.5%;height:6.5%">Relación con la marca</div>
+        <div class="bp-text" id="bpPreviewMessage" style="left:45.0%;top:88.9%;width:34.5%;height:6.5%">Mensaje clave</div>
+        <div class="bp-text" id="bpPreviewDate" style="left:83.5%;top:94.3%;width:11%;height:2.6%">Fecha</div>
       </div>
     </div>
   </div>
+</div>
 </section>
 <section>
     <div class="container">
@@ -546,34 +539,7 @@ clearBuyer.onclick=()=>{
 updateBuyer();
 
 
-function updateFinalBuyer(){
-  const v=id=>document.getElementById(id).value.trim();
-  const avatar=document.getElementById('bpAvatar').value;
-  bpPreviewAvatar.textContent=avatar; bpPreviewAvatarSmall.textContent=avatar;
-  bpPreviewName.textContent=v('bpName')||'Nombre ficticio';
-  bpPreviewAge.textContent=v('bpAge')||'Edad';
-  bpPreviewOccupation.textContent=v('bpOccupation')||'Ocupación';
-  bpPreviewLocation.textContent=v('bpLocation')||'Contexto';
-  bpPreviewCivil.textContent=v('bpCivil')||'Estado civil';
-  bpPreviewEducation.textContent=v('bpEducation')||'Nivel educativo';
-  bpPreviewPhrase.textContent='“'+(v('bpPhrase')||'Frase que lo representa o que podría decir.')+'”';
-  bpPreviewPersonality.textContent=v('bpPersonality')||'Carácter, valores y rasgos predominantes.';
-  bpPreviewGoal.textContent=v('bpGoal')||'Qué quiere lograr.';
-  bpPreviewNeeds.textContent=v('bpNeeds')||'Qué necesita para alcanzar sus objetivos.';
-  bpPreviewPains.textContent=v('bpPains')||'Obstáculos, problemas o dificultades.';
-  bpPreviewMotivations.textContent=v('bpMotivations')||'Qué lo impulsa a tomar decisiones.';
-  bpPreviewHabits.textContent=v('bpHabits')||'Cómo es su día a día.';
-  bpPreviewLeisure.textContent=v('bpLeisure')||'Qué hace en su tiempo libre.';
-  bpPreviewChannels.textContent=v('bpChannels')||'Medios que utiliza para informarse, comunicarse o comprar.';
-  bpPreviewInsight.textContent=v('bpInsight')||'Lo más importante que debemos entender sobre esta persona.';
-  bpPreviewBrand.textContent=v('bpBrand')||'Cómo el producto o servicio puede ayudarle.';
-  bpPreviewMessage.textContent=v('bpMessage')||'Mensaje que le hablaría directamente.';
-  bpPreviewDate.textContent=v('bpDate')||'—';
-}
-document.getElementById('generateBuyer').onclick=updateFinalBuyer;
-document.getElementById('downloadBuyer').onclick=async()=>{
-  updateFinalBuyer();
-  const canvas=await html2canvas(document.getElementById('buyerCard'),{scale:2,backgroundColor:'#ffffff',useCORS:true});
+const canvas=await html2canvas(document.getElementById('buyerCard'),{scale:2,backgroundColor:'#ffffff',useCORS:true});
   const a=document.createElement('a');
   const safe=(document.getElementById('bpName').value||'buyer-persona').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/gi,'-').toLowerCase();
   a.download=safe+'-buyer-persona.png'; a.href=canvas.toDataURL('image/png'); a.click();
@@ -584,6 +550,36 @@ document.getElementById('clearBuyer').onclick=()=>{
 };
 ['bpName','bpAge','bpOccupation','bpLocation','bpCivil','bpEducation','bpDate','bpPhrase','bpAvatar','bpPersonality','bpGoal','bpNeeds','bpPains','bpMotivations','bpHabits','bpLeisure','bpChannels','bpInsight','bpBrand','bpMessage'].forEach(id=>document.getElementById(id).addEventListener('input',updateFinalBuyer));
 updateFinalBuyer();
+
+
+function updateApprovedBuyer(){
+  const v=id=>document.getElementById(id).value.trim();
+  bpPreviewAvatar.textContent=bpAvatar.value; bpPreviewAvatarSmall.textContent=bpAvatar.value;
+  bpPreviewName.textContent=v('bpName')||'Nombre ficticio';
+  bpPreviewAge.textContent=v('bpAge')||'Edad';
+  bpPreviewOccupation.textContent=v('bpOccupation')||'Ocupación';
+  bpPreviewLocation.textContent=v('bpLocation')||'Contexto';
+  bpPreviewCivil.textContent=v('bpCivil')||'Estado civil';
+  bpPreviewEducation.textContent=v('bpEducation')||'Nivel educativo';
+  bpPreviewPhrase.textContent=v('bpPhrase')||'Frase representativa';
+  bpPreviewPersonality.textContent=v('bpPersonality')||'Personalidad';
+  bpPreviewGoal.textContent=v('bpGoal')||'Objetivo principal';
+  bpPreviewNeeds.textContent=v('bpNeeds')||'Necesidades';
+  bpPreviewPains.textContent=v('bpPains')||'Frustraciones';
+  bpPreviewMotivations.textContent=v('bpMotivations')||'Motivaciones';
+  bpPreviewHabits.textContent=v('bpHabits')||'Hábitos';
+  bpPreviewLeisure.textContent=v('bpLeisure')||'Tiempo libre';
+  bpPreviewChannels.textContent=v('bpChannels')||'Canales';
+  bpPreviewInsight.textContent=v('bpInsight')||'Insight principal';
+  bpPreviewBrand.textContent=v('bpBrand')||'Relación con la marca';
+  bpPreviewMessage.textContent=v('bpMessage')||'Mensaje clave';
+  bpPreviewDate.textContent=v('bpDate')||'Fecha';
+}
+generateBuyer.onclick=updateApprovedBuyer;
+downloadBuyer.onclick=async()=>{updateApprovedBuyer();const canvas=await html2canvas(buyerCard,{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download=((bpName.value||'buyer-persona').replace(/[^a-z0-9]+/gi,'-').toLowerCase())+'.png';a.href=canvas.toDataURL('image/png');a.click()};
+clearBuyer.onclick=()=>{['bpName','bpAge','bpOccupation','bpLocation','bpCivil','bpEducation','bpDate','bpPhrase','bpPersonality','bpGoal','bpNeeds','bpPains','bpMotivations','bpHabits','bpLeisure','bpChannels','bpInsight','bpBrand','bpMessage'].forEach(id=>document.getElementById(id).value='');bpAvatar.selectedIndex=0;updateApprovedBuyer()};
+['bpName','bpAge','bpOccupation','bpLocation','bpCivil','bpEducation','bpDate','bpPhrase','bpAvatar','bpPersonality','bpGoal','bpNeeds','bpPains','bpMotivations','bpHabits','bpLeisure','bpChannels','bpInsight','bpBrand','bpMessage'].forEach(id=>document.getElementById(id).addEventListener('input',updateApprovedBuyer));
+updateApprovedBuyer();
 
 </script>
 <script>
