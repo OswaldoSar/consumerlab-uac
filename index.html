@@ -722,6 +722,18 @@
       .form-button{width:100%}
     }
 
+
+/* Vista fotográfica de eventos al pasar el mouse o tocar */
+.anecdote-card{cursor:pointer;isolation:isolate}
+.anecdote-card .event-preview{position:absolute;inset:0;margin:0;border-radius:22px;overflow:hidden;background:#0f1834;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity .28s ease,transform .32s ease,visibility .28s;z-index:5}
+.anecdote-card .event-preview::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(8,18,48,.88) 100%)}
+.anecdote-card .event-preview img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .55s ease}
+.anecdote-card .event-preview figcaption{position:absolute;left:18px;right:18px;bottom:15px;z-index:2;color:#fff;font-weight:850;font-size:.9rem;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.anecdote-card:hover .event-preview,.anecdote-card:focus .event-preview,.anecdote-card.preview-open .event-preview{opacity:1;visibility:visible;transform:scale(1)}
+.anecdote-card:hover .event-preview img,.anecdote-card:focus .event-preview img,.anecdote-card.preview-open .event-preview img{transform:scale(1.04)}
+.anecdote-card:focus{outline:3px solid rgba(79,70,229,.28);outline-offset:3px}
+@media(max-width:640px){.anecdote-card::after{content:"Toca para ver la fotografía";display:block;margin-top:10px;color:var(--blue);font-size:.75rem;font-weight:800}.anecdote-card.preview-open::after{content:"Toca fuera para cerrar"}}
+
 </style>
 </head>
 <body>
@@ -876,12 +888,12 @@
     </div>
 
     <div class="anecdotes-grid">
-      <article><span>🇦🇷 Argentina</span><h4>La laptop que decidió descansar</h4><p>Se apagó justo cuando más la necesitábamos y volvió a funcionar al regresar a Cusco.</p><b>Siempre tener un plan B.</b></article>
-      <article><span>🇲🇽 México</span><h4>Una casa inundada</h4><p>El alojamiento se inundó, pero el equipo siguió organizándose y resolviendo.</p><b>Adaptarse sin perder el objetivo.</b></article>
-      <article><span>🇨🇴 Colombia</span><h4>Un viaje que puso a prueba al equipo</h4><p>Nos robaron varias laptops; la mía se salvó y aún sigue acompañándome.</p><b>Cuidar los recursos y mantener la calma.</b></article>
-      <article><span>🇪🇸 España</span><h4>Una mirada al futuro</h4><p>Conocimos propuestas sobre carros voladores y nuevas formas de movilidad.</p><b>El futuro comienza con curiosidad.</b></article>
-      <article><span>🇨🇱 Chile</span><h4>La cama de triplay</h4><p>Una anécdota sencilla que terminó siendo parte de los recuerdos más comentados.</p><b>Saber reírse también une.</b></article>
-      <article><span>🌍 Diversidad cultural</span><h4>Una palabra no significa lo mismo en todas partes</h4><p>Un amigo me explicó que una forma de llamarlo podía resultar despectiva en su cultura.</p><b>Escuchar antes de asumir.</b></article>
+      <article class="anecdote-card" tabindex="0"><span>🇦🇷 Argentina</span><h4>La laptop que decidió descansar</h4><p>Se apagó justo cuando más la necesitábamos y volvió a funcionar al regresar a Cusco.</p><b>Siempre tener un plan B.</b><figure class="event-preview"><img src="assets/eventos/argentina.png" alt="Evento HR Sessions en Argentina"><figcaption>Argentina · HR Sessions</figcaption></figure></article>
+      <article class="anecdote-card" tabindex="0"><span>🇲🇽 México</span><h4>Una casa inundada</h4><p>El alojamiento se inundó, pero el equipo siguió organizándose y resolviendo.</p><b>Adaptarse sin perder el objetivo.</b><figure class="event-preview"><img src="assets/eventos/mexico.jpg" alt="Evento HR Sessions en México"><figcaption>México · HR Sessions</figcaption></figure></article>
+      <article class="anecdote-card" tabindex="0"><span>🇨🇴 Colombia</span><h4>Un viaje que puso a prueba al equipo</h4><p>Nos robaron varias laptops; la mía se salvó y aún sigue acompañándome.</p><b>Cuidar los recursos y mantener la calma.</b><figure class="event-preview"><img src="assets/eventos/colombia.jpg" alt="Evento HR Sessions en Colombia"><figcaption>Colombia · HR Sessions</figcaption></figure></article>
+      <article class="anecdote-card" tabindex="0"><span>🇪🇸 España</span><h4>Una mirada al futuro</h4><p>Conocimos propuestas sobre carros voladores y nuevas formas de movilidad.</p><b>El futuro comienza con curiosidad.</b><figure class="event-preview"><img src="assets/eventos/espana.jpg" alt="Evento HR Sessions en España"><figcaption>España · HR Sessions</figcaption></figure></article>
+      <article class="anecdote-card" tabindex="0"><span>🇨🇱 Chile</span><h4>La cama de triplay</h4><p>Una anécdota sencilla que terminó siendo parte de los recuerdos más comentados.</p><b>Saber reírse también une.</b><figure class="event-preview"><img src="assets/eventos/chile.png" alt="Evento internacional relacionado con Chile"><figcaption>Chile · Experiencia internacional</figcaption></figure></article>
+      <article class="anecdote-card" tabindex="0"><span>🌍 Diversidad cultural</span><h4>Una palabra no significa lo mismo en todas partes</h4><p>Un amigo me explicó que una forma de llamarlo podía resultar despectiva en su cultura.</p><b>Escuchar antes de asumir.</b><figure class="event-preview"><img src="assets/eventos/diversidad.png" alt="Encuentro internacional sobre diversidad cultural"><figcaption>Diversidad cultural · Latinoamérica y España</figcaption></figure></article>
     </div>
   </div>
 </section>
@@ -1053,6 +1065,19 @@
     menu.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => menu.classList.remove('open'));
     });
-  </script>
+  
+  document.querySelectorAll('.anecdote-card').forEach(card=>{
+    card.addEventListener('click',event=>{
+      if(window.matchMedia('(hover: none)').matches || window.innerWidth<=768){
+        event.stopPropagation();
+        const wasOpen=card.classList.contains('preview-open');
+        document.querySelectorAll('.anecdote-card.preview-open').forEach(item=>item.classList.remove('preview-open'));
+        if(!wasOpen) card.classList.add('preview-open');
+      }
+    });
+  });
+  document.addEventListener('click',()=>document.querySelectorAll('.anecdote-card.preview-open').forEach(item=>item.classList.remove('preview-open')));
+
+</script>
 </body>
 </html>
