@@ -263,9 +263,7 @@ PREGUNTA PRELIMINAR
 OBJETIVO GENERAL PRELIMINAR
 Analizar los factores relacionados con ${s.toLowerCase()} en ${a}, con la finalidad de generar información que permita a ${c} ${d.toLowerCase()}.
 
-Nota: revisar metodológicamente.`}document.getElementById('generate').onclick=()=>document.getElementById('draft').textContent=build();document.getElementById('copy').onclick=async()=>{const t=build();document.getElementById('draft').textContent=t;try{await navigator.clipboard.writeText(t);document.getElementById('draft').textContent=t+'
-
-✓ Copiado.'}catch(e){}};</script>
+Nota: revisar metodológicamente.`}document.getElementById('generate').onclick=()=>document.getElementById('draft').textContent=build();document.getElementById('copy').onclick=async()=>{const t=build();document.getElementById('draft').textContent=t;try{await navigator.clipboard.writeText(t);document.getElementById('draft').textContent=t+'\n\n✓ Copiado.'}catch(e){}};</script>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script>
   let selectedAvatar = {
@@ -319,7 +317,8 @@ Nota: revisar metodológicamente.`}document.getElementById('generate').onclick=(
     }
   });
 </script>
-<!-- Sistema de asistencia para las tres unidades -->
+
+<!-- Sistema de asistencia, progreso y rúbricas -->
 <script src="asistencias.js" defer></script>
 </body>
 </html>
