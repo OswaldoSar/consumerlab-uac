@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rúbricas de calificación de las tres unidades de Psicología del Consumidor y Marketing: exámenes, productos, trabajo en equipo y evidencias.">
+<title>Rúbricas de calificación | ConsumerLab UAC</title>
+<style>
+:root{--navy:#002158;--blue:#4f46e5;--cyan:#0292bc;--coral:#ff7e70;--purple:#522685;--ink:#17213d;--muted:#596781;--line:#dbe4f2;--bg:#f4f7ff;--green:#087f73;--gold:#ffbf3f;--shadow:0 14px 32px rgba(29,44,99,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 5% 0%,#eeefff 0,transparent 28%),linear-gradient(180deg,#f9fbff,#f2f6fd);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.58}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}.container{width:min(1180px,calc(100% - 32px));margin-inline:auto}.topbar{background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}.nav{min-height:74px;display:flex;gap:18px;align-items:center;justify-content:space-between}.brand{font-weight:900;display:flex;align-items:center;gap:10px;color:var(--navy)}.brand-mark{background:linear-gradient(130deg,#4f46e5,#522685,#06b6d4);border-radius:13px;padding:11px;color:#fff}.brand small{font-size:.74rem;font-weight:650;color:var(--muted);display:block}.navlinks{display:flex;flex-wrap:wrap;gap:15px;align-items:center;font-size:.84rem;font-weight:800}.navlinks a:hover{color:var(--blue)}
+.hero{padding:40px 0 24px}.hero-panel{border-radius:28px;border:1px solid rgba(79,70,229,.13);padding:38px;background:radial-gradient(circle at 93% 18%,rgba(255,191,63,.19),transparent 23%),linear-gradient(120deg,#fff 15%,#eff4ff);box-shadow:var(--shadow)}.eyebrow{display:inline-block;background:#e8e7ff;padding:6px 11px;border-radius:999px;color:var(--blue);font-size:.76rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}.hero h1{font-size:clamp(2.15rem,5vw,4.15rem);letter-spacing:-.045em;line-height:1.05;margin:14px 0 12px;color:var(--navy)}.hero p{max-width:880px;color:var(--muted);font-size:1rem}.hero-actions,.toolbar{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.btn{padding:10px 14px;border:1px solid var(--line);border-radius:12px;font-weight:820;background:#fff;cursor:pointer;color:var(--navy);display:inline-flex;justify-content:center;align-items:center;gap:7px}.btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}.btn:focus-visible,.unit-tab:focus-visible,input:focus-visible{outline:3px solid #0292bc;outline-offset:2px}.btn:hover{transform:translateY(-1px)}
+.unit-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 21px}.unit-tab{cursor:pointer;text-align:left;background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;box-shadow:var(--shadow);font-weight:900;color:var(--navy)}.unit-tab span{display:block;font-size:.77rem;color:var(--muted);font-weight:600;margin-top:3px}.unit-tab[aria-selected=true]{background:linear-gradient(125deg,var(--navy),#283b7c);color:#fff;border-color:transparent}.unit-tab[aria-selected=true] span{color:#d6e2f6}
+.proposal{padding:15px 17px;background:#fff7dc;border:1px solid #edd8a5;border-radius:15px;color:#6f5121;font-size:.9rem;margin:17px 0}.summary{display:grid;grid-template-columns:1fr 250px;gap:20px;align-items:stretch;margin:23px 0}.overview,.scorecard{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.overview h2{font-size:1.8rem;color:var(--navy);line-height:1.2;margin:0 0 8px}.overview p{color:var(--muted);margin:0 0 15px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{font-size:.8rem;font-weight:800;color:var(--navy);background:#eef4ff;border-radius:100px;padding:7px 11px}.scorecard{background:linear-gradient(130deg,var(--navy),#263b74);color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center}.scorecard small{color:#d2e2ff;font-weight:750}.scorecard strong{font-size:2.8rem;line-height:1.2;font-variant-numeric:tabular-nums}.scorecard p{font-size:.79rem;margin:5px 0;color:#dfebff}
+.group{margin-top:25px}.group-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:12px}.group-head h3{color:var(--navy);font-size:1.27rem;margin:0}.group-head span{background:#e8e7ff;color:var(--blue);padding:7px 12px;border-radius:20px;font-size:.83rem;font-weight:900;white-space:nowrap}.criteria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.criterion{background:#fff;border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}.criterion-top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}.criterion h4{font-size:1.04rem;color:var(--navy);margin:0;line-height:1.3}.weight{flex-shrink:0;background:#ddfaf4;color:var(--green);font-size:.82rem;font-weight:900;padding:6px 9px;border-radius:10px}.method{font-size:.73rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.025em}.evidence{font-size:.85rem;color:var(--muted);margin:0}.criterion label{font-size:.81rem;font-weight:800;color:var(--ink)}.grade-row{display:flex;align-items:center;gap:11px;margin-top:auto}.grade-row input{width:115px;max-width:42%;border:1px solid #bfc9db;border-radius:10px;padding:9px 11px;background:#fbfdff;font-variant-numeric:tabular-nums}.contrib{flex:1;font-size:.8rem;color:var(--muted);text-align:right;font-weight:750}.criterion details{margin-top:4px;background:#f7f9ff;border:1px solid #e7edf8;border-radius:12px;padding:10px 12px}.criterion summary{cursor:pointer;font-size:.8rem;color:var(--blue);font-weight:900}.levels{margin:8px 0 0;padding-left:18px;font-size:.78rem;color:#52627b}.levels li{margin-bottom:6px}.levels b{color:var(--navy)}
+.bottom{padding:23px;border-radius:20px;background:#fff;border:1px solid var(--line);margin:28px 0 38px}.bottom h3{margin:0 0 6px;color:var(--navy)}.bottom p,.bottom li{font-size:.87rem;color:var(--muted)}.bottom ul{margin:10px 0;padding-left:20px}.bottom a{color:var(--blue);font-weight:850}.print-link{display:none}footer{padding:25px 0;background:#002158;color:#d5e1f0;font-size:.83rem}footer a{text-decoration:underline;color:white}
+@media(max-width:820px){.summary{grid-template-columns:1fr}.criteria-grid{grid-template-columns:1fr}.navlinks{gap:8px}.hero-panel{padding:25px}.scorecard{min-height:144px}.unit-tab{padding:12px}}
+@media(max-width:550px){.nav{flex-wrap:wrap;padding:12px 0}.navlinks{font-size:.72rem}.unit-tabs{grid-template-columns:1fr}.hero{padding-top:17px}.hero-panel{padding:19px}.hero h1{font-size:2.2rem}.group-head h3{font-size:1.06rem}}
+@media print{body{background:white}.topbar,.unit-tabs,.hero-actions,.toolbar,.grade-row,.print-exclude,footer{display:none!important}.hero{padding:0}.hero-panel{padding:12px;border:0;box-shadow:none}.hero h1{font-size:2rem}.proposal{border:1px solid #bdbdbd;background:white}.container{width:100%}.summary{display:block}.scorecard{display:none}.overview{box-shadow:none;border:1px solid #ddd}.criteria-grid{grid-template-columns:1fr 1fr}.criterion{break-inside:avoid;box-shadow:none;padding:12px}.criterion details{display:block}.criterion details>*{display:block}.criterion details:not([open]) .levels{display:block!important}.criterion h4{font-size:.9rem}.group{break-before:auto}.bottom{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="container nav"><a href="ruta.html" class="brand"><span class="brand-mark">PCM</span><span>Psicología del Consumidor<small>Marketing · Parte práctica</small></span></a><nav class="navlinks" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="ruta.html">Ruta de aprendizaje</a><a href="unidad-1.html">Unidad I</a><a href="unidad-2.html">Unidad II</a><a href="unidad-3.html">Unidad III</a></nav></div></header>
+<main class="container">
+<section class="hero"><div class="hero-panel"><span class="eyebrow">Evaluación basada en evidencias</span><h1>Rúbricas de calificación</h1><p>Conoce cómo se evaluarán los aprendizajes de cada unidad mediante exámenes individuales, productos aplicados, trabajo en equipo, sustentaciones, participación y seguimiento de evidencias.</p><div class="hero-actions"><a class="btn primary" href="ruta.html">← Regresar a la ruta</a><button class="btn" id="printRubric" type="button">🖨️ Imprimir rúbrica</button></div></div></section>
+<div class="unit-tabs" role="tablist" aria-label="Seleccionar unidad">
+<button class="unit-tab" type="button" role="tab" id="tab-1" aria-selected="true" aria-controls="rubricContent" data-unit="1">Unidad I<span>Investigación de mercados</span></button>
+<button class="unit-tab" type="button" role="tab" id="tab-2" aria-selected="false" aria-controls="rubricContent" data-unit="2">Unidad II<span>Comportamiento del consumidor</span></button>
+<button class="unit-tab" type="button" role="tab" id="tab-3" aria-selected="false" aria-controls="rubricContent" data-unit="3">Unidad III<span>Estrategia y marketing digital</span></button>
+</div>
+<div class="proposal"><strong>Propuesta docente de evaluación:</strong> los pesos de los criterios internos son referenciales y deben validarse con el sílabo y las disposiciones académicas. En las unidades I y II se conservan los dos bloques de productos al 50% mostrados en las páginas del curso. Para la unidad III, la distribución 40% / 35% / 25% es una propuesta ajustable.</div>
+<div id="rubricContent" role="tabpanel" aria-labelledby="tab-1" aria-live="polite"></div>
+<div class="bottom"><h3>Cómo se reúnen las evidencias</h3><p>La evaluación combina distintas estrategias. Cada calificación debe estar sustentada en un instrumento o producto verificable.</p><ul><li><strong>Examen individual:</strong> respuestas verificables y aplicación de conceptos, con pauta de corrección.</li><li><strong>Producto académico:</strong> informe, instrumento, buyer persona, página web, mapa de experiencia o portafolio evaluado con la rúbrica analítica.</li><li><strong>Trabajo en equipo:</strong> roles, cumplimiento de compromisos, colaboración y coevaluación documentados mediante actas y bitácoras.</li><li><strong>Participación y sustentación:</strong> aportes argumentados, respuestas a preguntas, asistencia a las actividades evaluables y comunicación de hallazgos.</li><li><strong>Ética y trazabilidad:</strong> protección de datos, referencias, registros de campo y carpetas de evidencias de cada sesión.</li></ul><p><strong>Privacidad:</strong> esta página muestra criterios públicos y un simulador local. No contiene la nómina, ni publica calificaciones individuales, ni guarda notas en Google Sheets.</p></div>
+</main>
+<footer><div class="container">ConsumerLab UAC · Psicología del Consumidor y Marketing · <a href="ruta.html">Ruta de aprendizaje</a></div></footer>
+<script>
+(function(){
+'use strict';
+const descriptors={
+ examen:['Resuelve y justifica correctamente casos nuevos usando los conceptos y criterios examinados.','Resuelve los casos habituales y justifica la mayoría de las decisiones.','Identifica conceptos, pero presenta errores en la aplicación o justificación.','No aplica adecuadamente los conceptos o deja sin resolver los casos.'],
+ investigacion:['Formula decisiones metodológicas precisas, viables y coherentes, con fundamento comprobable.','Presenta decisiones coherentes con algunas precisiones pendientes.','La coherencia es parcial y presenta inconsistencias que afectan el análisis.','La formulación es incompleta o no permite realizar el estudio.'],
+ instrumento:['Selecciona fuentes pertinentes y construye instrumentos claros, válidos y trazables.','Usa fuentes e instrumentos pertinentes, con ajustes menores.','Usa evidencia limitada o instrumentos con problemas de claridad.','Carece de fuentes suficientes o instrumentos utilizables.'],
+ campo:['Registra evidencias completas, respeta el consentimiento y permite seguir cada dato a su fuente.','Documenta adecuadamente el trabajo de campo y respeta la ética.','Los registros son incompletos o muestran debilidades de trazabilidad.','No aporta registros verificables o incumple criterios éticos.'],
+ buyer:['Integra hallazgos diversos en un perfil útil, específico y argumentado con evidencia.','Construye un perfil coherente y respaldado, con pequeños vacíos.','El perfil es descriptivo, genérico o tiene sustento parcial.','El perfil carece de sustento o presenta contradicciones importantes.'],
+ equipo:['Cumple su rol, coordina, facilita acuerdos y contribuye de manera comprobable y oportuna.','Cumple responsabilidades y colabora consistentemente.','Su contribución es irregular o requiere recordatorios frecuentes.','No cumple compromisos ni evidencia participación efectiva.'],
+ oral:['Comunica con claridad, domina las evidencias y responde críticamente a preguntas.','Comunica con claridad general y responde correctamente la mayoría.','Lee excesivamente o sustenta con poca precisión.','No logra explicar ni defender las decisiones presentadas.'],
+ bitacora:['Presenta bitácora íntegra, reflexión crítica, aportes continuos y coevaluación razonada.','Presenta registros y reflexión adecuados, con omisiones menores.','Los registros o reflexiones son superficiales o discontinuos.','No presenta registros suficientes o no sustenta sus aportes.'],
+ laboratorio:['Diseña y ejecuta un procedimiento replicable, controlado y congruente con la pregunta.','Desarrolla un procedimiento apropiado y bien documentado.','Hay vacíos en el procedimiento que limitan la interpretación.','El diseño o la aplicación impiden obtener evidencia interpretable.'],
+ analisis:['Integra datos y conceptos con interpretación rigurosa, límites y conclusiones sustentadas.','Interpreta adecuadamente los datos y distingue hallazgos de opiniones.','Ofrece interpretaciones parciales o poco relacionadas con los datos.','Presenta conclusiones sin evidencia o errores graves de análisis.'],
+ web:['La web funciona en móvil y escritorio; CTA, navegación y formularios son claros y comprobables.','La web funciona y comunica con claridad, con detalles por mejorar.','Presenta enlaces, estructura o navegación con fallos relevantes.','La web no funciona adecuadamente o carece de estructura mínima.'],
+ valor:['La propuesta de valor es distintiva, ética, accesible y sustentada en el diagnóstico.','La propuesta es clara y coherente con el público objetivo.','La propuesta es general o no se conecta suficientemente con los hallazgos.','No se define una propuesta de valor coherente.'],
+ journey:['Mapea etapas, puntos de contacto, emociones y oportunidades con evidencia consistente.','Mapea las etapas principales y oportunidades pertinentes.','El mapa omite etapas o sustenta poco las oportunidades.','No presenta un recorrido interpretable o fundamentado.'],
+ contenidos:['Planifica publicaciones, segmentación y mensajes con objetivos y consistencia estratégica.','Presenta un plan razonable de contenidos y público.','El plan es disperso o poco alineado al público.','No existe un plan coherente de contenidos.'],
+ kpis:['Define indicadores medibles, documenta pruebas y propone mejoras justificadas.','Define KPIs útiles y plantea mejoras razonables.','Los indicadores carecen de medición o de relación con la estrategia.','No define indicadores ni demuestra evidencia de evaluación.'],
+ portafolio:['Entrega evidencias completas y ordenadas, con reflexión y seguimiento individual.','Presenta evidencias suficientes y organización clara.','Faltan evidencias o la reflexión es insuficiente.','El portafolio está incompleto o no permite verificar el trabajo.']
+};
+const rubricData={
+ 1:{title:'Investigación de mercados',subtitle:'Plantear un problema y generar evidencia inicial para la empresa.',groups:[
+  {name:'Investigación mixta y evidencias',weight:50,items:[
+   ['Examen individual aplicado',15,'Prueba individual con problemas, fuentes, métodos y preguntas de investigación.','Examen escrito / pauta de corrección','examen'],
+   ['Problema, pregunta y objetivos',10,'Matriz del problema, pregunta investigable y objetivos coherentes.','Rúbrica analítica de formulación','investigacion'],
+   ['Fuentes e instrumentos',10,'Referencias verificables, cuestionario, guía de entrevista y revisión docente.','Lista de cotejo y rúbrica','instrumento'],
+   ['Trabajo de campo y trazabilidad',15,'Consentimientos, base de datos, notas de campo y registro de aplicación.','Portafolio de evidencias','campo']
+  ]},
+  {name:'Buyer persona inicial',weight:50,items:[
+   ['Buyer persona sustentado',25,'Ficha visual con necesidades, motivaciones, barreras e insights respaldados.','Rúbrica analítica de producto','buyer'],
+   ['Sustentación de hallazgos',10,'Exposición breve y respuestas a preguntas metodológicas.','Guía de observación','oral'],
+   ['Trabajo en equipo',10,'Distribución de roles, actas de acuerdos y cumplimiento de tareas.','Coevaluación y lista de cotejo','equipo'],
+   ['Bitácora y participación',5,'Registros de avances, reflexión personal y aportes realizados.','Bitácora y autoevaluación','bitacora']
+  ]}
+ ]},
+ 2:{title:'Comportamiento del consumidor',subtitle:'Interpretar conducta y percepción mediante evidencia del laboratorio y perfiles.',groups:[
+  {name:'Laboratorio e informe conductual',weight:50,items:[
+   ['Examen de modelos psicológicos',15,'Aplicación individual de VALS, Big Five, COM-B, percepción y motivación a casos.','Examen / resolución de casos','examen'],
+   ['Diseño y aplicación del laboratorio',15,'Protocolo, muestra, procedimiento y registro de estímulos y respuestas.','Rúbrica de desempeño práctico','laboratorio'],
+   ['Análisis e interpretación',15,'Tablas, gráficos, comparación de resultados y conclusiones con límites.','Rúbrica de informe','analisis'],
+   ['Bitácora y ética',5,'Registro de decisiones, tratamiento respetuoso y uso responsable de datos.','Lista de cotejo','bitacora']
+  ]},
+  {name:'Buyer persona definitivo',weight:50,items:[
+   ['Perfil integrador y visual',25,'Buyer persona definitivo con evidencia cualitativa, cuantitativa y conductual.','Rúbrica analítica de producto','buyer'],
+   ['Integración de evidencias',10,'Matriz de convergencias, divergencias e interpretación de insights.','Matriz de integración','analisis'],
+   ['Trabajo en equipo',10,'Funciones, acuerdos, tareas cumplidas y coevaluación documentada.','Coevaluación y observación','equipo'],
+   ['Defensa oral',5,'Presentación de decisiones, respuestas y límites del perfil construido.','Guía de observación','oral']
+  ]}
+ ]},
+ 3:{title:'Marketing y estrategia digital',subtitle:'Traducir los hallazgos en una web, la experiencia del cliente y un plan digital medible.',groups:[
+  {name:'Página web y propuesta de valor',weight:40,items:[
+   ['Examen individual de estrategia digital',15,'Análisis de casos de segmentación, funnel, CTA, experiencia y decisiones basadas en datos.','Examen aplicado / pauta de corrección','examen'],
+   ['Funcionalidad y experiencia web',15,'Web publicada, enlaces funcionales, navegación, CTA y formularios de prueba.','Rúbrica funcional / pruebas','web'],
+   ['Propuesta de valor',10,'Argumentación del público objetivo, mensaje diferencial y vínculo con el diagnóstico.','Rúbrica de comunicación','valor']
+  ]},
+  {name:'Customer Journey y contenidos',weight:35,items:[
+   ['Customer Journey Map',15,'Mapa con etapas, puntos de contacto, emociones, fricciones y oportunidades.','Rúbrica visual y analítica','journey'],
+   ['Plan de contenidos y segmentación',10,'Calendario editorial, mensajes, canales y públicos priorizados.','Lista de cotejo y rúbrica','contenidos'],
+   ['KPIs y optimización',10,'Indicadores, evidencias de pruebas, resultados y ajustes propuestos.','Portafolio de métricas','kpis']
+  ]},
+  {name:'Presentación ejecutiva y colaboración',weight:25,items:[
+   ['Sustentación ejecutiva',10,'Pitch de resultados, recomendaciones y respuestas fundamentadas.','Guía de observación','oral'],
+   ['Trabajo en equipo',10,'Reparto verificable de roles, seguimiento, aportes y coevaluación.','Coevaluación y bitácora','equipo'],
+   ['Portafolio y autoevaluación',5,'Compilación final de evidencias, lecciones aprendidas y reflexión individual.','Portafolio final','portafolio']
+  ]}
+ ]}
+};
+const content=document.getElementById('rubricContent'),tabs=[...document.querySelectorAll('.unit-tab')];
+let activeUnit=1;
+const safeText=(tag,className,text)=>{const e=document.createElement(tag);if(className)e.className=className;e.textContent=text;return e;};
+const average=x=>x.toFixed(2);
+function selectUnit(u,updateHistory){
+ activeUnit=u;const data=rubricData[u];
+ tabs.forEach(tab=>{const active=Number(tab.dataset.unit)===u;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});
+ content.setAttribute('aria-labelledby','tab-'+u);content.replaceChildren();
+ const header=safeText('div','summary','');
+ const intro=safeText('div','overview','');
+ intro.appendChild(safeText('h2','',`Unidad ${['','I','II','III'][u]} · ${data.title}`));
+ intro.appendChild(safeText('p','',data.subtitle));
+ const pills=safeText('div','pills','');
+ data.groups.forEach(g=>pills.appendChild(safeText('span','pill',g.name+': '+g.weight+'%')));
+ intro.appendChild(pills);header.appendChild(intro);
+ const score=safeText('div','scorecard','');score.appendChild(safeText('small','','Simulador de nota ponderada'));
+ const value=safeText('strong','','— / 20');value.id='finalValue';score.appendChild(value);
+ const help=safeText('p','','Completa las notas (0 a 20) para estimar el resultado.');help.id='scoreHelp';score.appendChild(help);header.appendChild(score);content.appendChild(header);
+ data.groups.forEach((group,gi)=>{
+  const section=safeText('section','group','');
+  const head=safeText('div','group-head','');head.appendChild(safeText('h3','',String(gi+1)+'. '+group.name));head.appendChild(safeText('span','',group.weight+'% del aporte'));section.appendChild(head);
+  const grid=safeText('div','criteria-grid','');
+  group.items.forEach(([name,weight,evidence,method,type],idx)=>{
+   const card=safeText('article','criterion','');const top=safeText('div','criterion-top','');
+   top.appendChild(safeText('h4','',name));top.appendChild(safeText('span','weight',weight+'%'));card.appendChild(top);
+   card.appendChild(safeText('div','method',method));card.appendChild(safeText('p','evidence','Evidencia: '+evidence));
+   const details=safeText('details','','');details.appendChild(safeText('summary','','Ver niveles de desempeño'));
+   const ul=safeText('ul','levels','');
+   const labels=['Excelente (18 a 20)','Logrado (14 a 17)','En proceso (11 a 13)','Inicial (0 a 10)'];
+   descriptors[type].forEach((description,i)=>{const li=safeText('li','',labels[i]+': '+description);ul.appendChild(li);});
+   details.appendChild(ul);card.appendChild(details);
+   const lab=safeText('label','','Nota referencial de este criterio');const input=document.createElement('input');
+   input.type='number';input.min='0';input.max='20';input.step='.5';input.inputMode='decimal';input.placeholder='0 – 20';
+   const iid='u'+u+'-g'+gi+'-c'+idx;input.id=iid;input.dataset.weight=String(weight);input.setAttribute('aria-label','Nota de '+name);lab.htmlFor=iid;card.appendChild(lab);
+   const row=safeText('div','grade-row','');row.appendChild(input);
+   const contribution=safeText('span','contrib','Aporte: —');row.appendChild(contribution);card.appendChild(row);grid.appendChild(card);
+   input.addEventListener('input',()=>{let val=Number(input.value);if(input.value!==''&&Number.isFinite(val)&&val>=0&&val<=20){contribution.textContent='Aporte: '+average(val*weight/100);}else{contribution.textContent='Aporte: —';}updateScore();});
+  });section.appendChild(grid);content.appendChild(section);
+ });
+ const controls=safeText('div','toolbar','');
+ const back=document.createElement('a');back.href='unidad-'+u+'.html';back.className='btn primary';back.textContent='← Volver a la Unidad '+['','I','II','III'][u];controls.appendChild(back);
+ const clean=document.createElement('button');clean.className='btn';clean.type='button';clean.textContent='Limpiar simulador';clean.addEventListener('click',()=>{content.querySelectorAll('input[type=number]').forEach(el=>{el.value='';el.dispatchEvent(new Event('input',{bubbles:true}));});});controls.appendChild(clean);content.appendChild(controls);
+ if(updateHistory){const url=new URL(location.href);url.searchParams.set('unidad',String(u));history.replaceState(null,'',url);}
+ updateScore();
+}
+function updateScore(){const inputs=[...content.querySelectorAll('input[type=number][data-weight]')];let sum=0,filled=0,invalid=false;for(const x of inputs){if(x.value==='')continue;const v=Number(x.value);if(!Number.isFinite(v)||v<0||v>20){invalid=true;continue;}filled++;sum+=v*Number(x.dataset.weight)/100;}const grade=document.getElementById('finalValue'),help=document.getElementById('scoreHelp');if(invalid){grade.textContent='Revisar notas';help.textContent='Solo se permiten valores de 0 a 20.';}else if(filled===0){grade.textContent='— / 20';help.textContent='Ingresa las notas por criterio. No se registra información oficial.';}else if(filled<inputs.length){grade.textContent=average(sum)+' / 20';help.textContent='Resultado parcial: '+filled+' de '+inputs.length+' criterios ingresados; los demás aún no califican.';}else{grade.textContent=average(sum)+' / 20';help.textContent='Todos los criterios fueron ingresados. Resultado referencial, no oficial.';}}
+tabs.forEach(tab=>{tab.addEventListener('click',()=>selectUnit(Number(tab.dataset.unit),true));tab.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const next=((Number(tab.dataset.unit)-1+(e.key==='ArrowRight'?1:2))%3)+1;selectUnit(next,true);document.getElementById('tab-'+next).focus();});});
+document.getElementById('printRubric').addEventListener('click',()=>window.print());
+const param=new URLSearchParams(location.search).get('unidad');selectUnit(['1','2','3'].includes(param)?Number(param):1,false);
+})();
+</script>
+</body>
+</html>
