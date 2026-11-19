@@ -30,6 +30,10 @@
       .uac-dia b {display:block;margin-bottom:8px;color:#17213d;font-size:.78rem}
       .uac-dia .uac-boton {display:flex;width:100%;margin-top:5px;text-align:center}
       .uac-pendiente {font-weight:750;color:#9a3412}
+      .uac-rubrica-access {display:flex;flex-wrap:wrap;align-items:center;gap:11px;margin-top:17px;padding:15px;border:1px solid #c9d8f0;background:linear-gradient(115deg,#f5f8ff,#e7f7ff);border-radius:15px}
+      .uac-rubrica-access p {margin:0;color:#425779;font-size:.86rem;flex:1 1 240px}
+      .uac-rubrica-access .uac-boton {flex:0 0 auto}
+      .uac-rubrica-hero {margin:7px 0}
       .uac-recursos-sesion {margin-top:10px;padding:12px;border-radius:12px;background:#f6fbff;border:1px solid #c9e6f0}
       .uac-recursos-sesion p {margin:0 0 9px;color:#455873;font-size:.8rem;line-height:1.55}
       .uac-recursos-sesion .uac-boton {font-size:.77rem}
@@ -179,8 +183,55 @@
     const p=document.createElement('p');p.className='uac-pendiente';p.textContent='Crea el registro con Code.gs desde oswaand1@gmail.com y publica el archivo asistencias-config.json en GitHub.';box.appendChild(p);
     placeNearProgress(container,box);
   }
+  // Progreso académico local: independiente de la asistencia docente.
+  function enhanceProgress(unitNo){
+    const checks=[...document.querySelectorAll('input[data-session]')];
+    if(!checks.length)return;
+    const key=unitNo===1?'u1progress':'consumerlab-unit'+unitNo+'-progress';
+    const total=checks.length;
+    let previously=[];
+    try {
+      const parsed=JSON.parse(localStorage.getItem(key)||'[]');
+      if(Array.isArray(parsed))previously=parsed.map(Number).filter(Number.isFinite);
+    }catch(e){console.warn('Progreso anterior inválido; se reinicia el contador.');}
+    checks.forEach(input=>{input.checked=previously.includes(Number(input.dataset.session));});
+    const render=()=>{
+      const done=checks.filter(input=>input.checked).map(input=>Number(input.dataset.session));
+      try{localStorage.setItem(key,JSON.stringify(done));}catch(e){console.warn('El navegador impidió guardar el progreso:',e);}
+      const percentage=Math.round(done.length/total*100);
+      const textEl=id('progressText'),fill=id('progressFill')||id('fill'),pct=id('progressPercent')||id('pct');
+      if(textEl)textEl.textContent=done.length+' de '+total+' sesiones completadas';
+      if(fill){fill.style.width=percentage+'%';fill.setAttribute('role','progressbar');fill.setAttribute('aria-valuemin','0');fill.setAttribute('aria-valuemax','100');fill.setAttribute('aria-valuenow',String(percentage));}
+      if(pct)pct.textContent=percentage+'%';
+    };
+    checks.forEach(input=>input.addEventListener('change',render));
+    render();
+  }
+  // Acceso a una nueva página informativa de rúbricas, sin notas de estudiantes.
+  function enhanceRubricLinks(unitNo){
+    const rubricUrl='rubricas.html?unidad='+unitNo;
+    const nav=document.querySelector('nav.menu');
+    if(nav&&!nav.querySelector('a[data-uac-rubrica]')){
+      const link=document.createElement('a');link.href=rubricUrl;link.textContent='Rúbricas';link.setAttribute('data-uac-rubrica','');
+      const cta=nav.querySelector('.cta');if(cta)nav.insertBefore(link,cta);else nav.appendChild(link);
+    }
+    const heroActions=document.querySelector('.hero .actions,.hero .hero-actions');
+    if(heroActions&&!heroActions.querySelector('[data-uac-rubrica]')){
+      const link=document.createElement('a');link.className='btn secondary uac-rubrica-hero';
+      link.href=rubricUrl;link.textContent='📋 Rúbrica de calificación';link.setAttribute('data-uac-rubrica','');heroActions.appendChild(link);
+    }
+    const evaluationCards=document.querySelector('.evaluation-grid,.evaluation');
+    if(evaluationCards && !document.querySelector('.uac-rubrica-access')){
+      const box=document.createElement('div');box.className='uac-rubrica-access';
+      const p=document.createElement('p');p.textContent='Consulta los criterios, las evidencias, la evaluación de examen, la colaboración y los niveles de desempeño de esta unidad.';box.appendChild(p);
+      const button=anchor('📋 Abrir rúbrica de calificación',rubricUrl);box.appendChild(button);
+      evaluationCards.insertAdjacentElement('afterend',box);
+    }
+  }
   function run(){
     addStyle();
+    const match=page.match(/^unidad-([123])\.html$/);
+    if(match){const unitNo=Number(match[1]);enhanceProgress(unitNo);enhanceRubricLinks(unitNo);}
     fetch(configUrl.toString(),{cache:'no-store'})
       .then(r=>{if(!r.ok)throw new Error('No se encontró asistencias-config.json');return r.json();})
       .then(config=>{
