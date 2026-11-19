@@ -2,6 +2,14 @@
  * Leerá asistencias-config.json generado desde la cuenta del docente.
  * No contiene nombres ni notas. Compatible con ruta.html y unidad-1/2/3.html.
  */
+// Pega aquí únicamente las TRES URL de RESPUESTA que obtendrás al ejecutar
+// crearExamenesConsumerLab() con la cuenta oswaand1@gmail.com.
+// No publiques aquí preguntas, respuestas correctas ni datos de estudiantes.
+window.CONSUMERLAB_EXAMENES = {
+  1: "https://docs.google.com/forms/d/e/1FAIpQLScSU5sRv-DfmWeDJqUjG4GXNoxLAMANKxULTIS2SUJaNCD4lQ/viewform",
+  2: "https://docs.google.com/forms/d/e/1FAIpQLScZDaL_jyMkIW7FVgE58XujRNVUigNwfZ_iOBKFkoXT4agNcg/viewform",
+  3: "https://docs.google.com/forms/d/e/1FAIpQLSf1WpnrfxC7a_qMSSV_oNeRRsS1emnpCIq3_sOerPj_zq6Frw/viewform"
+};
 (function () {
   'use strict';
   const scriptUrl = document.currentScript && document.currentScript.src;
@@ -225,10 +233,18 @@
       const box=document.createElement('div');box.className='uac-rubrica-access';
       const p=document.createElement('p');p.textContent='Consulta los criterios, las evidencias, la evaluación de examen, la colaboración y los niveles de desempeño de esta unidad.';box.appendChild(p);
       const button=anchor('📋 Abrir rúbrica de calificación',rubricUrl);box.appendChild(button);
+      const examLink=window.CONSUMERLAB_EXAMENES[unitNo];
+      if(typeof examLink==='string' && /^https:\/\/docs\.google\.com\/forms\/d\//.test(examLink)){
+        const examButton=anchor('📝 Examen de 10 preguntas · Google Forms',examLink,true);
+        box.appendChild(examButton);
+      }
       evaluationCards.insertAdjacentElement('afterend',box);
     }
   }
   function run(){
+    // Esta página también carga el JS para compartir las URL de exámenes.
+    // No requiere una consulta a la hoja de asistencia.
+    if(page==='rubricas.html')return;
     addStyle();
     const match=page.match(/^unidad-([123])\.html$/);
     if(match){const unitNo=Number(match[1]);enhanceProgress(unitNo);enhanceRubricLinks(unitNo);}
