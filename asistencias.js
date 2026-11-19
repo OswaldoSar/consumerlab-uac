@@ -1,4 +1,4 @@
-/* CONSUMERLAB UAC | asistencia privada 2026-II
+/* CONSUMERLAB UAC | asistencia y recursos por sesión 2026-II
  * Leerá asistencias-config.json generado desde la cuenta del docente.
  * No contiene nombres ni notas. Compatible con ruta.html y unidad-1/2/3.html.
  */
@@ -30,6 +30,16 @@
       .uac-dia b {display:block;margin-bottom:8px;color:#17213d;font-size:.78rem}
       .uac-dia .uac-boton {display:flex;width:100%;margin-top:5px;text-align:center}
       .uac-pendiente {font-weight:750;color:#9a3412}
+      .uac-recursos-sesion {margin-top:10px;padding:12px;border-radius:12px;background:#f6fbff;border:1px solid #c9e6f0}
+      .uac-recursos-sesion p {margin:0 0 9px;color:#455873;font-size:.8rem;line-height:1.55}
+      .uac-recursos-sesion .uac-boton {font-size:.77rem}
+      .uac-fotos-sesion {margin-top:10px;padding:10px 12px;border-radius:11px;background:white;border:1px solid #dae5f2}
+      .uac-fotos-sesion summary {cursor:pointer;font-size:.79rem;font-weight:850;color:#002158}
+      .uac-fotos-sesion .uac-botones {margin-top:10px}
+      .uac-fotos-sesion .uac-boton {flex:1}
+      .uac-material-etiquetas {display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+      .uac-material-etiquetas span {padding:4px 7px;border-radius:8px;background:#e4efff;color:#002158;font-size:.7rem;font-weight:750}
+
       @media(max-width:690px){.uac-dias{grid-template-columns:1fr}.uac-boton{width:100%}}
     `;
     document.head.appendChild(s);
@@ -45,27 +55,67 @@
   function folderUrl(fid){return 'https://drive.google.com/drive/folders/'+fid;}
   function dayPanel(config,w){
     const u=unitForWeek(w),wrap=document.createElement('details');wrap.className='uac-sesion';
-    const sum=document.createElement('summary');sum.textContent='📋 Semana '+String(w).padStart(2,'0')+' · asistencia y fotos físicas';wrap.appendChild(sum);
+    const sum=document.createElement('summary');sum.textContent='📋 Semana '+String(w).padStart(2,'0')+' · registrar asistencia';wrap.appendChild(sum);
     const grid=document.createElement('div');grid.className='uac-dias';
     DAYS.forEach((day,d)=>{
       const cell=document.createElement('div');cell.className='uac-dia';
       const title=document.createElement('b');title.textContent=day;cell.appendChild(title);
       const localCol=col(4+(w-START[u])*3+d);
       cell.appendChild(anchor('✓ Marcar asistencia',sheetUrl(config,sheetTab(config,u),localCol+'7:'+localCol+'34')));
-      cell.appendChild(anchor('📷 Foto de lista firmada',folderUrl(config.dayFolderIds[w-1][d]),true));
       grid.appendChild(cell);
     });
     wrap.appendChild(grid);
     return wrap;
   }
+  function sessionResources(config,w,card){
+    const folderId=config.weekFolderIds?.[w-1];
+    if(!folderId)return;
+    let slot=card.querySelector('.resource-box,.resource-slot');
+    if(!slot){
+      slot=document.createElement('div');slot.className='resource-box';
+      card.appendChild(slot);
+    }
+    // Sustituir SOLO los botones de materiales que todavía son marcadores deshabilitados.
+    const placeholders=slot.querySelector('.resource-links,.resource-actions');
+    if(placeholders){
+      const old=[...placeholders.querySelectorAll('a')];
+      if(old.length && old.every(a=>a.classList.contains('disabled') || a.getAttribute('aria-disabled')==='true' || !a.getAttribute('href'))){
+        placeholders.style.display='none';
+        const hint=slot.querySelector('small');if(hint)hint.style.display='none';
+      }
+    }
+    if(slot.querySelector('.uac-recursos-sesion'))return;
+    const section=document.createElement('div');section.className='uac-recursos-sesion';
+    const p=document.createElement('p');
+    p.textContent='Carpeta privada de la sesión: presentaciones PPT, material complementario y fotos de las listas de asistencia.';
+    section.appendChild(p);
+    const tags=document.createElement('div');tags.className='uac-material-etiquetas';
+    ['📊 PPT y presentaciones','📚 Otros materiales','📷 Fotos de asistencia'].forEach(label=>{
+      const el=document.createElement('span');el.textContent=label;tags.appendChild(el);
+    });
+    section.appendChild(tags);
+    const buttons=document.createElement('div');buttons.className='uac-botones';
+    buttons.appendChild(anchor('📁 Abrir carpeta de esta sesión',folderUrl(folderId)));
+    section.appendChild(buttons);
+    const fotos=document.createElement('details');fotos.className='uac-fotos-sesion';
+    const summary=document.createElement('summary');summary.textContent='📷 Subir fotos de asistencia de esta sesión';
+    fotos.appendChild(summary);
+    const dias=document.createElement('div');dias.className='uac-botones';
+    DAYS.forEach((day,d)=>{
+      const dayId=config.dayFolderIds?.[w-1]?.[d];
+      if(dayId)dias.appendChild(anchor('📸 '+day,folderUrl(dayId),true));
+    });
+    fotos.appendChild(dias);section.appendChild(fotos);
+    slot.appendChild(section);
+  }
   function unitOverview(config,u){
     const block=document.createElement('div');block.className='uac-asistencia';
     const h=document.createElement('h3');h.textContent='Asistencia · Unidad '+['I','II','III'][u];block.appendChild(h);
-    const p=document.createElement('p');p.textContent='Control para lunes, miércoles y viernes de las semanas '+START[u]+' a '+END[u]+'. Lista privada y fotografías en carpetas por fecha.';block.appendChild(p);
+    const p=document.createElement('p');p.textContent='Control para lunes, miércoles y viernes de las semanas '+START[u]+' a '+END[u]+'. Cada sesión tiene su carpeta de materiales y fotos.';block.appendChild(p);
     const buttons=document.createElement('div');buttons.className='uac-botones';
     buttons.appendChild(anchor('📋 Abrir esta unidad',sheetUrl(config,sheetTab(config,u))));
     buttons.appendChild(anchor('📈 Resumen general',sheetUrl(config,config.sheetIds.resumen),true));
-    buttons.appendChild(anchor('📁 Carpeta de fotos',folderUrl(config.unitFolderIds[u]),true));
+    buttons.appendChild(anchor('📁 Carpetas de las sesiones',folderUrl(config.unitFolderIds[u]),true));
     block.appendChild(buttons);
     const foot=document.createElement('small');foot.textContent='La nómina, las notas y las fotos son privadas: Google solicitará iniciar sesión con la cuenta autorizada.';block.appendChild(foot);
     return block;
@@ -79,19 +129,20 @@
     const section=id('semanas');if(!section)return;
     const block=document.createElement('div');block.className='uac-asistencia';
     const h=document.createElement('h3');h.textContent='Asistencia docente · las tres unidades';block.appendChild(h);
-    const p=document.createElement('p');p.textContent='Registro privado de 26 estudiantes, 60 días planificados y fotos de las listas físicas.';block.appendChild(p);
+    const p=document.createElement('p');p.textContent='Registro privado de 26 estudiantes y 60 días planificados; los materiales y las fotos están dentro de cada sesión.';block.appendChild(p);
     const buttons=document.createElement('div');buttons.className='uac-botones';
     buttons.appendChild(anchor('📋 Unidad I',sheetUrl(config,config.sheetIds.unidad1)));
     buttons.appendChild(anchor('📋 Unidad II',sheetUrl(config,config.sheetIds.unidad2)));
     buttons.appendChild(anchor('📋 Unidad III',sheetUrl(config,config.sheetIds.unidad3)));
     buttons.appendChild(anchor('📊 Resumen',sheetUrl(config,config.sheetIds.resumen),true));
-    buttons.appendChild(anchor('📁 Todas las fotos',folderUrl(config.rootFolderId),true));
+    buttons.appendChild(anchor('📁 Carpetas de las sesiones',folderUrl(config.rootFolderId),true));
     block.appendChild(buttons);
     placeNearProgress(section,block);
     section.querySelectorAll('.week-card').forEach((card,i)=>{
       const match=(card.querySelector('.week-number')?.textContent||'').match(/\d+/);
       const w=match?Number(match[0]):i+1;
       if(w>=1&&w<=20){
+        sessionResources(config,w,card);
         const label=card.querySelector('label');const panel=dayPanel(config,w);
         if(label)card.insertBefore(panel,label);else card.appendChild(panel);
       }
@@ -105,6 +156,7 @@
       const m=(card.querySelector('.session-top')?.textContent||'').match(/Semana\s*(\d+)/i);
       const w=m?Number(m[1]):START[u]+i;
       if(w<START[u]||w>END[u])return;
+      sessionResources(config,w,card);
       const target=card.querySelector('.done,.check-row,label');
       const panel=dayPanel(config,w);
       if(target)card.insertBefore(panel,target);else card.appendChild(panel);
@@ -114,7 +166,8 @@
       [19,20].forEach(w=>{
         if(!list||[...cards].some(c=>(c.querySelector('.session-top')?.textContent||'').includes('Semana '+w)))return;
         const holder=document.createElement('article');holder.className='uac-asistencia';
-        const heading=document.createElement('h3');heading.textContent='Semana '+w+' · registro docente';holder.appendChild(heading);
+        const heading=document.createElement('h3');heading.textContent='Semana '+w+' · '+(w===19?'Sprint de mejora':'Portafolio y reflexión final');holder.appendChild(heading);
+        sessionResources(config,w,holder);
         holder.appendChild(dayPanel(config,w));list.appendChild(holder);
       });
     }
@@ -131,7 +184,7 @@
     fetch(configUrl.toString(),{cache:'no-store'})
       .then(r=>{if(!r.ok)throw new Error('No se encontró asistencias-config.json');return r.json();})
       .then(config=>{
-        if(!config.spreadsheetUrl||!Array.isArray(config.dayFolderIds)||config.dayFolderIds.length!==20||!config.sheetIds)throw new Error('Configuración incompleta');
+        if(!config.spreadsheetUrl||!Array.isArray(config.weekFolderIds)||config.weekFolderIds.length!==20||!Array.isArray(config.dayFolderIds)||config.dayFolderIds.length!==20||!config.sheetIds)throw new Error('Configuración incompleta');
         if(page==='ruta.html')route(config);
         else if(page==='unidad-1.html')unitPage(config,0);
         else if(page==='unidad-2.html')unitPage(config,1);
@@ -141,3 +194,4 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
 })();
+
