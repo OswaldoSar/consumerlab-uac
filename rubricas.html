@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Rúbricas de calificación de las tres unidades de Psicología del Consumidor y Marketing: exámenes, productos, trabajo en equipo y evidencias.">
+<meta name="description" content="Rúbricas de calificación: diagnóstico de mercado en Unidad I, comportamiento en II y estrategia digital en III.">
 <title>Rúbricas de calificación | ConsumerLab UAC</title>
 <style>
 :root{--navy:#002158;--blue:#4f46e5;--cyan:#0292bc;--coral:#ff7e70;--purple:#522685;--ink:#17213d;--muted:#596781;--line:#dbe4f2;--bg:#f4f7ff;--green:#087f73;--gold:#ffbf3f;--shadow:0 14px 32px rgba(29,44,99,.08)}
@@ -13,6 +13,7 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit}.container
 .unit-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0 21px}.unit-tab{cursor:pointer;text-align:left;background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px;box-shadow:var(--shadow);font-weight:900;color:var(--navy)}.unit-tab span{display:block;font-size:.77rem;color:var(--muted);font-weight:600;margin-top:3px}.unit-tab[aria-selected=true]{background:linear-gradient(125deg,var(--navy),#283b7c);color:#fff;border-color:transparent}.unit-tab[aria-selected=true] span{color:#d6e2f6}
 .proposal{padding:15px 17px;background:#fff7dc;border:1px solid #edd8a5;border-radius:15px;color:#6f5121;font-size:.9rem;margin:17px 0}.summary{display:grid;grid-template-columns:1fr 250px;gap:20px;align-items:stretch;margin:23px 0}.overview,.scorecard{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.overview h2{font-size:1.8rem;color:var(--navy);line-height:1.2;margin:0 0 8px}.overview p{color:var(--muted);margin:0 0 15px}.pills{display:flex;gap:8px;flex-wrap:wrap}.pill{font-size:.8rem;font-weight:800;color:var(--navy);background:#eef4ff;border-radius:100px;padding:7px 11px}.scorecard{background:linear-gradient(130deg,var(--navy),#263b74);color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center}.scorecard small{color:#d2e2ff;font-weight:750}.scorecard strong{font-size:2.8rem;line-height:1.2;font-variant-numeric:tabular-nums}.scorecard p{font-size:.79rem;margin:5px 0;color:#dfebff}
 .group{margin-top:25px}.group-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:12px}.group-head h3{color:var(--navy);font-size:1.27rem;margin:0}.group-head span{background:#e8e7ff;color:var(--blue);padding:7px 12px;border-radius:20px;font-size:.83rem;font-weight:900;white-space:nowrap}.criteria-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.criterion{background:#fff;border:1px solid var(--line);border-radius:19px;padding:19px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}.criterion-top{display:flex;gap:10px;justify-content:space-between;align-items:flex-start}.criterion h4{font-size:1.04rem;color:var(--navy);margin:0;line-height:1.3}.weight{flex-shrink:0;background:#ddfaf4;color:var(--green);font-size:.82rem;font-weight:900;padding:6px 9px;border-radius:10px}.method{font-size:.73rem;font-weight:800;color:var(--purple);text-transform:uppercase;letter-spacing:.025em}.evidence{font-size:.85rem;color:var(--muted);margin:0}.criterion label{font-size:.81rem;font-weight:800;color:var(--ink)}.grade-row{display:flex;align-items:center;gap:11px;margin-top:auto}.grade-row input{width:115px;max-width:42%;border:1px solid #bfc9db;border-radius:10px;padding:9px 11px;background:#fbfdff;font-variant-numeric:tabular-nums}.contrib{flex:1;font-size:.8rem;color:var(--muted);text-align:right;font-weight:750}.criterion details{margin-top:4px;background:#f7f9ff;border:1px solid #e7edf8;border-radius:12px;padding:10px 12px}.criterion summary{cursor:pointer;font-size:.8rem;color:var(--blue);font-weight:900}.levels{margin:8px 0 0;padding-left:18px;font-size:.78rem;color:#52627b}.levels li{margin-bottom:6px}.levels b{color:var(--navy)}
+.exam-access{margin:18px 0 8px;padding:18px 20px;border:1px solid #b5d7ec;border-radius:19px;background:linear-gradient(115deg,#fff,#eaf7fe);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.exam-access h3{margin:0 0 3px;color:var(--navy);font-size:1.15rem}.exam-access p{margin:0;color:var(--muted);font-size:.86rem}.exam-access a{white-space:normal}.exam-tag{font-size:.76rem;padding:5px 9px;color:#135d74;background:#d8f2ff;border-radius:99px;font-weight:850}.exam-status{color:#895b23!important;font-size:.84rem;font-weight:800}
 .bottom{padding:23px;border-radius:20px;background:#fff;border:1px solid var(--line);margin:28px 0 38px}.bottom h3{margin:0 0 6px;color:var(--navy)}.bottom p,.bottom li{font-size:.87rem;color:var(--muted)}.bottom ul{margin:10px 0;padding-left:20px}.bottom a{color:var(--blue);font-weight:850}.print-link{display:none}footer{padding:25px 0;background:#002158;color:#d5e1f0;font-size:.83rem}footer a{text-decoration:underline;color:white}
 @media(max-width:820px){.summary{grid-template-columns:1fr}.criteria-grid{grid-template-columns:1fr}.navlinks{gap:8px}.hero-panel{padding:25px}.scorecard{min-height:144px}.unit-tab{padding:12px}}
 @media(max-width:550px){.nav{flex-wrap:wrap;padding:12px 0}.navlinks{font-size:.72rem}.unit-tabs{grid-template-columns:1fr}.hero{padding-top:17px}.hero-panel{padding:19px}.hero h1{font-size:2.2rem}.group-head h3{font-size:1.06rem}}
@@ -30,9 +31,10 @@ a{color:inherit;text-decoration:none}button,input,select{font:inherit}.container
 </div>
 <div class="proposal"><strong>Propuesta docente de evaluación:</strong> los pesos de los criterios internos son referenciales y deben validarse con el sílabo y las disposiciones académicas. En las unidades I y II se conservan los dos bloques de productos al 50% mostrados en las páginas del curso. Para la unidad III, la distribución 40% / 35% / 25% es una propuesta ajustable.</div>
 <div id="rubricContent" role="tabpanel" aria-labelledby="tab-1" aria-live="polite"></div>
-<div class="bottom"><h3>Cómo se reúnen las evidencias</h3><p>La evaluación combina distintas estrategias. Cada calificación debe estar sustentada en un instrumento o producto verificable.</p><ul><li><strong>Examen individual:</strong> respuestas verificables y aplicación de conceptos, con pauta de corrección.</li><li><strong>Producto académico:</strong> informe, instrumento, buyer persona, página web, mapa de experiencia o portafolio evaluado con la rúbrica analítica.</li><li><strong>Trabajo en equipo:</strong> roles, cumplimiento de compromisos, colaboración y coevaluación documentados mediante actas y bitácoras.</li><li><strong>Participación y sustentación:</strong> aportes argumentados, respuestas a preguntas, asistencia a las actividades evaluables y comunicación de hallazgos.</li><li><strong>Ética y trazabilidad:</strong> protección de datos, referencias, registros de campo y carpetas de evidencias de cada sesión.</li></ul><p><strong>Privacidad:</strong> esta página muestra criterios públicos y un simulador local. No contiene la nómina, ni publica calificaciones individuales, ni guarda notas en Google Sheets.</p></div>
+<div class="bottom"><h3>Cómo se reúnen las evidencias</h3><p>La evaluación combina distintas estrategias. Cada calificación debe estar sustentada en un instrumento o producto verificable.</p><ul><li><strong>Examen individual:</strong> respuestas verificables y aplicación de conceptos, con pauta de corrección.</li><li><strong>Producto académico:</strong> diagnóstico preliminar, informe, instrumentos, buyer persona definitivo (Unidad II), página web, mapa de experiencia o portafolio evaluado con la rúbrica analítica.</li><li><strong>Trabajo en equipo:</strong> roles, cumplimiento de compromisos, colaboración y coevaluación documentados mediante actas y bitácoras.</li><li><strong>Participación y sustentación:</strong> aportes argumentados, respuestas a preguntas, asistencia a las actividades evaluables y comunicación de hallazgos.</li><li><strong>Ética y trazabilidad:</strong> protección de datos, referencias, registros de campo y carpetas de evidencias de cada sesión.</li></ul><p><strong>Privacidad:</strong> esta página muestra criterios públicos y un simulador local. No contiene la nómina, ni publica calificaciones individuales, ni guarda notas en Google Sheets.</p></div>
 </main>
 <footer><div class="container">ConsumerLab UAC · Psicología del Consumidor y Marketing · <a href="ruta.html">Ruta de aprendizaje</a></div></footer>
+<script src="asistencias.js"></script>
 <script>
 (function(){
 'use strict';
@@ -41,6 +43,8 @@ const descriptors={
  investigacion:['Formula decisiones metodológicas precisas, viables y coherentes, con fundamento comprobable.','Presenta decisiones coherentes con algunas precisiones pendientes.','La coherencia es parcial y presenta inconsistencias que afectan el análisis.','La formulación es incompleta o no permite realizar el estudio.'],
  instrumento:['Selecciona fuentes pertinentes y construye instrumentos claros, válidos y trazables.','Usa fuentes e instrumentos pertinentes, con ajustes menores.','Usa evidencia limitada o instrumentos con problemas de claridad.','Carece de fuentes suficientes o instrumentos utilizables.'],
  campo:['Registra evidencias completas, respeta el consentimiento y permite seguir cada dato a su fuente.','Documenta adecuadamente el trabajo de campo y respeta la ética.','Los registros son incompletos o muestran debilidades de trazabilidad.','No aporta registros verificables o incumple criterios éticos.'],
+ exploratorio:['Propone un plan de levantamiento viable, trazable y ético, documenta el reconocimiento del contexto y justifica las decisiones del diagnóstico.','Presenta un plan pertinente y un registro inicial del contexto, con ajustes menores.','El plan o las evidencias preliminares son incompletos o poco claros.','No presenta un plan viable ni elementos verificables del diagnóstico inicial.'],
+ diagnostico:['Integra contexto empresarial, fuentes y registros iniciales; identifica con precisión la necesidad, explica los hallazgos y reconoce límites del diagnóstico.','Presenta un diagnóstico coherente con suficientes fuentes y limitaciones identificadas.','El diagnóstico describe el contexto, pero carece de articulación entre fuentes y hallazgos.','No delimita la necesidad empresarial o presenta afirmaciones sin evidencia.'],
  buyer:['Integra hallazgos diversos en un perfil útil, específico y argumentado con evidencia.','Construye un perfil coherente y respaldado, con pequeños vacíos.','El perfil es descriptivo, genérico o tiene sustento parcial.','El perfil carece de sustento o presenta contradicciones importantes.'],
  equipo:['Cumple su rol, coordina, facilita acuerdos y contribuye de manera comprobable y oportuna.','Cumple responsabilidades y colabora consistentemente.','Su contribución es irregular o requiere recordatorios frecuentes.','No cumple compromisos ni evidencia participación efectiva.'],
  oral:['Comunica con claridad, domina las evidencias y responde críticamente a preguntas.','Comunica con claridad general y responde correctamente la mayoría.','Lee excesivamente o sustenta con poca precisión.','No logra explicar ni defender las decisiones presentadas.'],
@@ -55,18 +59,18 @@ const descriptors={
  portafolio:['Entrega evidencias completas y ordenadas, con reflexión y seguimiento individual.','Presenta evidencias suficientes y organización clara.','Faltan evidencias o la reflexión es insuficiente.','El portafolio está incompleto o no permite verificar el trabajo.']
 };
 const rubricData={
- 1:{title:'Investigación de mercados',subtitle:'Plantear un problema y generar evidencia inicial para la empresa.',groups:[
-  {name:'Investigación mixta y evidencias',weight:50,items:[
+ 1:{title:'Investigación de mercados y diagnóstico previo',subtitle:'Delimitar un problema empresarial, diseñar la investigación, recolectar evidencias iniciales y sustentar un diagnóstico preliminar sin elaborar aún un buyer persona.',groups:[
+  {name:'Diseño de investigación y evidencias preliminares',weight:50,items:[
    ['Examen individual aplicado',15,'Prueba individual con problemas, fuentes, métodos y preguntas de investigación.','Examen escrito / pauta de corrección','examen'],
    ['Problema, pregunta y objetivos',10,'Matriz del problema, pregunta investigable y objetivos coherentes.','Rúbrica analítica de formulación','investigacion'],
    ['Fuentes e instrumentos',10,'Referencias verificables, cuestionario, guía de entrevista y revisión docente.','Lista de cotejo y rúbrica','instrumento'],
-   ['Trabajo de campo y trazabilidad',15,'Consentimientos, base de datos, notas de campo y registro de aplicación.','Portafolio de evidencias','campo']
+   ['Diagnóstico exploratorio y planificación de campo',15,'Observación inicial, registros de acercamiento a la empresa, plan de participantes, procedimiento de aplicación y previsiones éticas.','Matriz de diagnóstico y lista de cotejo metodológica','exploratorio']
   ]},
-  {name:'Buyer persona inicial',weight:50,items:[
-   ['Buyer persona sustentado',25,'Ficha visual con necesidades, motivaciones, barreras e insights respaldados.','Rúbrica analítica de producto','buyer'],
-   ['Sustentación de hallazgos',10,'Exposición breve y respuestas a preguntas metodológicas.','Guía de observación','oral'],
-   ['Trabajo en equipo',10,'Distribución de roles, actas de acuerdos y cumplimiento de tareas.','Coevaluación y lista de cotejo','equipo'],
-   ['Bitácora y participación',5,'Registros de avances, reflexión personal y aportes realizados.','Bitácora y autoevaluación','bitacora']
+  {name:'Diagnóstico preliminar y comunicación de hallazgos',weight:50,items:[
+   ['Informe de diagnóstico preliminar',25,'Caracterización de la empresa y situación problemática, evidencias de fuentes primarias y secundarias, identificación de necesidades, hallazgos iniciales y límites del diagnóstico.','Rúbrica analítica de diagnóstico','diagnostico'],
+   ['Sustentación del diagnóstico',10,'Presentación de la situación, hallazgos iniciales, decisiones metodológicas y respuestas sustentadas sobre las limitaciones del estudio.','Guía de observación y defensa','oral'],
+   ['Trabajo en equipo',10,'Roles verificables, cumplimiento de acuerdos, trabajo colaborativo y coevaluación documentada.','Coevaluación y lista de cotejo','equipo'],
+   ['Bitácora de investigación y participación',5,'Cronología de avances, visitas o gestiones, fuentes consultadas, dificultades y aportes individuales.','Bitácora y autoevaluación','bitacora']
   ]}
  ]},
  2:{title:'Comportamiento del consumidor',subtitle:'Interpretar conducta y percepción mediante evidencia del laboratorio y perfiles.',groups:[
@@ -119,6 +123,17 @@ function selectUnit(u,updateHistory){
  const score=safeText('div','scorecard','');score.appendChild(safeText('small','','Simulador de nota ponderada'));
  const value=safeText('strong','','— / 20');value.id='finalValue';score.appendChild(value);
  const help=safeText('p','','Completa las notas (0 a 20) para estimar el resultado.');help.id='scoreHelp';score.appendChild(help);header.appendChild(score);content.appendChild(header);
+ const exam=document.createElement('section');exam.className='exam-access';exam.setAttribute('aria-label','Examen de la unidad');
+ const details=safeText('div','','');details.appendChild(safeText('h3','','📝 Examen de evaluación · Unidad '+['','I','II','III'][u]));
+ details.appendChild(safeText('p','','Google Forms · 10 preguntas de opción múltiple · 2 puntos por pregunta · 20 puntos en total.'));
+ const formUrl=(window.CONSUMERLAB_EXAMENES||{})[u];
+ if(typeof formUrl==='string' && /^https:\/\/docs\.google\.com\/forms\/d\//.test(formUrl)){
+  const go=document.createElement('a');go.className='btn primary';go.textContent='📝 Abrir examen en Google Forms';go.href=formUrl;go.target='_blank';go.rel='noopener noreferrer';exam.appendChild(details);exam.appendChild(go);
+ }else{
+  details.appendChild(safeText('p','exam-status','Enlace pendiente: el docente debe crear el formulario desde su cuenta y registrar su dirección en asistencias.js.'));
+  exam.appendChild(details);exam.appendChild(safeText('span','exam-tag','Por habilitar'));
+ }
+ content.appendChild(exam);
  data.groups.forEach((group,gi)=>{
   const section=safeText('section','group','');
   const head=safeText('div','group-head','');head.appendChild(safeText('h3','',String(gi+1)+'. '+group.name));head.appendChild(safeText('span','',group.weight+'% del aporte'));section.appendChild(head);
@@ -154,3 +169,4 @@ const param=new URLSearchParams(location.search).get('unidad');selectUnit(['1','
 </script>
 </body>
 </html>
+
